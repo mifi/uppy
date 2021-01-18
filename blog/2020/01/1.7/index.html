@@ -1,0 +1,366 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Uppy 1.7: A Small One — Uppy</title>
+    <meta charset="utf-8">
+    <meta name="title" content="Uppy 1.7: A Small One — Uppy">
+    <meta name="description" content="Uppy 1.7 was released last December! This release added Hebrew translations, a recording length timer for the @uppy/webcam plugin, and a collection of improvements to Companion.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/blog/2020/01/1.7/index.html">
+    <meta property="og:title" content="Uppy 1.7: A Small One — Uppy">
+    <meta name="twitter:title" content="Uppy 1.7: A Small One — Uppy">
+    <meta name="twitter:description" content="Uppy 1.7 was released last December! This release added Hebrew translations, a recording length timer for the @uppy/webcam plugin, and a collection of improvements to Companion.">
+    <meta property="og:image" content="https://uppy.io/images/blog/1.7/cat-video-screen.jpg">
+    <meta name="twitter:image" content="https://uppy.io/images/blog/1.7/cat-video-screen.jpg">
+    
+    <meta name="google-site-verification" content="JxARoHXoCI8bD07pLV_u3z6xpuWNcSIZIcHEytyCkUc" />
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy" href="/atom.xml">
+
+    <script>
+      window.PAGE_TYPE = ""
+    </script>
+    
+<link rel="stylesheet" href="/css/main.css?version=2">
+
+    <!-- ^ poor man's solution to css cache busting. bump the version when there's something new we really want users to see -->
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body class="page-inner ">
+    <div class="page">
+      <div class="TransloaditBar js-TransloaditBar">
+        <div class="TransloaditBar-about">
+          <a class="TransloaditBar-logo" href="https://transloadit.com/" target="_blank" rel="noopener noreferrer">
+            <img class="TransloaditBar-logoImg" src="/images/transloadit-white-glyph.svg" width="20" height="20" alt="Transloadit">
+          </a>
+          <span>Uppy is an open source project by <a class="TransloaditBar-link" href="https://transloadit.com/" target="_blank">Transloadit</a></span>
+        </div>
+        <div class="TransloaditBar-info">
+          <b>New: </b><a href="https://www.transloadit.com/pricing" target="_blank" rel="noopener" class="TransloaditBar-info-link">Transloadit Community Plan</a> — get free hosted Companion &amp; tusd, unlimited uploading, and 5GB/month encoding traffic!
+        </div>
+      </div>
+
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <span id="logo" class="MainLogo">
+          <a class="MainLogo-link" href="/">Uppy</a>
+          <!-- Was used for 1.0, we can re-use for 2.0 or major announcements -->
+          <!-- <a class="MainLogo-version" href="/blog/2019/04/1.0/">
+            1.0
+            <span class="MainLogo-emoji">
+              <img src="/images/party-popper.png" srcset="/images/party-popper@2x.png 2x" alt="🎉">
+            </span>
+          </a> -->
+        </span>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link current">Blog</a></li>
+<li><a href="/support/" class="nav-link">Support</a></li>
+<li><a href="https://github.com/transloadit/uppy" target="_blank" rel="noopener" class="nav-link">GitHub</a></li>
+
+          </ul>
+        </nav>
+
+        <div class="MainHeader-tagline">
+          The file uploader that <span class="MainHeader-taglinePart js-MainHeader-taglinePart is-visible">loves to play fetch</span>
+        </div>
+
+        <ul class="MainHeader-taglineList js-MainHeader-taglineList">
+          
+          <li>won’t chew on your shoes</li>
+          
+          <li>is fully housebroken</li>
+          
+          <li>just wants to play with you</li>
+          
+          <li>doesn’t hump your leg</li>
+          
+          <li>also accepts cat pictures</li>
+          
+          <li>loves you unconditionally</li>
+          
+          <li>you don’t have to keep on a leash</li>
+          
+          <li>won’t pee on your rug</li>
+          
+          <li>loves to play fetch</li>
+          
+          <li>doesn’t bite (hard)</li>
+          
+          <li>won’t bark at the mailman</li>
+          
+          <li>is great with the kids</li>
+          
+          <li>can digest anything, even chocolate cake</li>
+          
+          <li>is always happy to see you</li>
+          
+          <li>isn’t afraid of fireworks</li>
+          
+          <li>is allowed everywhere</li>
+          
+        </ul>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          <div class="Sidebar js-Sidebar is-blog">
+    <ul class="main-menu">
+        <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link current">Blog</a></li>
+<li><a href="/support/" class="nav-link">Support</a></li>
+<li><a href="https://github.com/transloadit/uppy" target="_blank" rel="noopener" class="nav-link">GitHub</a></li>
+
+    </ul>
+    <div class="list">
+        <h2>
+            Recent Posts
+            <a href="/atom.xml" rel="noreferrer noopener" target="_blank" style="vertical-align: middle; margin-left: 5px">
+                <img src="/images/feed.png" style="width:15px;height:15px">
+            </a>
+        </h2>
+
+        <ul>
+  
+  <li>
+    <a href="/blog/2020/12/1.24/" class="sidebar-link">Uppy 1.24: 🎅 Happy Holidays — Svelte, React hook, Auto Open Image Editor</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/11/1.23/" class="sidebar-link">Uppy 1.23: Vue.js, Box, Done button and cloud file restrictions</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/10/1.22/" class="sidebar-link">🎃 Uppy 1.22: Webcam camera source, Unsplash and maxTotalFileSize</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/09/companion-2.0/" class="sidebar-link">Companion 2.0 is here</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/07/1.18-image-editor/" class="sidebar-link">Image Editor 🌈</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/04/1.13/" class="sidebar-link">Uppy 1.11 — 1.13: Dark Mode, custom meta fields and Google Docs in Companion</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/04/1.10/" class="sidebar-link">Uppy 1.10.1: Facebook and OneDrive</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/03/1.9/" class="sidebar-link">Uppy 1.8 and 1.9: security, error handling and better types</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/01/1.7/" class="sidebar-link current">Uppy 1.7: A Small One</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/11/1.6/" class="sidebar-link">Uppy 1.6: setOptions(), Icelandic and Thai</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/10/1.5/" class="sidebar-link">Uppy 1.5: Facebook and OneDrive (beta) support, upload cancellation</a>
+  </li>
+  
+</ul>
+        <ul class="Social">
+  <li><a href="https://twitter.com/uppy_io" target="_blank" rel="noopener" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @uppy_io</a></li>
+  <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+  <!-- to regenerate you can use this link: https://img.shields.io/badge/community-forum-d8006a.svg -->
+  <li><a href="https://community.transloadit.com/c/uppy" target="_blank" rel="noopener"><img src="/images/community-forum-d8006a.svg" /> </a></li>
+  <li class="BuildBadge">
+   <span class="wrapper">
+     <a href="https://travis-ci.org/transloadit/uppy" target="_blank" rel="noopener"><img src="https://travis-ci.org/transloadit/uppy.svg?branch=master" alt="Build Status"></a>
+   </span>
+  </li>
+  <li class="SauceBadge">
+   <span class="wrapper">
+     <a href="https://saucelabs.com/u/transloadit-uppy" target="_blank" rel="noopener">
+       <img src="https://saucelabs.com/buildstatus/transloadit-uppy" alt="Sauce Test Status"/>
+     </a>
+   </span>
+  </li>
+</ul>
+
+    </div>
+</div>
+
+
+<div class="Content js-Content with-sidebar">
+    
+  <h1>Uppy 1.7: A Small One</h1>
+  <h4>Friday Jan 10, 2020</h4>
+    
+    <html><head></head><body><p>Uppy 1.7 was released last December! This release added Hebrew translations, a recording length timer for the <code>@uppy/webcam</code> plugin, and a collection of improvements to Companion.</p>
+<a id="more"></a>
+
+<h2 id="showRecordingLength-true"><a href="#showRecordingLength-true" class="headerlink" title="showRecordingLength: true"></a>showRecordingLength: true</h2><p>When recording audio or video using the <code>@uppy/webcam</code> plugin, this new option contributed by <a href="https://github.com/dominiceden" target="_blank" rel="noopener">@dominiceden</a> shows a timer in the bottom right, so your users can see how long they’ve been recording for.</p>
+<video alt="Demo video showing Uppy Webcam video recording timer" muted="" autoplay="" loop="">
+  <source src="/images/blog/1.7/cat-video-timer.webm" type="video/webm">
+  <source src="/images/blog/1.7/cat-video-timer.mp4" type="video/mp4">
+</video>
+
+<h2 id="Companion"><a href="#Companion" class="headerlink" title="Companion"></a>Companion</h2><p>The past months we’ve made some incremental improvements to Companion. We patched an issue where Companion could sometimes output remote provider authentication tokens into logs.</p>
+<p>We now run Companion tests on Node.js 6 on each commit, in addition to Node.js 10, to make sure that we don’t break compatibility in a minor release. Node.js 6 support will be dropped in a future major release, and we recommend you upgrade soon if you are still using it.</p>
+<p>Uploading files from remote providers with the <code>@uppy/aws-s3-multipart</code> plugin now uses the correct file name in your S3 bucket by default, instead of the temporary filename that Companion uses internally.</p>
+<p>The <code>getKey()</code> option for S3 now has a <a href="https://uppy.io/docs/companion/#s3-getKey-req-filename-metadata"><code>metadata</code></a> parameter, so you can use file metadata from the client to determine the name of files in S3.</p>
+<h2 id="Locales"><a href="#Locales" class="headerlink" title="Locales"></a>Locales</h2><p>The new Hebrew locale is available as:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@uppy/locales/lib/he_IL'</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p>Thanks to <a href="https://github.com/YehudaKremer" target="_blank" rel="noopener">@YehudaKremer</a> for the contribution!</p>
+<p>In 1.7, we also fixed the naming of the Galician locale. The locale names follow a <code>country_LANGUAGE</code> format. Previously, we used <code>es_GL</code> for Galician, which was intended to mean “Galician in Spain”, but which <em>actually</em> means “Spanish in Greenland”! The correct way to refer to Galician is as <code>gl_ES</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@uppy/locales/lib/gl_ES'</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p>The old <code>es_GL</code> name is now an alias for <code>gl_ES</code>. It will be removed in a future major release, so we recommend updating your code if you were using the old name. If you do it now, the migration will be easier once 2.0 comes around :smile:</p>
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><ul>
+<li>@uppy/aws-s3: add some tests (@bambii7, #1934)</li>
+<li>@uppy/companion: add onedrive domain validation for the demo deployment (@ifedapoolarewaju, #1959)</li>
+<li>@uppy/companion: change demo deployment type to stable API (@kiloreux, #1938)</li>
+<li>@uppy/companion: rename uppy occurrences to companion (@ifedapoolarewaju, #1926)</li>
+<li>@uppy/companion: upgrade <code>helmet</code> (@goto-bus-stop, <a href="https://github.com/transloadit/uppy/commit/6b006ac42c20062c37bdcaf6a77e07b304da7957" target="_blank" rel="noopener">6b006ac</a>)</li>
+<li>@uppy/core: make <code>uppy.on()</code> work better with IntelliSense (@bambii7, #1923)</li>
+<li>@uppy/dashboard: hide top bar cancel button when <code>hideCancelButton: true</code> (@goto-bus-stop, #1955)</li>
+<li>@uppy/thumbnail-generator: add webp to the list of supported types (@arturi, #1961)</li>
+<li>@uppy/thumbnail-generator: vendor exif-js source in Uppy (@mskelton, #1940)</li>
+<li>docs: FB and OneDrive are not yet in the CDN bundle (@goto-bus-stop, <a href="https://github.com/transloadit/uppy/commit/61b54b914dd437d2e60362c4ece1429943b32555" target="_blank" rel="noopener">61b54b9</a>)</li>
+<li>docs: add <code>companionHeaders</code> to s3-multipart docs (@goto-bus-stop, <a href="https://github.com/transloadit/uppy/commit/a6e44a953114e385466dcce884d37e433f030549" target="_blank" rel="noopener">a6e44a9</a>)</li>
+<li>docs: add reset-progress event to docs (@bambii7, #1922)</li>
+<li>docs: make Robodog naming more consistent (@goto-bus-stop, #1935)</li>
+<li>docs: make react sample code more standalone (@uxitten, #1864)</li>
+<li>examples: remove <code>UPPYSERVER_</code> references (@goto-bus-stop, <a href="https://github.com/transloadit/uppy/commit/e74690e20cc0a1afd9156ce03b1ca6a5358cc7d9" target="_blank" rel="noopener">e74690e</a>)</li>
+<li>website: add facebook to dashboard example (@ifedapoolarewaju, #1930)</li>
+<li>website: add plugin versions (@arturi, #1952)</li>
+<li>website: enable onedrive on the website example (@ifedapoolarewaju, #1975)</li>
+</ul>
+<p>As always, you can find the full list of changes and package versions, as well as future plans, in our <a href="https://github.com/transloadit/uppy/blob/master/CHANGELOG.md" target="_blank" rel="noopener">changelog</a>.</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></body></html>
+
+    <center>
+        <br />
+        <a class="github-button" href="https://github.com/transloadit/uppy" data-icon="octicon-star" data-size="large"
+        data-show-count="true" aria-label="Star transloadit/uppy on GitHub">Star</a>
+    </center>
+    
+        <div class="PostAuthor">
+            <a href="https://transloadit.com/about/#renee" target="_blank" rel="noopener">
+                <img class="PostAuthor-img" src="https://www.gravatar.com/avatar/2873ddbfdaa1440797750ba605c231ac?s=200">
+                <h4 class="PostAuthor-name">Renée Kooi</h4>
+                <h5 class="PostAuthor-tagline">Developer</h5>
+            </a>
+        </div>
+    
+  <br />
+    <!-- <ul class="Social">
+        <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+                allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+    </ul> -->
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = 'https://uppy.io/blog/2020/01/1.7/';  // Replace PAGE_URL with your page's canonical URL variable
+// this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://uppy.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+                            
+</div>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+        <!-- Place this tag in your head or just before your close body tag. -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>

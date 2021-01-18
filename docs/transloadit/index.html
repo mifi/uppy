@@ -1,0 +1,935 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Transloadit — Uppy</title>
+    <meta charset="utf-8">
+    <meta name="title" content="Transloadit — Uppy">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/docs/transloadit/index.html">
+    <meta property="og:title" content="Transloadit — Uppy">
+    <meta name="twitter:title" content="Transloadit — Uppy">
+    <meta name="twitter:description" content="">
+    <meta property="og:image" content="http://uppy.io/images/uppy-social-pink.png">
+    <meta name="twitter:image" content="http://uppy.io/images/uppy-social-pink.png">
+    
+    <meta name="google-site-verification" content="JxARoHXoCI8bD07pLV_u3z6xpuWNcSIZIcHEytyCkUc" />
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy" href="/atom.xml">
+
+    <script>
+      window.PAGE_TYPE = "docs"
+    </script>
+    
+<link rel="stylesheet" href="/css/main.css?version=2">
+
+    <!-- ^ poor man's solution to css cache busting. bump the version when there's something new we really want users to see -->
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body class="page-inner ">
+    <div class="page">
+      <div class="TransloaditBar js-TransloaditBar">
+        <div class="TransloaditBar-about">
+          <a class="TransloaditBar-logo" href="https://transloadit.com/" target="_blank" rel="noopener noreferrer">
+            <img class="TransloaditBar-logoImg" src="/images/transloadit-white-glyph.svg" width="20" height="20" alt="Transloadit">
+          </a>
+          <span>Uppy is an open source project by <a class="TransloaditBar-link" href="https://transloadit.com/" target="_blank">Transloadit</a></span>
+        </div>
+        <div class="TransloaditBar-info">
+          <b>New: </b><a href="https://www.transloadit.com/pricing" target="_blank" rel="noopener" class="TransloaditBar-info-link">Transloadit Community Plan</a> — get free hosted Companion &amp; tusd, unlimited uploading, and 5GB/month encoding traffic!
+        </div>
+      </div>
+
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <span id="logo" class="MainLogo">
+          <a class="MainLogo-link" href="/">Uppy</a>
+          <!-- Was used for 1.0, we can re-use for 2.0 or major announcements -->
+          <!-- <a class="MainLogo-version" href="/blog/2019/04/1.0/">
+            1.0
+            <span class="MainLogo-emoji">
+              <img src="/images/party-popper.png" srcset="/images/party-popper@2x.png 2x" alt="🎉">
+            </span>
+          </a> -->
+        </span>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="/support/" class="nav-link">Support</a></li>
+<li><a href="https://github.com/transloadit/uppy" target="_blank" rel="noopener" class="nav-link">GitHub</a></li>
+
+          </ul>
+        </nav>
+
+        <div class="MainHeader-tagline">
+          The file uploader that <span class="MainHeader-taglinePart js-MainHeader-taglinePart is-visible">loves to play fetch</span>
+        </div>
+
+        <ul class="MainHeader-taglineList js-MainHeader-taglineList">
+          
+          <li>won’t chew on your shoes</li>
+          
+          <li>is fully housebroken</li>
+          
+          <li>just wants to play with you</li>
+          
+          <li>doesn’t hump your leg</li>
+          
+          <li>also accepts cat pictures</li>
+          
+          <li>loves you unconditionally</li>
+          
+          <li>you don’t have to keep on a leash</li>
+          
+          <li>won’t pee on your rug</li>
+          
+          <li>loves to play fetch</li>
+          
+          <li>doesn’t bite (hard)</li>
+          
+          <li>won’t bark at the mailman</li>
+          
+          <li>is great with the kids</li>
+          
+          <li>can digest anything, even chocolate cake</li>
+          
+          <li>is always happy to see you</li>
+          
+          <li>isn’t afraid of fireworks</li>
+          
+          <li>is allowed everywhere</li>
+          
+        </ul>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          
+    <div class="Sidebar js-Sidebar">
+  <ul class="main-menu">
+    <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="/support/" class="nav-link">Support</a></li>
+<li><a href="https://github.com/transloadit/uppy" target="_blank" rel="noopener" class="nav-link">GitHub</a></li>
+
+  </ul>
+  
+  
+  <div class="list">
+    <h2>
+      <a href="/docs">Docs</a>
+    </h2>
+      
+    <div class="menu-root">
+      
+
+    
+    
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/index.html">
+          <a href="/docs/" class="sidebar-link">Getting Started</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/uppy/index.html">
+          <a href="/docs/uppy/" class="sidebar-link">Uppy</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-2-docs/companion/index.html">
+          <a href="/docs/companion/" class="sidebar-link">Companion</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-3-docs/plugins/index.html">
+          <a href="/docs/plugins/" class="sidebar-link">List of Plugins</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-4-docs/plugin-options/index.html">
+          <a href="/docs/plugin-options/" class="sidebar-link">Common Plugin Options</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-5-docs/stores/index.html">
+          <a href="/docs/stores/" class="sidebar-link">Custom Stores</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-6-docs/community-projects/index.html">
+          <a href="/docs/community-projects/" class="sidebar-link">Community Projects</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-7-docs/locales/index.html">
+          <a href="/docs/locales/" class="sidebar-link">Locale Packs</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-1-UI Elements" data-scroll="no">UI Elements</h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/dashboard/index.html">
+          <a href="/docs/dashboard/" class="sidebar-link">Dashboard</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/status-bar/index.html">
+          <a href="/docs/status-bar/" class="sidebar-link">Status Bar</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-2-docs/progress-bar/index.html">
+          <a href="/docs/progress-bar/" class="sidebar-link">Progress Bar</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-3-docs/informer/index.html">
+          <a href="/docs/informer/" class="sidebar-link">Informer</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-2-Sources" data-scroll="no">Sources</h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/drag-drop/index.html">
+          <a href="/docs/drag-drop/" class="sidebar-link">Drag & Drop</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/file-input/index.html">
+          <a href="/docs/file-input/" class="sidebar-link">File Input</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-2-docs/webcam/index.html">
+          <a href="/docs/webcam/" class="sidebar-link">Webcam</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-3-docs/providers/index.html">
+          <a href="/docs/providers/" class="sidebar-link">Provider Plugins</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-4-docs/box/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/box/" class="sidebar-link">Box</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-5-docs/dropbox/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/dropbox/" class="sidebar-link">Dropbox</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-6-docs/google-drive/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/google-drive/" class="sidebar-link">Google Drive</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-7-docs/facebook/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/facebook/" class="sidebar-link">Facebook</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-8-docs/instagram/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/instagram/" class="sidebar-link">Instagram</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-9-docs/zoom/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/zoom/" class="sidebar-link">Zoom</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-10-docs/onedrive/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/onedrive/" class="sidebar-link">OneDrive</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-11-docs/url/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/url/" class="sidebar-link">Import From URL</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-3-Destinations" data-scroll="no">Destinations</h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/tus/index.html">
+          <a href="/docs/tus/" class="sidebar-link">Tus</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/xhr-upload/index.html">
+          <a href="/docs/xhr-upload/" class="sidebar-link">XHR</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-2-docs/aws-s3/index.html">
+          <a href="/docs/aws-s3/" class="sidebar-link">AWS S3</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-3-docs/aws-s3-multipart/index.html">
+          <a href="/docs/aws-s3-multipart/" class="sidebar-link">AWS S3 Multipart</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-4-File Processing" data-scroll="no"><a href="/docs/robodog/">File Processing</a></h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/robodog/index.html">
+          <a href="/docs/robodog/" class="sidebar-link">Robodog Introduction</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/robodog/picker/index.html">
+          <a href="/docs/robodog/picker/" class="sidebar-link">Robodog File Picker</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-2-docs/image-editor/index.html">
+          <a href="/docs/image-editor/" class="sidebar-link">Image Editor</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-3-docs/robodog/form/index.html">
+          <a href="/docs/robodog/form/" class="sidebar-link">Robodog Form</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-4-docs/robodog/upload/index.html">
+          <a href="/docs/robodog/upload/" class="sidebar-link">Robodog Upload</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-5-docs/robodog/dashboard/index.html">
+          <a href="/docs/robodog/dashboard/" class="sidebar-link">Robodog Dashboard</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-6-docs/transloadit/index.html">
+          <a href="/docs/transloadit/" class="sidebar-link current">Transloadit</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-5-Miscellaneous" data-scroll="no">Miscellaneous</h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/form/index.html">
+          <a href="/docs/form/" class="sidebar-link">Form</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/golden-retriever/index.html">
+          <a href="/docs/golden-retriever/" class="sidebar-link">Golden Retriever</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-2-docs/thumbnail-generator/index.html">
+          <a href="/docs/thumbnail-generator/" class="sidebar-link">Thumbnail Generator</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-3-docs/redux/index.html">
+          <a href="/docs/redux/" class="sidebar-link">Redux</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+    <ul>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-7-React" data-scroll="no"><a href="/docs/react/">React</a></h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/react/index.html">
+          <a href="/docs/react/" class="sidebar-link">Introduction</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/react/initializing/index.html">
+          <a href="/docs/react/initializing/" class="sidebar-link">Initializing Uppy</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-2-docs/react/status-bar/index.html">
+          <a href="/docs/react/status-bar/" class="sidebar-link">&lt;StatusBar /></a>
+          
+        </li>
+      
+        
+        
+        <li key="p-3-docs/react/drag-drop/index.html">
+          <a href="/docs/react/drag-drop/" class="sidebar-link">&lt;DragDrop /></a>
+          
+        </li>
+      
+        
+        
+        <li key="p-4-docs/react/file-input/index.html">
+          <a href="/docs/react/file-input/" class="sidebar-link">&lt;FileInput /></a>
+          
+        </li>
+      
+        
+        
+        <li key="p-5-docs/react/progress-bar/index.html">
+          <a href="/docs/react/progress-bar/" class="sidebar-link">&lt;ProgressBar /></a>
+          
+        </li>
+      
+        
+        
+        <li key="p-6-docs/react/dashboard/index.html">
+          <a href="/docs/react/dashboard/" class="sidebar-link">&lt;Dashboard /></a>
+          
+        </li>
+      
+        
+        
+        <li key="p-7-docs/react/dashboard-modal/index.html">
+          <a href="/docs/react/dashboard-modal/" class="sidebar-link">&lt;DashboardModal /></a>
+          
+        </li>
+      
+        
+        
+        <li key="p-8-docs/react/native/index.html">
+          <a href="/docs/react/native/" class="sidebar-link">React Native</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-8-Other Integrations" data-scroll="no"><a href="/docs/vue/">Other Integrations</a></h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/vue/index.html">
+          <a href="/docs/vue/" class="sidebar-link">Vue</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/svelte/index.html">
+          <a href="/docs/svelte/" class="sidebar-link">Svelte</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-9-Contributing" data-scroll="no"><a href="/docs/contributing/">Contributing</a></h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/contributing.html">
+          <a href="/docs/contributing.html" class="sidebar-link">Contributing</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/writing-plugins/index.html">
+          <a href="/docs/writing-plugins/" class="sidebar-link">Writing Plugins</a>
+          
+        </li>
+      
+    </ul>
+
+
+    </div>
+
+    <ul class="Social">
+  <li><a href="https://twitter.com/uppy_io" target="_blank" rel="noopener" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @uppy_io</a></li>
+  <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+  <!-- to regenerate you can use this link: https://img.shields.io/badge/community-forum-d8006a.svg -->
+  <li><a href="https://community.transloadit.com/c/uppy" target="_blank" rel="noopener"><img src="/images/community-forum-d8006a.svg" /> </a></li>
+  <li class="BuildBadge">
+   <span class="wrapper">
+     <a href="https://travis-ci.org/transloadit/uppy" target="_blank" rel="noopener"><img src="https://travis-ci.org/transloadit/uppy.svg?branch=master" alt="Build Status"></a>
+   </span>
+  </li>
+  <li class="SauceBadge">
+   <span class="wrapper">
+     <a href="https://saucelabs.com/u/transloadit-uppy" target="_blank" rel="noopener">
+       <img src="https://saucelabs.com/buildstatus/transloadit-uppy" alt="Sauce Test Status"/>
+     </a>
+   </span>
+  </li>
+</ul>
+
+    </div>
+  
+</div>
+
+
+
+<div class="Content js-Content docs with-sidebar">
+    <h1>Transloadit</h1>
+    <html><head></head><body><p>The <code>@uppy/transloadit</code> plugin can be used to upload files to <a href="https://transloadit.com/" target="_blank" rel="noopener">Transloadit</a> for all kinds of processing, such as transcoding video, resizing images, zipping/unzipping, <a href="https://transloadit.com/services/" target="_blank" rel="noopener">and much more</a>.</p>
+<blockquote>
+<p>If you’re okay to trade some flexibility for ergonomics, consider using<br>the <a href="/docs/robodog/">Robodog</a> Plugin instead, which is a higher-level abstraction for<br>encoding files with Uppy and Transloadit.</p>
+</blockquote>
+<p><a class="TryButton" href="/examples/transloadit/">Try it live</a></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="token keyword">const</span> <span class="token maybe-class-name">Transloadit</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@uppy/transloadit'</span><span class="token punctuation">)</span>
+
+uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Transloadit</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  service<span class="token operator">:</span> <span class="token string">'https://api2.transloadit.com'</span><span class="token punctuation">,</span>
+  params<span class="token operator">:</span> <span class="token keyword null nil">null</span><span class="token punctuation">,</span>
+  waitForEncoding<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  waitForMetadata<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  importFromUploadURLs<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  alwaysRunAssembly<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  signature<span class="token operator">:</span> <span class="token keyword null nil">null</span><span class="token punctuation">,</span>
+  fields<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  limit<span class="token operator">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p>As of Uppy version 0.24, the Transloadit plugin includes the <a href="/docs/tus">Tus</a> plugin to handle the uploading, so you no longer have to add it manually.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>This plugin is published as the <code>@uppy/transloadit</code> package.</p>
+<p>Install from NPM:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="token function">npm</span> <span class="token function">install</span> @uppy/transloadit</pre></td></tr></table></figure>
+<p>In the <a href="/docs/#With-a-script-tag">CDN package</a>, it is available on the <code>Uppy</code> global object:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="token keyword">const</span> <span class="token maybe-class-name">Transloadit</span> <span class="token operator">=</span> <span class="token maybe-class-name">Uppy</span><span class="token punctuation">.</span><span class="token property-access"><span class="token maybe-class-name">Transloadit</span></span></pre></td></tr></table></figure>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Transloadit-COMPANION"><a href="#Transloadit-COMPANION" class="headerlink" title="Transloadit.COMPANION"></a><code>Transloadit.COMPANION</code></h3><p>The main endpoint for Transloadit’s hosted companions. You can use this constant in remote provider options, like so:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="token keyword">const</span> <span class="token maybe-class-name">Dropbox</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@uppy/dropbox'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token maybe-class-name">Transloadit</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@uppy/transloadit'</span><span class="token punctuation">)</span>
+
+uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Dropbox</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  companionUrl<span class="token operator">:</span> <span class="token maybe-class-name">Transloadit</span><span class="token punctuation">.</span><span class="token constant">COMPANION</span><span class="token punctuation">,</span>
+  companionAllowedHosts<span class="token operator">:</span> <span class="token maybe-class-name">Transloadit</span><span class="token punctuation">.</span><span class="token constant">COMPANION_PATTERN</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p>When using <code>Transloadit.COMPANION</code>, you should also configure <a href="#Transloadit-COMPANION-PATTERN"><code>companionAllowedHosts: Transloadit.COMPANION_PATTERN</code></a>.</p>
+<p>The value of this constant is <code>https://api2.transloadit.com/companion</code>. If you are using a custom <a href="#service"><code>service</code></a> option, you should also set a custom host option in your provider plugins, by taking a Transloadit API url and appending <code>/companion</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre>uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Dropbox</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  companionUrl<span class="token operator">:</span> <span class="token string">'https://api2-us-east-1.transloadit.com/companion'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<h3 id="Transloadit-COMPANION-PATTERN"><a href="#Transloadit-COMPANION-PATTERN" class="headerlink" title="Transloadit.COMPANION_PATTERN"></a><code>Transloadit.COMPANION_PATTERN</code></h3><p>A RegExp pattern matching Transloadit’s hosted companion endpoints. The pattern is used in remote provider <code>companionAllowedHosts</code> options, to ensure that third party authentication messages cannot be faked by an attacker’s page, but can only originate from Transloadit’s servers.</p>
+<p>Use it whenever you use <code>companionUrl: Transloadit.COMPANION</code>, like so:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="token keyword">const</span> <span class="token maybe-class-name">Dropbox</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@uppy/dropbox'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token maybe-class-name">Transloadit</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@uppy/transloadit'</span><span class="token punctuation">)</span>
+
+uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Dropbox</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  companionUrl<span class="token operator">:</span> <span class="token maybe-class-name">Transloadit</span><span class="token punctuation">.</span><span class="token constant">COMPANION</span><span class="token punctuation">,</span>
+  companionAllowedHosts<span class="token operator">:</span> <span class="token maybe-class-name">Transloadit</span><span class="token punctuation">.</span><span class="token constant">COMPANION_PATTERN</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p>The value of this constant covers <em>all</em> Transloadit’s Companion servers, so it does not need to be changed if you are using a custom <a href="#service"><code>service</code></a> option. However, if you are not using the Transloadit Companion servers at <code>*.transloadit.com</code>, make sure to set the <code>companionAllowedHosts</code> option to something that matches what you do use.</p>
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><p>The <code>@uppy/transloadit</code> plugin has the following configurable options:</p>
+<h3 id="id-39-Transloadit-39"><a href="#id-39-Transloadit-39" class="headerlink" title="id: 'Transloadit'"></a><code>id: 'Transloadit'</code></h3><p>A unique identifier for this plugin. It defaults to <code>'Transloadit'</code>.</p>
+<h3 id="service"><a href="#service" class="headerlink" title="service"></a><code>service</code></h3><p>The Transloadit API URL to use. It defaults to <code>https://api2.transloadit.com</code>, which will attempt to route traffic efficiently based on the location of your users. You can set this to something like <code>https://api2-us-east-1.transloadit.com</code> if you want to use a particular region.</p>
+<h3 id="params"><a href="#params" class="headerlink" title="params"></a><code>params</code></h3><p>The Assembly parameters to use for the upload. See the Transloadit documentation on <a href="https://transloadit.com/docs/#14-assembly-instructions" target="_blank" rel="noopener">Assembly Instructions</a> for further information. <code>params</code> should be a plain JavaScript object, or a JSON string if you are using the <a href="#signature"><code>signature</code></a> option.</p>
+<p>The <code>auth.key</code> Assembly parameter is required. You can also use the <code>steps</code> or <code>template_id</code> options here as described in the Transloadit documentation.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre>uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Transloadit</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  params<span class="token operator">:</span> <span class="token punctuation">{</span>
+    auth<span class="token operator">:</span> <span class="token punctuation">{</span> key<span class="token operator">:</span> <span class="token string">'YOUR_TRANSLOADIT_KEY'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    steps<span class="token operator">:</span> <span class="token punctuation">{</span>
+      encode<span class="token operator">:</span> <span class="token punctuation">{</span>
+        robot<span class="token operator">:</span> <span class="token string">'/video/encode'</span><span class="token punctuation">,</span>
+        use<span class="token operator">:</span> <span class="token punctuation">{</span>
+          steps<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">':original'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          fields<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'file_input_field2'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        preset<span class="token operator">:</span> <span class="token string">'iphone'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p><a id="waitForEncoding"></a></p>
+<h3 id="waitForEncoding-false"><a href="#waitForEncoding-false" class="headerlink" title="waitForEncoding: false"></a><code>waitForEncoding: false</code></h3><p>By default, the Transloadit plugin uploads files to Assemblies and then marks the files as complete in Uppy. The Assemblies will complete (or error) in the background but Uppy won’t know or care about it.</p>
+<p>When <code>waitForEncoding</code> is set to true, the Transloadit plugin waits for Assemblies to complete before the files are marked as completed. This means users have to wait for a potentially long time, depending on how complicated your Assembly instructions are. But, you can receive transcoding results on the client side, and have a fully client-side experience this way.</p>
+<p>When this is enabled, you can listen for the <a href="#transloadit-result"><code>transloadit:result</code></a> and <a href="#transloadit-complete"><code>transloadit:complete</code></a> events.</p>
+<p><a id="waitForMetadata"></a></p>
+<h3 id="waitForMetadata-false"><a href="#waitForMetadata-false" class="headerlink" title="waitForMetadata: false"></a><code>waitForMetadata: false</code></h3><p>By default, the Transloadit plugin uploads files to Assemblies and then marks the files as complete in Uppy. The Assemblies will complete (or error) in the background but Uppy won’t know or care about it.</p>
+<p>When <code>waitForMetadata</code> is set to true, the Transloadit plugin waits for Transloadit’s backend to extract metadata from all the uploaded files. This is mostly handy if you want to have a quick user experience (so your users don’t necessarily need to wait for all the encoding to complete), but you do want to let users know about some types of errors that can be caught early on, like file format issues.</p>
+<p>When this is enabled, you can listen for the <a href="#transloadit-upload"><code>transloadit:upload</code></a> event.</p>
+<h3 id="importFromUploadURLs"><a href="#importFromUploadURLs" class="headerlink" title="importFromUploadURLs"></a><code>importFromUploadURLs</code></h3><p>Instead of uploading to Transloadit’s servers directly, allow another plugin to upload files, and then import those files into the Transloadit Assembly. This is set to <code>false</code> by default.</p>
+<p>When enabling this option, Transloadit will <em>not</em> configure the Tus plugin to upload to Transloadit. Instead, a separate upload plugin must be used. Once the upload completes, the Transloadit plugin adds the uploaded file to the Assembly.</p>
+<p>For example, to upload files to an S3 bucket and then transcode them:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre>uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">AwsS3</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token function">getUploadParameters</span> <span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span> <span class="token comment">/* upload parameters */</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Transloadit</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  importFromUploadURLs<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  params<span class="token operator">:</span> <span class="token punctuation">{</span>
+    auth<span class="token operator">:</span> <span class="token punctuation">{</span> key<span class="token operator">:</span> <span class="token string">'YOUR_API_KEY'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    template_id<span class="token operator">:</span> <span class="token string">'YOUR_TEMPLATE_ID'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p>In order for this to work, the upload plugin must assign a publically accessible <code>uploadURL</code> property to the uploaded file object. The Tus and S3 plugins both do this automatically. For the XHRUpload plugin, you may have to specify a custom <code>getUploadResponse</code> function.</p>
+<h3 id="alwaysRunAssembly"><a href="#alwaysRunAssembly" class="headerlink" title="alwaysRunAssembly"></a><code>alwaysRunAssembly</code></h3><p>When set to true, always create and run an Assembly when <code>uppy.upload()</code> is called, even if no files were selected. This allows running Assemblies that do not receive files, but instead use a robot like <a href="https://transloadit.com/docs/transcoding/#s3-import" target="_blank" rel="noopener"><code>/s3/import</code></a> to download the files from elsewhere, for example, for a bulk transcoding job.</p>
+<h3 id="signature"><a href="#signature" class="headerlink" title="signature"></a><code>signature</code></h3><p>An optional signature for the Assembly parameters. See the Transloadit documentation on <a href="https://transloadit.com/docs/#26-signature-authentication" target="_blank" rel="noopener">Signature Authentication</a> for further information.</p>
+<p>If a <code>signature</code> is provided, <code>params</code> should be a JSON string instead of a JavaScript object, as otherwise the generated JSON in the browser may be different from the JSON string that was used to generate the signature.</p>
+<h3 id="fields"><a href="#fields" class="headerlink" title="fields"></a><code>fields</code></h3><p>An object of form fields to send along to the Assembly. Keys are field names, and values are field values. See also the Transloadit documentation on <a href="https://transloadit.com/docs/#23-form-fields-in-instructions" target="_blank" rel="noopener">Form Fields In Instructions</a>.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre>uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Transloadit</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token spread operator">...</span><span class="token punctuation">,</span>
+  fields<span class="token operator">:</span> <span class="token punctuation">{</span>
+    message<span class="token operator">:</span> <span class="token string">'This is a form field'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p>You can also pass an array of field names to send global or file metadata along to the Assembly. Global metadata is set using the <a href="/docs/uppy/#meta"><code>meta</code> option</a> in the Uppy constructor, or using the <a href="/docs/uppy/#uppy-setMeta-data"><code>setMeta</code> method</a>. File metadata is set using the <a href="/docs/uppy/#uppy-setFileMeta-fileID-data"><code>setFileMeta</code></a> method. The <a href="/docs/form">Form</a> plugin also sets global metadata based on the values of <code>&lt;input /&gt;</code>s in the form, providing a handy way to use values from HTML form fields:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre>uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Form</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> target<span class="token operator">:</span> <span class="token string">'form#upload-form'</span><span class="token punctuation">,</span> getMetaFromForm<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Transloadit</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  fields<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'field_name'</span><span class="token punctuation">,</span> <span class="token string">'other_field_name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  params<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token spread operator">...</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p>Form fields can also be computed dynamically using custom logic, by using the <a href="/docs/transloadit/#getAssemblyOptions-file"><code>getAssemblyOptions(file)</code></a> option.</p>
+<h3 id="getAssemblyOptions-file"><a href="#getAssemblyOptions-file" class="headerlink" title="getAssemblyOptions(file)"></a><code>getAssemblyOptions(file)</code></h3><p>While <code>params</code>, <code>signature</code>, and <code>fields</code> must be determined ahead of time, the <code>getAssemblyOptions</code> allows using dynamically generated values for these options. This way, it is possible to use different Assembly parameters for different files, or to use some user input in an Assembly.</p>
+<p>A custom <code>getAssemblyOptions()</code> option should return an object or a Promise for an object with properties <code>{ params, signature, fields }</code>. For example, to add a field with some user-provided data from the <code>MetaData</code> plugin:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre>uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">MetaData</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  fields<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'caption'</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Transloadit</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token function">getAssemblyOptions</span> <span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+      params<span class="token operator">:</span> <span class="token punctuation">{</span>
+        auth<span class="token operator">:</span> <span class="token punctuation">{</span> key<span class="token operator">:</span> <span class="token string">'TRANSLOADIT_AUTH_KEY_HERE'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        template_id<span class="token operator">:</span> <span class="token string">'xyz'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      fields<span class="token operator">:</span> <span class="token punctuation">{</span>
+        caption<span class="token operator">:</span> file<span class="token punctuation">.</span><span class="token property-access">meta</span><span class="token punctuation">.</span><span class="token property-access">caption</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p>Now, the <code>${fields.caption}</code> variable will be available in the Assembly template.</p>
+<p>Combine the <code>getAssemblyOptions()</code> option with the <a href="/docs/form">Form</a> plugin to pass user input from a <code>&lt;form&gt;</code> to a Transloadit Assembly:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="token comment">// This will add form field values to each file's `.meta` object:</span>
+uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Form</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> getMetaFromForm<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Transloadit</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token function">getAssemblyOptions</span> <span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+      params<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token spread operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">// Pass through the fields you need:</span>
+      fields<span class="token operator">:</span> <span class="token punctuation">{</span>
+        message<span class="token operator">:</span> file<span class="token punctuation">.</span><span class="token property-access">meta</span><span class="token punctuation">.</span><span class="token property-access">message</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p><code>getAssemblyOptions()</code> may also return a Promise, so it could retrieve signed Assembly parameters from a server. For example, assuming an endpoint <code>/transloadit-params</code> that responds with a JSON object with <code>{ params, signature }</code> properties:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre>uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Transloadit</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token function">getAssemblyOptions</span> <span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/transloadit-params'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">return</span> response<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<h3 id="limit-0"><a href="#limit-0" class="headerlink" title="limit: 0"></a><code>limit: 0</code></h3><p>Limit the amount of uploads going on at the same time. Setting this to <code>0</code> means there is no limit on concurrent uploads. This option is passed through to the <a href="/docs/tus"><code>@uppy/tus</code></a> plugin that Transloadit plugin uses internally.</p>
+<h3 id="locale"><a href="#locale" class="headerlink" title="locale: {}"></a><code>locale: {}</code></h3><p>Localize text that is shown to the user.</p>
+<p>The default English strings are:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre>strings<span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Shown while Assemblies are being created for an upload.</span>
+  creatingAssembly<span class="token operator">:</span> <span class="token string">'Preparing upload...'</span>
+  <span class="token comment">// Shown if an Assembly could not be created.</span>
+  creatingAssemblyFailed<span class="token operator">:</span> <span class="token string">'Transloadit: Could not create Assembly'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Shown after uploads have succeeded, but when the Assembly is still executing.</span>
+  <span class="token comment">// This only shows if `waitForMetadata` or `waitForEncoding` was enabled.</span>
+  encoding<span class="token operator">:</span> <span class="token string">'Encoding...'</span>
+<span class="token punctuation">}</span></pre></td></tr></table></figure>
+<h2 id="Errors"><a href="#Errors" class="headerlink" title="Errors"></a>Errors</h2><p>If an error occurs when an Assembly has already started, you can find the Assembly Status on the error object’s <code>assembly</code> property.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre>uppy<span class="token punctuation">.</span><span class="token method function property-access">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span><span class="token property-access">assembly</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Assembly ID </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>error<span class="token punctuation">.</span><span class="token property-access">assembly</span><span class="token punctuation">.</span><span class="token property-access">assembly_id</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> failed!</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span><span class="token property-access">assembly</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><h3 id="transloadit-assembly-created"><a href="#transloadit-assembly-created" class="headerlink" title="transloadit:assembly-created"></a><code>transloadit:assembly-created</code></h3><p>Fired when an Assembly is created.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>assembly</code> - The initial <a href="https://transloadit.com/docs/api/#assembly-status-response" target="_blank" rel="noopener">Assembly Status</a>.</li>
+<li><code>fileIDs</code> - The IDs of the files that will be uploaded to this Assembly.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre>uppy<span class="token punctuation">.</span><span class="token method function property-access">on</span><span class="token punctuation">(</span><span class="token string">'transloadit:assembly-created'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">assembly<span class="token punctuation">,</span> fileIDs</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">group</span><span class="token punctuation">(</span><span class="token string">'Created'</span><span class="token punctuation">,</span> assembly<span class="token punctuation">.</span><span class="token property-access">assembly_id</span><span class="token punctuation">,</span> <span class="token string">'for files:'</span><span class="token punctuation">)</span>
+  <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> id <span class="token keyword">of</span> fileIDs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>uppy<span class="token punctuation">.</span><span class="token method function property-access">getFile</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">groupEnd</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<h3 id="transloadit-upload"><a href="#transloadit-upload" class="headerlink" title="transloadit:upload"></a><code>transloadit:upload</code></h3><p>Fired when Transloadit has received an upload.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>file</code> - The Transloadit file object that was uploaded.</li>
+<li><code>assembly</code> - The <a href="https://transloadit.com/docs/api/#assembly-status-response" target="_blank" rel="noopener">Assembly Status</a> of the Assembly to which the file was uploaded.</li>
+</ul>
+<h3 id="transloadit-assembly-executing"><a href="#transloadit-assembly-executing" class="headerlink" title="transloadit:assembly-executing"></a><code>transloadit:assembly-executing</code></h3><p>Fired when Transloadit has received all uploads, and is currently executing the Assembly.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>assembly</code> - The <a href="https://transloadit.com/docs/api/#assembly-status-response" target="_blank" rel="noopener">Assembly Status</a> of the Assembly that is currently executing.</li>
+</ul>
+<h3 id="transloadit-result"><a href="#transloadit-result" class="headerlink" title="transloadit:result"></a><code>transloadit:result</code></h3><p>Fired when a result came in from an Assembly.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>stepName</code> - The name of the Assembly step that generated this result.</li>
+<li><code>result</code> - The result object from Transloadit.<br>This result object contains one additional property, namely <code>localId</code>.<br>This is the ID of the file in Uppy’s local state, and can be used with <code>uppy.getFile(id)</code>.</li>
+<li><code>assembly</code> - The <a href="https://transloadit.com/docs/api/#assembly-status-response" target="_blank" rel="noopener">Assembly Status</a> of the Assembly that generated this result.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre>uppy<span class="token punctuation">.</span><span class="token method function property-access">on</span><span class="token punctuation">(</span><span class="token string">'transloadit:result'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">stepName<span class="token punctuation">,</span> result</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> file <span class="token operator">=</span> uppy<span class="token punctuation">.</span><span class="token method function property-access">getFile</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span><span class="token property-access">localId</span><span class="token punctuation">)</span>
+  <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>html<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token embedded-code html">
+    &lt;div>
+      &lt;h2>From ${file.name}&lt;/h2>
+      &lt;a href=${result.ssl_url}> View &lt;/a>
+    &lt;/div>
+  </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<h3 id="transloadit-complete"><a href="#transloadit-complete" class="headerlink" title="transloadit:complete"></a><code>transloadit:complete</code></h3><p>Fired when an Assembly completed.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>assembly</code> - The final <a href="https://transloadit.com/docs/api/#assembly-status-response" target="_blank" rel="noopener">Assembly Status</a> of the completed Assembly.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre>uppy<span class="token punctuation">.</span><span class="token method function property-access">on</span><span class="token punctuation">(</span><span class="token string">'transloadit:complete'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">assembly</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">// Could do something fun with this!</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>assembly<span class="token punctuation">.</span><span class="token property-access">results</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></body></html>
+    
+    
+
+    
+    <div class="footer">Caught a mistake or want to contribute to the documentation?
+       <a href="https://github.com/transloadit/uppy/blob/master/website/src/docs/transloadit.md" rel="noreferrer noopener" target="_blank">Edit/fork this page directly on Github</a>!
+    </div>
+</div>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+        <!-- Place this tag in your head or just before your close body tag. -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>

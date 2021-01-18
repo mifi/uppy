@@ -1,0 +1,913 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWS S3 — Uppy</title>
+    <meta charset="utf-8">
+    <meta name="title" content="AWS S3 — Uppy">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/docs/aws-s3/index.html">
+    <meta property="og:title" content="AWS S3 — Uppy">
+    <meta name="twitter:title" content="AWS S3 — Uppy">
+    <meta name="twitter:description" content="">
+    <meta property="og:image" content="http://uppy.io/images/uppy-social-pink.png">
+    <meta name="twitter:image" content="http://uppy.io/images/uppy-social-pink.png">
+    
+    <meta name="google-site-verification" content="JxARoHXoCI8bD07pLV_u3z6xpuWNcSIZIcHEytyCkUc" />
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy" href="/atom.xml">
+
+    <script>
+      window.PAGE_TYPE = "docs"
+    </script>
+    
+<link rel="stylesheet" href="/css/main.css?version=2">
+
+    <!-- ^ poor man's solution to css cache busting. bump the version when there's something new we really want users to see -->
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body class="page-inner ">
+    <div class="page">
+      <div class="TransloaditBar js-TransloaditBar">
+        <div class="TransloaditBar-about">
+          <a class="TransloaditBar-logo" href="https://transloadit.com/" target="_blank" rel="noopener noreferrer">
+            <img class="TransloaditBar-logoImg" src="/images/transloadit-white-glyph.svg" width="20" height="20" alt="Transloadit">
+          </a>
+          <span>Uppy is an open source project by <a class="TransloaditBar-link" href="https://transloadit.com/" target="_blank">Transloadit</a></span>
+        </div>
+        <div class="TransloaditBar-info">
+          <b>New: </b><a href="https://www.transloadit.com/pricing" target="_blank" rel="noopener" class="TransloaditBar-info-link">Transloadit Community Plan</a> — get free hosted Companion &amp; tusd, unlimited uploading, and 5GB/month encoding traffic!
+        </div>
+      </div>
+
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <span id="logo" class="MainLogo">
+          <a class="MainLogo-link" href="/">Uppy</a>
+          <!-- Was used for 1.0, we can re-use for 2.0 or major announcements -->
+          <!-- <a class="MainLogo-version" href="/blog/2019/04/1.0/">
+            1.0
+            <span class="MainLogo-emoji">
+              <img src="/images/party-popper.png" srcset="/images/party-popper@2x.png 2x" alt="🎉">
+            </span>
+          </a> -->
+        </span>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="/support/" class="nav-link">Support</a></li>
+<li><a href="https://github.com/transloadit/uppy" target="_blank" rel="noopener" class="nav-link">GitHub</a></li>
+
+          </ul>
+        </nav>
+
+        <div class="MainHeader-tagline">
+          The file uploader that <span class="MainHeader-taglinePart js-MainHeader-taglinePart is-visible">loves to play fetch</span>
+        </div>
+
+        <ul class="MainHeader-taglineList js-MainHeader-taglineList">
+          
+          <li>won’t chew on your shoes</li>
+          
+          <li>is fully housebroken</li>
+          
+          <li>just wants to play with you</li>
+          
+          <li>doesn’t hump your leg</li>
+          
+          <li>also accepts cat pictures</li>
+          
+          <li>loves you unconditionally</li>
+          
+          <li>you don’t have to keep on a leash</li>
+          
+          <li>won’t pee on your rug</li>
+          
+          <li>loves to play fetch</li>
+          
+          <li>doesn’t bite (hard)</li>
+          
+          <li>won’t bark at the mailman</li>
+          
+          <li>is great with the kids</li>
+          
+          <li>can digest anything, even chocolate cake</li>
+          
+          <li>is always happy to see you</li>
+          
+          <li>isn’t afraid of fireworks</li>
+          
+          <li>is allowed everywhere</li>
+          
+        </ul>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          
+    <div class="Sidebar js-Sidebar">
+  <ul class="main-menu">
+    <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link current">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="/support/" class="nav-link">Support</a></li>
+<li><a href="https://github.com/transloadit/uppy" target="_blank" rel="noopener" class="nav-link">GitHub</a></li>
+
+  </ul>
+  
+  
+  <div class="list">
+    <h2>
+      <a href="/docs">Docs</a>
+    </h2>
+      
+    <div class="menu-root">
+      
+
+    
+    
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/index.html">
+          <a href="/docs/" class="sidebar-link">Getting Started</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/uppy/index.html">
+          <a href="/docs/uppy/" class="sidebar-link">Uppy</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-2-docs/companion/index.html">
+          <a href="/docs/companion/" class="sidebar-link">Companion</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-3-docs/plugins/index.html">
+          <a href="/docs/plugins/" class="sidebar-link">List of Plugins</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-4-docs/plugin-options/index.html">
+          <a href="/docs/plugin-options/" class="sidebar-link">Common Plugin Options</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-5-docs/stores/index.html">
+          <a href="/docs/stores/" class="sidebar-link">Custom Stores</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-6-docs/community-projects/index.html">
+          <a href="/docs/community-projects/" class="sidebar-link">Community Projects</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-7-docs/locales/index.html">
+          <a href="/docs/locales/" class="sidebar-link">Locale Packs</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-1-UI Elements" data-scroll="no">UI Elements</h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/dashboard/index.html">
+          <a href="/docs/dashboard/" class="sidebar-link">Dashboard</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/status-bar/index.html">
+          <a href="/docs/status-bar/" class="sidebar-link">Status Bar</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-2-docs/progress-bar/index.html">
+          <a href="/docs/progress-bar/" class="sidebar-link">Progress Bar</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-3-docs/informer/index.html">
+          <a href="/docs/informer/" class="sidebar-link">Informer</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-2-Sources" data-scroll="no">Sources</h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/drag-drop/index.html">
+          <a href="/docs/drag-drop/" class="sidebar-link">Drag & Drop</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/file-input/index.html">
+          <a href="/docs/file-input/" class="sidebar-link">File Input</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-2-docs/webcam/index.html">
+          <a href="/docs/webcam/" class="sidebar-link">Webcam</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-3-docs/providers/index.html">
+          <a href="/docs/providers/" class="sidebar-link">Provider Plugins</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-4-docs/box/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/box/" class="sidebar-link">Box</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-5-docs/dropbox/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/dropbox/" class="sidebar-link">Dropbox</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-6-docs/google-drive/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/google-drive/" class="sidebar-link">Google Drive</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-7-docs/facebook/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/facebook/" class="sidebar-link">Facebook</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-8-docs/instagram/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/instagram/" class="sidebar-link">Instagram</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-9-docs/zoom/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/zoom/" class="sidebar-link">Zoom</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-10-docs/onedrive/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/onedrive/" class="sidebar-link">OneDrive</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-11-docs/url/index.html">
+          <span title='Requires Companion'>ⓒ </span><a href="/docs/url/" class="sidebar-link">Import From URL</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-3-Destinations" data-scroll="no">Destinations</h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/tus/index.html">
+          <a href="/docs/tus/" class="sidebar-link">Tus</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/xhr-upload/index.html">
+          <a href="/docs/xhr-upload/" class="sidebar-link">XHR</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-2-docs/aws-s3/index.html">
+          <a href="/docs/aws-s3/" class="sidebar-link current">AWS S3</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-3-docs/aws-s3-multipart/index.html">
+          <a href="/docs/aws-s3-multipart/" class="sidebar-link">AWS S3 Multipart</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-4-File Processing" data-scroll="no"><a href="/docs/robodog/">File Processing</a></h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/robodog/index.html">
+          <a href="/docs/robodog/" class="sidebar-link">Robodog Introduction</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/robodog/picker/index.html">
+          <a href="/docs/robodog/picker/" class="sidebar-link">Robodog File Picker</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-2-docs/image-editor/index.html">
+          <a href="/docs/image-editor/" class="sidebar-link">Image Editor</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-3-docs/robodog/form/index.html">
+          <a href="/docs/robodog/form/" class="sidebar-link">Robodog Form</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-4-docs/robodog/upload/index.html">
+          <a href="/docs/robodog/upload/" class="sidebar-link">Robodog Upload</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-5-docs/robodog/dashboard/index.html">
+          <a href="/docs/robodog/dashboard/" class="sidebar-link">Robodog Dashboard</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-6-docs/transloadit/index.html">
+          <a href="/docs/transloadit/" class="sidebar-link">Transloadit</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-5-Miscellaneous" data-scroll="no">Miscellaneous</h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/form/index.html">
+          <a href="/docs/form/" class="sidebar-link">Form</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/golden-retriever/index.html">
+          <a href="/docs/golden-retriever/" class="sidebar-link">Golden Retriever</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-2-docs/thumbnail-generator/index.html">
+          <a href="/docs/thumbnail-generator/" class="sidebar-link">Thumbnail Generator</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-3-docs/redux/index.html">
+          <a href="/docs/redux/" class="sidebar-link">Redux</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+    <ul>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-7-React" data-scroll="no"><a href="/docs/react/">React</a></h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/react/index.html">
+          <a href="/docs/react/" class="sidebar-link">Introduction</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/react/initializing/index.html">
+          <a href="/docs/react/initializing/" class="sidebar-link">Initializing Uppy</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-2-docs/react/status-bar/index.html">
+          <a href="/docs/react/status-bar/" class="sidebar-link">&lt;StatusBar /></a>
+          
+        </li>
+      
+        
+        
+        <li key="p-3-docs/react/drag-drop/index.html">
+          <a href="/docs/react/drag-drop/" class="sidebar-link">&lt;DragDrop /></a>
+          
+        </li>
+      
+        
+        
+        <li key="p-4-docs/react/file-input/index.html">
+          <a href="/docs/react/file-input/" class="sidebar-link">&lt;FileInput /></a>
+          
+        </li>
+      
+        
+        
+        <li key="p-5-docs/react/progress-bar/index.html">
+          <a href="/docs/react/progress-bar/" class="sidebar-link">&lt;ProgressBar /></a>
+          
+        </li>
+      
+        
+        
+        <li key="p-6-docs/react/dashboard/index.html">
+          <a href="/docs/react/dashboard/" class="sidebar-link">&lt;Dashboard /></a>
+          
+        </li>
+      
+        
+        
+        <li key="p-7-docs/react/dashboard-modal/index.html">
+          <a href="/docs/react/dashboard-modal/" class="sidebar-link">&lt;DashboardModal /></a>
+          
+        </li>
+      
+        
+        
+        <li key="p-8-docs/react/native/index.html">
+          <a href="/docs/react/native/" class="sidebar-link">React Native</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-8-Other Integrations" data-scroll="no"><a href="/docs/vue/">Other Integrations</a></h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/vue/index.html">
+          <a href="/docs/vue/" class="sidebar-link">Vue</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/svelte/index.html">
+          <a href="/docs/svelte/" class="sidebar-link">Svelte</a>
+          
+        </li>
+      
+    </ul>
+
+    
+    
+    
+        
+        <h3 id="" key="category-9-Contributing" data-scroll="no"><a href="/docs/contributing/">Contributing</a></h3>
+        
+    
+    <ul>
+      
+        
+        
+        <li key="p-0-docs/contributing.html">
+          <a href="/docs/contributing.html" class="sidebar-link">Contributing</a>
+          
+        </li>
+      
+        
+        
+        <li key="p-1-docs/writing-plugins/index.html">
+          <a href="/docs/writing-plugins/" class="sidebar-link">Writing Plugins</a>
+          
+        </li>
+      
+    </ul>
+
+
+    </div>
+
+    <ul class="Social">
+  <li><a href="https://twitter.com/uppy_io" target="_blank" rel="noopener" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @uppy_io</a></li>
+  <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+  <!-- to regenerate you can use this link: https://img.shields.io/badge/community-forum-d8006a.svg -->
+  <li><a href="https://community.transloadit.com/c/uppy" target="_blank" rel="noopener"><img src="/images/community-forum-d8006a.svg" /> </a></li>
+  <li class="BuildBadge">
+   <span class="wrapper">
+     <a href="https://travis-ci.org/transloadit/uppy" target="_blank" rel="noopener"><img src="https://travis-ci.org/transloadit/uppy.svg?branch=master" alt="Build Status"></a>
+   </span>
+  </li>
+  <li class="SauceBadge">
+   <span class="wrapper">
+     <a href="https://saucelabs.com/u/transloadit-uppy" target="_blank" rel="noopener">
+       <img src="https://saucelabs.com/buildstatus/transloadit-uppy" alt="Sauce Test Status"/>
+     </a>
+   </span>
+  </li>
+</ul>
+
+    </div>
+  
+</div>
+
+
+
+<div class="Content js-Content docs with-sidebar">
+    <h1>AWS S3</h1>
+    <html><head></head><body><p>The <code>@uppy/aws-s3</code> plugin can be used to upload files directly to an S3 bucket.<br>Uploads can be signed using either <a href="/docs/companion">Companion</a> or a custom signing function.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="token keyword">const</span> <span class="token maybe-class-name">AwsS3</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@uppy/aws-s3'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> ms <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ms'</span><span class="token punctuation">)</span>
+
+uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">AwsS3</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  limit<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+  timeout<span class="token operator">:</span> <span class="token function">ms</span><span class="token punctuation">(</span><span class="token string">'1 minute'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  companionUrl<span class="token operator">:</span> <span class="token string">'https://uppy-companion.myapp.com/'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p>There are broadly two ways of uploading to S3 in a browser. A server can generate a presigned URL for a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html" target="_blank" rel="noopener">PUT upload</a>, or a server can generate form data for a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOST.html" target="_blank" rel="noopener">POST upload</a>. Companion uses a POST upload. See <a href="#POST-uploads">POST Uploads</a> for some caveats if you would like to use POST uploads without Companion. See <a href="#example-presigned-url">Generating a presigned upload URL server-side</a> for an example of a PUT upload.</p>
+<p>There is also a separate plugin for S3 Multipart uploads. Multipart in this sense refers to Amazon’s proprietary chunked, resumable upload mechanism for large files. See the <a href="/docs/aws-s3-multipart"><code>@uppy/aws-s3-multipart</code></a> documentation.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>This plugin is published as the <code>@uppy/aws-s3</code> package.</p>
+<p>Install from NPM:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="token function">npm</span> <span class="token function">install</span> @uppy/aws-s3</pre></td></tr></table></figure>
+<p>In the <a href="/docs/#With-a-script-tag">CDN package</a>, it is available on the <code>Uppy</code> global object:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="token keyword">const</span> <span class="token maybe-class-name">AwsS3</span> <span class="token operator">=</span> <span class="token maybe-class-name">Uppy</span><span class="token punctuation">.</span><span class="token property-access"><span class="token maybe-class-name">AwsS3</span></span></pre></td></tr></table></figure>
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><p>The <code>@uppy/aws-s3</code> plugin has the following configurable options:</p>
+<h3 id="id-39-AwsS3-39"><a href="#id-39-AwsS3-39" class="headerlink" title="id: 'AwsS3'"></a><code>id: 'AwsS3'</code></h3><p>A unique identifier for this plugin. Defaults to <code>'AwsS3'</code>.</p>
+<h3 id="companionUrl"><a href="#companionUrl" class="headerlink" title="companionUrl"></a><code>companionUrl</code></h3><p>When using <a href="/docs/companion">Companion</a> to sign S3 uploads, set this option to the root URL of the Companion instance.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre>uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">AwsS3</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  companionUrl<span class="token operator">:</span> <span class="token string">'https://uppy-companion.my-app.com/'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<h3 id="companionHeaders"><a href="#companionHeaders" class="headerlink" title="companionHeaders: {}"></a><code>companionHeaders: {}</code></h3><blockquote>
+<p>Note: This only applies when using <a href="/docs/companion">Companion</a> to sign S3 uploads.</p>
+</blockquote>
+<p>Custom headers that should be sent along to <a href="/docs/companion">Companion</a> on every request.</p>
+<h3 id="metaFields"><a href="#metaFields" class="headerlink" title="metaFields: []"></a><code>metaFields: []</code></h3><p>Pass an array of field names to specify the metadata fields that should be stored in S3 as Object Metadata. This takes values from each file’s <code>file.meta</code> property.</p>
+<ul>
+<li>Set this to <code>['name']</code> to only send the name field.</li>
+<li>Set this to an empty array <code>[]</code> (the default) to not send any fields.</li>
+</ul>
+<h3 id="getUploadParameters-file"><a href="#getUploadParameters-file" class="headerlink" title="getUploadParameters(file)"></a><code>getUploadParameters(file)</code></h3><blockquote>
+<p>Note: When using <a href="/docs/companion">Companion</a> to sign S3 uploads, do not define this option.</p>
+</blockquote>
+<p>A function that returns upload parameters for a file.<br>Parameters should be returned as an object, or a Promise for an object, with keys <code>{ method, url, fields, headers }</code>.</p>
+<p>The <code>method</code> field is the HTTP method to be used for the upload.<br>This should be one of either <code>PUT</code> or <code>POST</code>, depending on the type of upload used.</p>
+<p>The <code>url</code> field is the URL to which the upload request will be sent.<br>When using a presigned PUT upload, this should be the URL to the S3 object with signing parameters included in the query string.<br>When using a POST upload with a policy document, this should be the root URL of the bucket.</p>
+<p>The <code>fields</code> field is an object with form fields to send along with the upload request.<br>For presigned PUT uploads, this should be left empty.</p>
+<p>The <code>headers</code> field is an object with request headers to send along with the upload request.<br>When using a presigned PUT upload, it’s a good idea to provide <code>headers['content-type']</code>. That will ensure that the request uses the same content-type that was used to generate the signature. Without it, the browser may decide on a different content-type instead, causing S3 to reject the upload.</p>
+<h3 id="timeout-30-1000"><a href="#timeout-30-1000" class="headerlink" title="timeout: 30 * 1000"></a><code>timeout: 30 * 1000</code></h3><p>When no upload progress events have been received for this amount of milliseconds, assume the connection has an issue and abort the upload. This is passed through to <a href="/docs/xhrupload#timeout-30-1000">XHRUpload</a>; see its documentation page for details.<br>Set to <code>0</code> to disable this check.</p>
+<p>The default is 30 seconds.</p>
+<h3 id="limit-0"><a href="#limit-0" class="headerlink" title="limit: 0"></a><code>limit: 0</code></h3><p>Limit the amount of uploads going on at the same time. This is passed through to <a href="/docs/xhrupload#limit-0">XHRUpload</a>; see its documentation page for details.<br>Set to <code>0</code> to disable limiting.</p>
+<h3 id="getResponseData-responseText-response"><a href="#getResponseData-responseText-response" class="headerlink" title="getResponseData(responseText, response)"></a><code>getResponseData(responseText, response)</code></h3><blockquote>
+<p>This is an advanced option intended for use with <em>almost</em> S3-compatible storage solutions.</p>
+</blockquote>
+<p>Customize response handling once an upload is completed. This passes the function through to @uppy/xhr-upload, see its <a href="https://uppy.io/docs/xhr-upload/#getResponseData-responseText-response">documentation</a> for API details.</p>
+<p>This option is useful when uploading to an S3-like service that doesn’t reply with an XML document, but with something else such as JSON.</p>
+<h3 id="locale"><a href="#locale" class="headerlink" title="locale: {}"></a><code>locale: {}</code></h3><p>Localize text that is shown to the user.</p>
+<p>The default English strings are:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre>strings<span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Shown in the StatusBar while the upload is being signed.</span>
+  preparingUpload<span class="token operator">:</span> <span class="token string">'Preparing upload...'</span>
+<span class="token punctuation">}</span></pre></td></tr></table></figure>
+<h2 id="S3-Bucket-configuration"><a href="#S3-Bucket-configuration" class="headerlink" title="S3 Bucket configuration"></a>S3 Bucket configuration</h2><p>S3 buckets do not allow public uploads by default.<br>In order to allow Uppy to upload directly to a bucket, at least its CORS permissions need to be configured, and you potentially need to change some of the <em>Public access settings</em> that provide an extra layer of public access protection even if the correct CORS permissions are in place.</p>
+<p>CORS permissions can be found in the <a href="https://console.aws.amazon.com/s3/home" target="_blank" rel="noopener">S3 Management Console</a>.<br>Click the bucket that will receive the uploads, then go into the “Permissions” tab and select the “CORS configuration” button.<br>An XML document will be shown that contains the CORS configuration.</p>
+<p>It is good practice to use two CORS rules: one for viewing the uploaded files, and one for uploading files.</p>
+<p>Depending on which settings were enabled during bucket creation, AWS S3 may have defined a CORS rule that allows public reading already.<br>This rule looks like:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CORSRule</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedOrigin</span><span class="token punctuation">></span></span>*<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedOrigin</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedMethod</span><span class="token punctuation">></span></span>GET<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedMethod</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MaxAgeSeconds</span><span class="token punctuation">></span></span>3000<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>MaxAgeSeconds</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CORSRule</span><span class="token punctuation">></span></span></pre></td></tr></table></figure>
+<p>If uploaded files should be publically viewable, but a rule like this is not present, add it.</p>
+<p>A different <code>&lt;CORSRule&gt;</code> is necessary to allow uploading.<br>This rule should come <em>before</em> the existing rule, because S3 only uses the first rule that matches the origin of the request.</p>
+<p>At minimum, the domain from which the uploads will happen must be whitelisted, and the definitions from the previous rule must be added:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedOrigin</span><span class="token punctuation">></span></span>https://my-app.com<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedOrigin</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedMethod</span><span class="token punctuation">></span></span>GET<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedMethod</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MaxAgeSeconds</span><span class="token punctuation">></span></span>3000<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>MaxAgeSeconds</span><span class="token punctuation">></span></span></pre></td></tr></table></figure>
+<p>When using Companion, which generates a POST policy document, the following permissions must be granted:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedMethod</span><span class="token punctuation">></span></span>POST<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedMethod</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedHeader</span><span class="token punctuation">></span></span>Authorization<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedHeader</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedHeader</span><span class="token punctuation">></span></span>x-amz-date<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedHeader</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedHeader</span><span class="token punctuation">></span></span>x-amz-content-sha256<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedHeader</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedHeader</span><span class="token punctuation">></span></span>content-type<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedHeader</span><span class="token punctuation">></span></span></pre></td></tr></table></figure>
+<p>When using a presigned upload URL, the following permissions must be granted:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedMethod</span><span class="token punctuation">></span></span>PUT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedMethod</span><span class="token punctuation">></span></span></pre></td></tr></table></figure>
+<p>The final configuration should look something like this:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CORSConfiguration</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://s3.amazonaws.com/doc/2006-03-01/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CORSRule</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedOrigin</span><span class="token punctuation">></span></span>https://my-app.com<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedOrigin</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedMethod</span><span class="token punctuation">></span></span>GET<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedMethod</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedMethod</span><span class="token punctuation">></span></span>POST<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedMethod</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MaxAgeSeconds</span><span class="token punctuation">></span></span>3000<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>MaxAgeSeconds</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedHeader</span><span class="token punctuation">></span></span>Authorization<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedHeader</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedHeader</span><span class="token punctuation">></span></span>x-amz-date<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedHeader</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedHeader</span><span class="token punctuation">></span></span>x-amz-content-sha256<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedHeader</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedHeader</span><span class="token punctuation">></span></span>content-type<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedHeader</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CORSRule</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CORSRule</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedOrigin</span><span class="token punctuation">></span></span>*<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedOrigin</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AllowedMethod</span><span class="token punctuation">></span></span>GET<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AllowedMethod</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MaxAgeSeconds</span><span class="token punctuation">></span></span>3000<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>MaxAgeSeconds</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CORSRule</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CORSConfiguration</span><span class="token punctuation">></span></span></pre></td></tr></table></figure>
+<p>Even with these CORS rules in place, you browser might still encounter HTTP status 403 responses with <code>AccessDenied</code> in the response body when it tries to <code>POST</code> to your bucket. In this case, within the “Permissions” tab of the <a href="https://console.aws.amazon.com/s3/home" target="_blank" rel="noopener">S3 Management Console</a>, choose “Public access settings”.</p>
+<p>It will list general <em>Public access settings for this bucket</em>, which can override the rules imposed by your CORS settings. Click on <em>edit</em> to manage these settings. Under <em>Manage public access control lists (ACLs) for this bucket</em>, make sure that <em>Block new public ACLs and uploading public objects (Recommended)</em> is unchecked, and <em>Save</em> these settings.</p>
+<p>In-depth documentation about CORS rules is available on the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html" target="_blank" rel="noopener">AWS documentation site</a>.</p>
+<h2 id="POST-uploads"><a href="#POST-uploads" class="headerlink" title="POST uploads"></a>POST uploads</h2><p>Companion uses POST uploads by default, but you can also use them with your own endpoints. There are a few things to be aware of when doing so:</p>
+<ul>
+<li>The <code>@uppy/aws-s3</code> plugin attempts to read the <code>&lt;Location&gt;</code> XML tag from POST upload responses. S3 does not respond with an XML document by default. When generating the form data for POST uploads, you must set the <code>success_action_status</code> field to <code>201</code>.<figure class="highlight js"><table><tr><td class="code"><pre><span class="token comment">// `s3` is an instance of the AWS JavaScript SDK's S3 client</span>
+s3<span class="token punctuation">.</span><span class="token method function property-access">createPresignedPost</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token spread operator">...</span><span class="token punctuation">,</span>
+  <span class="token maybe-class-name">Fields</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token spread operator">...</span><span class="token punctuation">,</span>
+    success_action_status<span class="token operator">:</span> <span class="token string">'201'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="S3-alternatives"><a href="#S3-alternatives" class="headerlink" title="S3 alternatives"></a>S3 alternatives</h2><p>Many other object storage providers have an identical API to S3, so you can use the <code>@uppy/aws-s3</code> plugin with them as well. To use them with Companion, you can set the <code>COMPANION_AWS_ENDPOINT</code> variable to the endpoint of your preferred service.</p>
+<h3 id="DigitalOcean-Spaces"><a href="#DigitalOcean-Spaces" class="headerlink" title="DigitalOcean Spaces"></a>DigitalOcean Spaces</h3><p>For example, with DigitalOcean Spaces, you could do something like this:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">COMPANION_AWS_ENDPOINT</span><span class="token operator">=</span><span class="token string">"https://{region}.digitaloceanspaces.com"</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">COMPANION_AWS_BUCKET</span><span class="token operator">=</span><span class="token string">"my-space-name"</span></pre></td></tr></table></figure>
+<p>The <code>{region}</code> string will be replaced by the contents of the <code>COMPANION_AWS_REGION</code> environment variable.</p>
+<p>For a working example that you can run and play around with, see the <a href="https://github.com/transloadit/uppy/tree/master/examples/digitalocean-spaces" target="_blank" rel="noopener">digitalocean-spaces</a> folder in the Uppy repository.</p>
+<h3 id="Google-Cloud-Storage"><a href="#Google-Cloud-Storage" class="headerlink" title="Google Cloud Storage"></a>Google Cloud Storage</h3><p>For Google Cloud Storage, you need to take a few more steps. For the <code>@uppy/aws-s3</code> plugin to be able to upload to a GCS bucket, it needs the Interoperability setting enabled. You can enable the Interoperability setting and <a href="https://cloud.google.com/storage/docs/migrating#keys" target="_blank" rel="noopener">generate interoperable storage access keys</a> by going to <a href="https://console.cloud.google.com/storage" target="_blank" rel="noopener">Google Cloud Storage</a> » Settings » Interoperability. Then set the environment variables for Companion like this:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable">COMPANION_AWS_ENDPOINT</span><span class="token operator">=</span><span class="token string">"https://storage.googleapis.com"</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">COMPANION_AWS_BUCKET</span><span class="token operator">=</span><span class="token string">"YOUR-GCS-BUCKET-NAME"</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">COMPANION_AWS_KEY</span><span class="token operator">=</span><span class="token string">"GOOGxxxxxxxxx"</span> <span class="token comment"># The Access Key</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">COMPANION_AWS_SECRET</span><span class="token operator">=</span><span class="token string">"YOUR-GCS-SECRET"</span> <span class="token comment"># The Secret</span></pre></td></tr></table></figure>
+<p>You do not need to configure the region with GCS.</p>
+<p>You also need to configure CORS differently. Unlike Amazon, Google does not offer a UI for CORS configurations. Instead, an HTTP API must be used. If you haven’t done this already, see <a href="https://cloud.google.com/storage/docs/configuring-cors#Configuring-CORS-on-a-Bucket" target="_blank" rel="noopener">Configuring CORS on a Bucket</a> in the GCS documentation, or follow the steps below to do it using Google’s API playground.</p>
+<p>GCS has multiple CORS formats, both XML and JSON. Unfortunately, their XML format is different from Amazon’s, so we can’t simply use the one from the <a href="#S3-Bucket-configuration">S3 Bucket configuration</a> section. Google appears to favour the JSON format, so we will use that.</p>
+<h4 id="JSON-CORS-configuration"><a href="#JSON-CORS-configuration" class="headerlink" title="JSON CORS configuration"></a>JSON CORS configuration</h4><p>The JSON format consists of an array of CORS configuration objects. An example using POST policy document uploads is shown here:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="token punctuation">{</span>
+  <span class="token property">"cors"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"origin"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"https://my-app.com"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"method"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"GET"</span><span class="token punctuation">,</span> <span class="token string">"POST"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"maxAgeSeconds"</span><span class="token operator">:</span> <span class="token number">3000</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"origin"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"*"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"method"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"GET"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"maxAgeSeconds"</span><span class="token operator">:</span> <span class="token number">3000</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></pre></td></tr></table></figure>
+<p>Most AWS configurations should be fairly simple to port to this format. When using presigned <code>PUT</code> uploads, replace the <code>"POST"</code> method by <code>"PUT"</code> in the first entry.</p>
+<p>If you have the <a href="https://cloud.google.com/storage/docs/gsutil" target="_blank" rel="noopener">gsutil</a> command-line tool, you can apply this configuration using the <a href="https://cloud.google.com/storage/docs/configuring-cors#configure-cors-bucket" target="_blank" rel="noopener">gsutil cors</a> command.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre>gsutil cors <span class="token builtin class-name">set</span> THAT-FILE.json gs://BUCKET-NAME</pre></td></tr></table></figure>
+<p>Otherwise, you can manually apply it through the OAuth playground:</p>
+<ol>
+<li>Get a temporary API token from the <a href="https://developers.google.com/oauthplayground/" target="_blank" rel="noopener">Google OAuth2.0 playground</a><ol>
+<li>Select the “Cloud Storage JSON API v1” » “devstorage.full_control” scope</li>
+<li>Press “Authorize APIs” and allow access</li>
+</ol>
+</li>
+<li>Click “Step 3 - Configure request to API”</li>
+<li>Configure it as follows:<ul>
+<li>HTTP Method: PATCH</li>
+<li>Request URI: <code>https://www.googleapis.com/storage/v1/b/YOUR_BUCKET_NAME</code></li>
+<li>Content-Type: application/json (should be the default)</li>
+<li>Press “Enter request body” and input your CORS configuration</li>
+</ul>
+</li>
+<li>Then, finally, press “Send the request”.</li>
+</ol>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p><a id="example-presigned-url"></a></p>
+<h3 id="Generating-a-presigned-upload-URL-server-side"><a href="#Generating-a-presigned-upload-URL-server-side" class="headerlink" title="Generating a presigned upload URL server-side"></a>Generating a presigned upload URL server-side</h3><p>The <code>getUploadParameters</code> function can return a Promise, so upload parameters can be prepared server-side.<br>That way, no private keys to the S3 bucket need to be shared on the client.<br>For example, there could be a PHP server endpoint that prepares a presigned URL for a file:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre>uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">AwsS3</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token function">getUploadParameters</span> <span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Send a request to our PHP signing endpoint.</span>
+    <span class="token keyword control-flow">return</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/s3-sign.php'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      method<span class="token operator">:</span> <span class="token string">'post'</span><span class="token punctuation">,</span>
+      <span class="token comment">// Send and receive JSON.</span>
+      headers<span class="token operator">:</span> <span class="token punctuation">{</span>
+        accept<span class="token operator">:</span> <span class="token string">'application/json'</span><span class="token punctuation">,</span>
+        <span class="token string">'content-type'</span><span class="token operator">:</span> <span class="token string">'application/json'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      body<span class="token operator">:</span> <span class="token known-class-name class-name">JSON</span><span class="token punctuation">.</span><span class="token method function property-access">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        filename<span class="token operator">:</span> file<span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">,</span>
+        contentType<span class="token operator">:</span> file<span class="token punctuation">.</span><span class="token property-access">type</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token comment">// Parse the JSON response.</span>
+      <span class="token keyword control-flow">return</span> response<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token comment">// Return an object in the correct shape.</span>
+      <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+        method<span class="token operator">:</span> data<span class="token punctuation">.</span><span class="token property-access">method</span><span class="token punctuation">,</span>
+        url<span class="token operator">:</span> data<span class="token punctuation">.</span><span class="token property-access">url</span><span class="token punctuation">,</span>
+        fields<span class="token operator">:</span> data<span class="token punctuation">.</span><span class="token property-access">fields</span><span class="token punctuation">,</span>
+        <span class="token comment">// Provide content type header required by S3</span>
+        headers<span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token string">'Content-Type'</span><span class="token operator">:</span> file<span class="token punctuation">.</span><span class="token property-access">type</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p>See the <a href="https://github.com/transloadit/uppy/tree/master/examples/aws-presigned-url" target="_blank" rel="noopener">aws-presigned-url example in the uppy repository</a> for a small example that implements both the server-side and the client-side.</p>
+<h3 id="Retrieving-presign-parameters-of-the-uploaded-file"><a href="#Retrieving-presign-parameters-of-the-uploaded-file" class="headerlink" title="Retrieving presign parameters of the uploaded file"></a>Retrieving presign parameters of the uploaded file</h3><p>Once the file is uploaded, it is possible to retrieve the parameters that were<br>generated in <code>getUploadParameters(file)</code> via the <code>file.meta</code> field:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre>uppy<span class="token punctuation">.</span><span class="token method function property-access">on</span><span class="token punctuation">(</span><span class="token string">'upload-success'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">file<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  file<span class="token punctuation">.</span><span class="token property-access">meta</span><span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span> <span class="token comment">// the S3 object key of the uploaded file</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></body></html>
+    
+    
+
+    
+    <div class="footer">Caught a mistake or want to contribute to the documentation?
+       <a href="https://github.com/transloadit/uppy/blob/master/website/src/docs/aws-s3.md" rel="noreferrer noopener" target="_blank">Edit/fork this page directly on Github</a>!
+    </div>
+</div>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+        <!-- Place this tag in your head or just before your close body tag. -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>

@@ -1,0 +1,394 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Uppy 0.28: A look behind the scenes — Uppy</title>
+    <meta charset="utf-8">
+    <meta name="title" content="Uppy 0.28: A look behind the scenes — Uppy">
+    <meta name="description" content="
+
+In 0.28, we are introducing a new “Single Upload” mode, improving on the Status Bar plugin with a spinner and different pause/resume/cancel buttons. We’ll also share some progress on bringing back unified locale packs and a Transloadit Preset 🍁">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/blog/2018/11/0.28/index.html">
+    <meta property="og:title" content="Uppy 0.28: A look behind the scenes — Uppy">
+    <meta name="twitter:title" content="Uppy 0.28: A look behind the scenes — Uppy">
+    <meta name="twitter:description" content="
+
+In 0.28, we are introducing a new “Single Upload” mode, improving on the Status Bar plugin with a spinner and different pause/resume/cancel buttons. We’ll also share some progress on bringing back unified locale packs and a Transloadit Preset 🍁">
+    <meta property="og:image" content="https://uppy.io/images/blog/0.28/dashboard-uploading.jpg">
+    <meta name="twitter:image" content="https://uppy.io/images/blog/0.28/dashboard-uploading.jpg">
+    
+    <meta name="google-site-verification" content="JxARoHXoCI8bD07pLV_u3z6xpuWNcSIZIcHEytyCkUc" />
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy" href="/atom.xml">
+
+    <script>
+      window.PAGE_TYPE = ""
+    </script>
+    
+<link rel="stylesheet" href="/css/main.css?version=2">
+
+    <!-- ^ poor man's solution to css cache busting. bump the version when there's something new we really want users to see -->
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body class="page-inner ">
+    <div class="page">
+      <div class="TransloaditBar js-TransloaditBar">
+        <div class="TransloaditBar-about">
+          <a class="TransloaditBar-logo" href="https://transloadit.com/" target="_blank" rel="noopener noreferrer">
+            <img class="TransloaditBar-logoImg" src="/images/transloadit-white-glyph.svg" width="20" height="20" alt="Transloadit">
+          </a>
+          <span>Uppy is an open source project by <a class="TransloaditBar-link" href="https://transloadit.com/" target="_blank">Transloadit</a></span>
+        </div>
+        <div class="TransloaditBar-info">
+          <b>New: </b><a href="https://www.transloadit.com/pricing" target="_blank" rel="noopener" class="TransloaditBar-info-link">Transloadit Community Plan</a> — get free hosted Companion &amp; tusd, unlimited uploading, and 5GB/month encoding traffic!
+        </div>
+      </div>
+
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <span id="logo" class="MainLogo">
+          <a class="MainLogo-link" href="/">Uppy</a>
+          <!-- Was used for 1.0, we can re-use for 2.0 or major announcements -->
+          <!-- <a class="MainLogo-version" href="/blog/2019/04/1.0/">
+            1.0
+            <span class="MainLogo-emoji">
+              <img src="/images/party-popper.png" srcset="/images/party-popper@2x.png 2x" alt="🎉">
+            </span>
+          </a> -->
+        </span>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link current">Blog</a></li>
+<li><a href="/support/" class="nav-link">Support</a></li>
+<li><a href="https://github.com/transloadit/uppy" target="_blank" rel="noopener" class="nav-link">GitHub</a></li>
+
+          </ul>
+        </nav>
+
+        <div class="MainHeader-tagline">
+          The file uploader that <span class="MainHeader-taglinePart js-MainHeader-taglinePart is-visible">loves to play fetch</span>
+        </div>
+
+        <ul class="MainHeader-taglineList js-MainHeader-taglineList">
+          
+          <li>won’t chew on your shoes</li>
+          
+          <li>is fully housebroken</li>
+          
+          <li>just wants to play with you</li>
+          
+          <li>doesn’t hump your leg</li>
+          
+          <li>also accepts cat pictures</li>
+          
+          <li>loves you unconditionally</li>
+          
+          <li>you don’t have to keep on a leash</li>
+          
+          <li>won’t pee on your rug</li>
+          
+          <li>loves to play fetch</li>
+          
+          <li>doesn’t bite (hard)</li>
+          
+          <li>won’t bark at the mailman</li>
+          
+          <li>is great with the kids</li>
+          
+          <li>can digest anything, even chocolate cake</li>
+          
+          <li>is always happy to see you</li>
+          
+          <li>isn’t afraid of fireworks</li>
+          
+          <li>is allowed everywhere</li>
+          
+        </ul>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          <div class="Sidebar js-Sidebar is-blog">
+    <ul class="main-menu">
+        <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link current">Blog</a></li>
+<li><a href="/support/" class="nav-link">Support</a></li>
+<li><a href="https://github.com/transloadit/uppy" target="_blank" rel="noopener" class="nav-link">GitHub</a></li>
+
+    </ul>
+    <div class="list">
+        <h2>
+            Recent Posts
+            <a href="/atom.xml" rel="noreferrer noopener" target="_blank" style="vertical-align: middle; margin-left: 5px">
+                <img src="/images/feed.png" style="width:15px;height:15px">
+            </a>
+        </h2>
+
+        <ul>
+  
+  <li>
+    <a href="/blog/2020/12/1.24/" class="sidebar-link">Uppy 1.24: 🎅 Happy Holidays — Svelte, React hook, Auto Open Image Editor</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/11/1.23/" class="sidebar-link">Uppy 1.23: Vue.js, Box, Done button and cloud file restrictions</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/10/1.22/" class="sidebar-link">🎃 Uppy 1.22: Webcam camera source, Unsplash and maxTotalFileSize</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/09/companion-2.0/" class="sidebar-link">Companion 2.0 is here</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/07/1.18-image-editor/" class="sidebar-link">Image Editor 🌈</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/04/1.13/" class="sidebar-link">Uppy 1.11 — 1.13: Dark Mode, custom meta fields and Google Docs in Companion</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/04/1.10/" class="sidebar-link">Uppy 1.10.1: Facebook and OneDrive</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/03/1.9/" class="sidebar-link">Uppy 1.8 and 1.9: security, error handling and better types</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2020/01/1.7/" class="sidebar-link">Uppy 1.7: A Small One</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/11/1.6/" class="sidebar-link">Uppy 1.6: setOptions(), Icelandic and Thai</a>
+  </li>
+  
+  <li>
+    <a href="/blog/2019/10/1.5/" class="sidebar-link">Uppy 1.5: Facebook and OneDrive (beta) support, upload cancellation</a>
+  </li>
+  
+</ul>
+        <ul class="Social">
+  <li><a href="https://twitter.com/uppy_io" target="_blank" rel="noopener" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @uppy_io</a></li>
+  <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+  <!-- to regenerate you can use this link: https://img.shields.io/badge/community-forum-d8006a.svg -->
+  <li><a href="https://community.transloadit.com/c/uppy" target="_blank" rel="noopener"><img src="/images/community-forum-d8006a.svg" /> </a></li>
+  <li class="BuildBadge">
+   <span class="wrapper">
+     <a href="https://travis-ci.org/transloadit/uppy" target="_blank" rel="noopener"><img src="https://travis-ci.org/transloadit/uppy.svg?branch=master" alt="Build Status"></a>
+   </span>
+  </li>
+  <li class="SauceBadge">
+   <span class="wrapper">
+     <a href="https://saucelabs.com/u/transloadit-uppy" target="_blank" rel="noopener">
+       <img src="https://saucelabs.com/buildstatus/transloadit-uppy" alt="Sauce Test Status"/>
+     </a>
+   </span>
+  </li>
+</ul>
+
+    </div>
+</div>
+
+
+<div class="Content js-Content with-sidebar">
+    
+  <h1>Uppy 0.28: A look behind the scenes</h1>
+  <h4>Monday Nov 5, 2018</h4>
+    
+    <html><head></head><body><img class="border" src="/images/blog/0.28/dashboard-uploading.jpg">
+
+<p>In <code>0.28</code>, we are introducing a new “Single Upload” mode, improving on the Status Bar plugin with a spinner and different pause/resume/cancel buttons. We’ll also share some progress on bringing back unified locale packs and a Transloadit Preset 🍁</p>
+<a id="more"></a>
+
+<h2 id="Single-Uploads"><a href="#Single-Uploads" class="headerlink" title="Single Uploads"></a>Single Uploads</h2><p>Uppy has been flexible about uploading lots of things from the start. You can add files at any time, even after uploads have already started. This is neat, but not always the desired behaviour: sometimes, you just want to upload a few files together with a form. In that case, it’s useful to allow users to only upload a set of files <em>once</em>. 0.28.0 adds some options to help with that!</p>
+<p>An upload in Uppy terminology can be more than one file. Users can add a bunch of files and when they press “Upload”, all those files are bunched up into an upload. They can then add more files and press the “Upload” button again: the <em>new</em> files are bunched into a second upload.</p>
+<p>The new <a href="https://uppy.io/docs/uppy/#allowMultipleUploads-true"><code>allowMultipleUploads</code></a> option in Uppy Core can be set to <code>false</code> to only allow a single one of those uploads. Once an upload is started, the Dashboard and Status Bar no longer show “add files” and “upload” buttons. You can listen for a ‘complete’ event and then safely continue your app’s form flow.</p>
+<p>The Dashboard also has a new option: <a href="https://uppy.io/docs/dashboard/#closeAfterFinish-false"><code>closeAfterFinish</code></a>. When <code>true</code>, the modal Dashboard will automatically hide once an upload has completed. You should only use this option in conjunction with <code>allowMultipleUploads</code>, otherwise it might close the Dashboard when the user isn’t done yet! It can only be used with the modal Dashboard, when <a href="https://uppy.io/docs/dashboard/#inline-false"><code>inline</code></a> is set to <code>false</code>. “Closing” an inline Dashboard makes no sense :smile: You will see a warning in the console in both cases, so you don’t have to remember all that.</p>
+<p>Speaking of the Dashboard, it now also shows more statuses in the title bar: “Upload complete”, “Upload paused”, “Processing 5 files” and “Uploading 5 files”.</p>
+<h2 id="Status-Bar-improvements"><a href="#Status-Bar-improvements" class="headerlink" title="Status Bar improvements"></a>Status Bar improvements</h2><ul>
+<li>⚠️ <strong>breaking</strong> We’ve added separate options for hiding pause/resume and cancel buttons. So now there are several options for buttons: <code>hideUploadButton</code>, <code>hideRetryButton</code>, <code>hidePauseResumeButton</code> and <code>hideCancelButton</code>. These options can be passed from the Dashboard, if you are not using Status Bar separately (most common case). See the docs for more info: <a href="https://uppy.io/docs/status-bar/">https://uppy.io/docs/status-bar/</a>.</li>
+<li>The Status Bar now features a spinner animation when upload is in progress.</li>
+<li>Encoding (with the Transloadit plugin, for example) and uploading progress now get different colors, so it’s easier to tell what’s happening, visually.</li>
+</ul>
+<img class="border" style="border-top: 0;" src="/images/blog/0.28/status-bar-uploading.png">
+
+<img class="border" style="border-top: 0;" src="/images/blog/0.28/status-bar-paused.png">
+
+<img class="border" style="border-top: 0;" src="/images/blog/0.28/status-bar-encoding.png">
+
+<img class="border" style="border-top: 0;" src="/images/blog/0.28/status-bar-complete.png">
+
+<h2 id="Locale-packs"><a href="#Locale-packs" class="headerlink" title="Locale packs"></a>Locale packs</h2><p>In the beginning, we used to have unified locale packs for text strings in Uppy — English, Russian, German, Polish, etc. Then we made a switch to per-plugin locales, and the ability to load one file with locale strings in any language (locale pack) was lost for a while. This release is the first step in bringing this functionality back.</p>
+<p>With this change, you can load a locale pack like so: <code>const uppy = Uppy({locale: german})</code>, then still override specific strings in a certain plugin, if needed:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="token keyword">const</span> uppy <span class="token operator">=</span> <span class="token function"><span class="token maybe-class-name">Uppy</span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>locale<span class="token operator">:</span> german<span class="token punctuation">}</span><span class="token punctuation">)</span>
+uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Dashboard</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  trigger<span class="token operator">:</span> <span class="token string">'#pick-files'</span><span class="token punctuation">,</span>
+  locale<span class="token operator">:</span> <span class="token punctuation">{</span>
+    strings<span class="token operator">:</span> <span class="token punctuation">{</span>
+      dropPasteImport<span class="token operator">:</span> <span class="token string">'Something else here, %{browse} or this'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p>The benefit to this is that there will be a central point of configuration for languages, so there could be language packs with strings for, e.g., Czech at @uppy/lang-cz (or @uppy/langs/cz) that would be very easy to contribute to (or use).</p>
+<p>After Uppy 0.28.0, this functionality is technically possible, but we still need to update and publish locale packs for multiple languages.</p>
+<h2 id="Hosted-Companion-with-Transloadit"><a href="#Hosted-Companion-with-Transloadit" class="headerlink" title="Hosted Companion with Transloadit"></a>Hosted Companion with Transloadit</h2><p>When using remote providers such as Google Drive and Dropbox, so that your users can pick files from these sources, you can host <a href="https://uppy.io/docs/companion/">Companion</a> yourself, or use the one provided by Transloadit. And to simplify the latter, you can now use <code>Transloadit.COMPANION</code> and <code>Transloadit.COMPANION_PATTERN</code> constants in remote provider options:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="token keyword">const</span> <span class="token maybe-class-name">Dropbox</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@uppy/dropbox'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token maybe-class-name">Transloadit</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@uppy/transloadit'</span><span class="token punctuation">)</span>
+
+uppy<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Dropbox</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  serverUrl<span class="token operator">:</span> <span class="token maybe-class-name">Transloadit</span><span class="token punctuation">.</span><span class="token constant">COMPANION</span>
+  serverPattern<span class="token operator">:</span> <span class="token maybe-class-name">Transloadit</span><span class="token punctuation">.</span><span class="token constant">COMPANION_PATTERN</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+<p>Please see <a href="https://uppy.io/docs/transloadit/">Transloadit plugin documentation</a> for more details.</p>
+<h2 id="Transloadit-Preset"><a href="#Transloadit-Preset" class="headerlink" title="Transloadit Preset"></a>Transloadit Preset</h2><p>Lately, we’ve been working on a wrapper package around Uppy and the <a href="https://uppy.io/docs/transloadit/">Transloadit plugin</a> that will make common Transloadit-based workflows much simpler to implement. It’s not ready just yet, but it should land in the next month!</p>
+<p>This “preset” will provide three or so simple methods:</p>
+<ul>
+<li><code>transloadit.form()</code>, to enhance a form with existing file <code>&lt;input&gt;</code>s with Transloadit encoding capabilities, powered by Uppy’s resilient uploading plugins</li>
+<li><code>transloadit.modal()</code>, to show a one-off modal Dashboard that uploads to Transloadit’s encoding backend</li>
+<li><code>transloadit.upload()</code>, to instruct Uppy to upload files, using your own UI instead</li>
+</ul>
+<p>Stay tuned!</p>
+<h2 id="Other-Cool-Changes"><a href="#Other-Cool-Changes" class="headerlink" title="Other Cool Changes"></a>Other Cool Changes</h2><ul>
+<li>@uppy/core: ⚠️ <strong>breaking</strong> remove <code>upload-cancel</code> event, <code>file-removed</code> should be enough, see <a href="https://github.com/transloadit/uppy/pull/1069" target="_blank" rel="noopener">#1069</a> for details</li>
+<li>@uppy/companion: ⚠️ <strong>breaking</strong> Migrated provider adapter to Companion: saves 5KB on the frontend, all heavy lifting moved to the server side</li>
+<li>@uppy/companion: Removed an erroneous TypeScript dependency that added 40MB to the install size</li>
+<li>@uppy/thumbnail-generator: You can now constrain thumbnail height, thanks to @richartkeil, see <a href="https://github.com/transloadit/uppy/pull/1096" target="_blank" rel="noopener">#1096</a> for documentation (we are planning to add real Thumbnail Generator documentation soon, too!)</li>
+<li>@uppy/webcam: Fix getting data from Webcam recording if mime type includes codec metadata (<a href="https://github.com/transloadit/uppy/pull/1094" target="_blank" rel="noopener">#1094</a> / @goto-bus-stop)</li>
+<li>meta: Added integration tests (in real browsers, thanks to Sauce Labs) for @uppy/url, @uppy/transloadit and @uppy/thumbnail-generator 🚀</li>
+</ul>
+<p>See <a href="https://github.com/transloadit/uppy/blob/master/CHANGELOG.md#0280" target="_blank" rel="noopener">full changelog (0.28 and 0.27.x patches) for more</a></p>
+<p>See you in the next release!</p>
+<p>The Uppy Team</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></body></html>
+
+    <center>
+        <br />
+        <a class="github-button" href="https://github.com/transloadit/uppy" data-icon="octicon-star" data-size="large"
+        data-show-count="true" aria-label="Star transloadit/uppy on GitHub">Star</a>
+    </center>
+    
+        <div class="PostAuthor">
+            <a href="https://transloadit.com/about/#renee" target="_blank" rel="noopener">
+                <img class="PostAuthor-img" src="https://www.gravatar.com/avatar/2873ddbfdaa1440797750ba605c231ac?s=200">
+                <h4 class="PostAuthor-name">Renée Kooi</h4>
+                <h5 class="PostAuthor-tagline">Developer</h5>
+            </a>
+        </div>
+    
+  <br />
+    <!-- <ul class="Social">
+        <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+                allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+    </ul> -->
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = 'https://uppy.io/blog/2018/11/0.28/';  // Replace PAGE_URL with your page's canonical URL variable
+// this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://uppy.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+                            
+</div>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+        <!-- Place this tag in your head or just before your close body tag. -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>

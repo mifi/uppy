@@ -1,0 +1,433 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Uppy</title>
+    <meta charset="utf-8">
+    <meta name="title" content="Uppy">
+    <meta name="description" content="Uppy fetches files locally and from remote places like Dropbox or Instagram. With its seamless integration, reliability and ease of use, Uppy is truly your best friend in file uploading.
+">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uppy_io">
+    <meta name="twitter:creator" content="@uppy_io">
+    <meta property="og:url" content="https://uppy.io/archives/2019/page/4/index.html">
+    <meta property="og:title" content="Uppy">
+    <meta name="twitter:title" content="Uppy">
+    <meta name="twitter:description" content="Uppy fetches files locally and from remote places like Dropbox or Instagram. With its seamless integration, reliability and ease of use, Uppy is truly your best friend in file uploading.
+">
+    <meta property="og:image" content="http://uppy.io/images/uppy-social-pink.png">
+    <meta name="twitter:image" content="http://uppy.io/images/uppy-social-pink.png">
+    
+    <meta name="google-site-verification" content="JxARoHXoCI8bD07pLV_u3z6xpuWNcSIZIcHEytyCkUc" />
+
+    <link rel="icon" href="/images/logos/uppy-dog-head-arrow.png" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="Uppy" href="/atom.xml">
+
+    <script>
+      window.PAGE_TYPE = ""
+    </script>
+    
+<link rel="stylesheet" href="/css/main.css?version=2">
+
+    <!-- ^ poor man's solution to css cache busting. bump the version when there's something new we really want users to see -->
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body class="page-inner ">
+    <div class="page">
+      <div class="TransloaditBar js-TransloaditBar">
+        <div class="TransloaditBar-about">
+          <a class="TransloaditBar-logo" href="https://transloadit.com/" target="_blank" rel="noopener noreferrer">
+            <img class="TransloaditBar-logoImg" src="/images/transloadit-white-glyph.svg" width="20" height="20" alt="Transloadit">
+          </a>
+          <span>Uppy is an open source project by <a class="TransloaditBar-link" href="https://transloadit.com/" target="_blank">Transloadit</a></span>
+        </div>
+        <div class="TransloaditBar-info">
+          <b>New: </b><a href="https://www.transloadit.com/pricing" target="_blank" rel="noopener" class="TransloaditBar-info-link">Transloadit Community Plan</a> — get free hosted Companion &amp; tusd, unlimited uploading, and 5GB/month encoding traffic!
+        </div>
+      </div>
+
+      <header id="header" class="MainHeader js-MainHeader">
+        <button class="MainHeader-menuBtn js-MenuBtn"></button>
+
+        <span id="logo" class="MainLogo">
+          <a class="MainLogo-link" href="/">Uppy</a>
+          <!-- Was used for 1.0, we can re-use for 2.0 or major announcements -->
+          <!-- <a class="MainLogo-version" href="/blog/2019/04/1.0/">
+            1.0
+            <span class="MainLogo-emoji">
+              <img src="/images/party-popper.png" srcset="/images/party-popper@2x.png 2x" alt="🎉">
+            </span>
+          </a> -->
+        </span>
+
+        <nav>
+          <ul id="nav" class="MainMenu">
+            <!-- @todo uncomment search input when we get our own swifttype -->
+<!-- <li>
+  <form id="search-form" class="MainMenu-search">
+    <input type="text" id="search-query" class="MainMenu-searchQuery st-default-search-input">
+  </form>
+</li> -->
+<!--li><a href="/guide/" class="nav-link">Guide</a></li-->
+<li><a href="/docs/" class="nav-link">Docs</a></li>
+<li><a href="/examples/dashboard/" class="nav-link">Examples</a></li>
+<!--li><a href="/stats/" class="nav-link">Stats</a></li-->
+<li><a href="/blog/" class="nav-link">Blog</a></li>
+<li><a href="/support/" class="nav-link">Support</a></li>
+<li><a href="https://github.com/transloadit/uppy" target="_blank" rel="noopener" class="nav-link">GitHub</a></li>
+
+          </ul>
+        </nav>
+
+        <div class="MainHeader-tagline">
+          The file uploader that <span class="MainHeader-taglinePart js-MainHeader-taglinePart is-visible">loves to play fetch</span>
+        </div>
+
+        <ul class="MainHeader-taglineList js-MainHeader-taglineList">
+          
+          <li>won’t chew on your shoes</li>
+          
+          <li>is fully housebroken</li>
+          
+          <li>just wants to play with you</li>
+          
+          <li>doesn’t hump your leg</li>
+          
+          <li>also accepts cat pictures</li>
+          
+          <li>loves you unconditionally</li>
+          
+          <li>you don’t have to keep on a leash</li>
+          
+          <li>won’t pee on your rug</li>
+          
+          <li>loves to play fetch</li>
+          
+          <li>doesn’t bite (hard)</li>
+          
+          <li>won’t bark at the mailman</li>
+          
+          <li>is great with the kids</li>
+          
+          <li>can digest anything, even chocolate cake</li>
+          
+          <li>is always happy to see you</li>
+          
+          <li>isn’t afraid of fireworks</li>
+          
+          <li>is allowed everywhere</li>
+          
+        </ul>
+      </header>
+
+      <main class="MainContent js-MainContent" id="main">
+        
+          <section id="hero" class="IndexHero">
+  <img class="IndexHero-logo" title="Uppy" alt="Uppy" src="/images/logos/uppy-logo-2019.svg">
+  <h1 class="IndexHero-title">
+    Sleek, modular open source JavaScript file uploader
+  </h1>
+  <div class="IndexHero-description">
+    Uppy fetches files locally and from remote places like Dropbox or Instagram. With its seamless integration, reliability and ease of use, Uppy is truly your best friend in file uploading.
+
+  </div>
+  <div class="IndexHero-buttons">
+    <a href="/docs/" class="button button--cta">Get Started</a>
+    <a href="https://github.com/transloadit/uppy" target="_blank" rel="noopener" class="button button--secondary">
+      Uppy on GitHub
+      <span class="GithubStars">★ 23652</span>
+    </a>
+  </div>
+</section>
+
+<section class="IndexLogos">
+  <div class="IndexLogos-container">
+    <h2 class="IndexLogos-title">Used by:</h2>
+    <div class="IndexLogos-logos">
+      <a href="https://www.coursera.org/" target="_blank" rel="noopener" class="IndexLogos-item IndexLogos-item--coursera">
+        <svg width="127" height="42" viewBox="0 0 127 42" xmlns="http://www.w3.org/2000/svg"><path class="coursera" d="M41.711 12.006v9.91c0 2.19 1.22 3.484 3.34 3.484 2.37 0 3.731-1.437 3.731-4.202v-9.192H53.2V29.06h-4.413v-1.975c-1.04 1.615-2.729 2.406-5.063 2.406-3.95 0-6.426-2.872-6.426-7.037v-10.45h4.414zm47.435-.323c5.027.01 8.574 4.037 8.562 8.782 0 .469-.036.937-.11 1.4L84.6 21.841c.499 2.047 2.184 3.522 4.734 3.528 1.543 0 3.196-.569 4.204-1.86l3.012 2.415c-1.55 2.188-4.281 3.476-7.188 3.47-5.131-.017-9.074-3.867-9.066-8.858.01-4.776 3.429-8.863 8.85-8.853zm28.025 0c2.693 0 4.237.826 5.278 2.406l.414-2.085h4.038V29.06h-4.038l-.521-1.756c-1.185 1.293-2.658 2.086-5.17 2.086-3.879-.006-8.296-3.417-8.296-8.731 0-5.35 4.345-8.977 8.295-8.977zm-90.489 0c5.063 0 9.084 3.952 9.084 8.833 0 4.847-4.021 8.87-9.084 8.87-5.027 0-9.048-4.027-9.048-8.87 0-4.883 4.02-8.833 9.048-8.833zm45.416-.108c2.847 0 5.37 1.26 6.74 3.603l-3.89 2.058c-.577-1.153-1.658-1.802-3.028-1.802-1.332 0-1.982.469-1.982 1.261 0 2.668 9.298.974 9.298 7.355 0 3.316-2.702 5.333-7.063 5.333-3.713-.003-6.308-1.228-7.604-4.04l3.925-2.054c.65 1.406 1.947 2.235 3.785 2.235 1.694 0 2.343-.54 2.343-1.298 0-2.744-9.299-1.08-9.299-7.354 0-3.46 3.028-5.297 6.775-5.297zm-62.951.072a9.11 9.11 0 017.647 4.061l-3.77 2.187a4.713 4.713 0 00-3.877-2.011c-2.585 0-4.704 2.155-4.704 4.632 0 2.478 2.119 4.632 4.704 4.632a4.66 4.66 0 003.985-2.195l3.733 2.226a9.105 9.105 0 01-7.419 4.199l-.301.003C4.12 29.385.099 25.359.099 20.516c0-4.918 4.02-8.869 9.048-8.869zm55.396-.081l-.815 4.122a4.287 4.287 0 00-.452-.026c-2.369.006-3.73 1.445-3.724 4.209l.024 9.19-4.416.01-.037-17.055 4.416-.01v1.976c1.028-1.605 2.699-2.398 5.004-2.416zm44.374.012l-.819 4.117a4.604 4.604 0 00-.452-.025c-2.367 0-3.732 1.436-3.732 4.2v9.191h-4.416V12.005h4.416v1.976c1.033-1.602 2.701-2.391 5.003-2.403zM26.682 15.92c-2.585 0-4.703 2.155-4.703 4.596 0 2.478 2.118 4.632 4.703 4.632 2.626 0 4.74-2.154 4.74-4.632 0-2.441-2.119-4.596-4.74-4.596zm91.244.002a4.72 4.72 0 00-4.702 4.738c0 2.37 2.119 4.488 4.705 4.488 2.618 0 4.735-2.118 4.735-4.524a4.72 4.72 0 00-4.738-4.702zm-28.823-.217c-2.047 0-3.7 1.214-4.35 3.044l8.51.015c-.249-1.723-2.041-3.056-4.16-3.059z" fill="#B7B9BB" fill-rule="nonzero"/></svg>
+
+      </a>
+      <a href="https://www.photobox.com/" target="_blank" rel="noopener" class="IndexLogos-item IndexLogos-item--photobox">
+        <svg width="161" height="42" viewBox="0 0 161 42" xmlns="http://www.w3.org/2000/svg"><path class="photobox" d="M7.7 21.638H2.638v5.439a1.287 1.287 0 01-1.346 1.292A1.276 1.276 0 010 27.077v-14a1.277 1.277 0 011.292-1.292H7.7c3.823 0 5.6 2.369 5.6 4.953 0 2.585-1.777 4.9-5.6 4.9zm.377-7.43H2.692v5.007h5.385a2.402 2.402 0 002.585-2.477 2.44 2.44 0 00-2.585-2.53zM31.5 28.423a1.277 1.277 0 01-1.292-1.292V21.1h-8.131v5.977a1.244 1.244 0 01-1.292 1.292 1.276 1.276 0 01-1.293-1.292v-14a1.292 1.292 0 012.585 0v5.6h8.13v-5.6a1.292 1.292 0 112.585 0v14a1.287 1.287 0 01-1.292 1.346zm46.362-14.161h-4.793v12.815a1.335 1.335 0 01-1.346 1.346 1.287 1.287 0 01-1.292-1.346V14.262h-4.793a1.238 1.238 0 010-2.477h12.224a1.238 1.238 0 110 2.477zM91.054 28.53a8.287 8.287 0 01-8.239-8.454 8.244 8.244 0 118.239 8.454zm0-14.431c-3.392 0-5.654 2.8-5.654 6.03 0 3.232 2.262 6.032 5.654 6.032s5.654-2.8 5.654-6.031-2.262-6.031-5.654-6.031zm22.454 14.323h-6.193a1.336 1.336 0 01-1.346-1.346V13.13a1.336 1.336 0 011.346-1.346h5.762c3.177 0 5.061 1.669 5.061 4.092 0 1.615-.7 3.015-1.992 3.661a4.308 4.308 0 012.962 4.254c.054 2.585-2.046 4.631-5.6 4.631zm-.216-14.161h-4.577v4.2h4.577a2.1 2.1 0 000-4.2zm.593 6.569h-5.17v5.115h5.17a2.52 2.52 0 002.638-2.53 2.563 2.563 0 00-2.638-2.585zm19.492 7.7a8.287 8.287 0 01-8.239-8.454 8.244 8.244 0 118.239 8.454zm0-14.431c-3.392 0-5.654 2.8-5.654 6.03 0 3.232 2.262 6.032 5.654 6.032s5.654-2.8 5.654-6.031-2.262-6.031-5.654-6.031zm27.192 14.108c-.216.167-.48.262-.754.269-.396 0-.771-.178-1.023-.485l-4.469-5.923-4.47 5.923c-.237.294-.59.471-.968.485a1.287 1.287 0 01-.754-.27 1.152 1.152 0 01-.431-.915c-.018-.277.08-.55.27-.754l4.845-6.407-4.846-6.408a1.287 1.287 0 01-.269-.754 1.13 1.13 0 01.538-.969 1.53 1.53 0 01.647-.215c.383-.01.747.171.969.484l4.415 5.87 4.47-5.87a1.2 1.2 0 01.915-.484c.273.007.537.101.754.269.294.238.47.591.484.97.002.258-.094.508-.269.7l-4.846 6.353 4.9 6.408c.16.22.253.482.27.753.04.366-.101.728-.378.97zM47.115 6.508c0 .754.485 2.584.7 4.2.216 1.615.216 2.961.862 2.961.43 0 .7-.323.7-.861 0-.539.485-2.477.485-4.146 0-.539.215-.647.215-1.454C50.077 6.4 49.754 5 48.462 5a1.384 1.384 0 00-1.347 1.508zm6.085 10.5c1.562 0 4.362-2.8 5.008-3.016a1.852 1.852 0 001.077-.807c.232-.42.654-.701 1.13-.754.377-.162 1.023-.485 1.023-.97 0-.484-.215-.646-.538-.646-2.1 0-8.938 3.177-8.938 5.116a1.19 1.19 0 001.238 1.077zm-1.992 4.846c0 1.077 1.023.754 1.13 1.83.108.862 1.024 1.94 1.616 2.424 1.077.807 1.454 2.8 3.015 2.8a.9.9 0 001.023-.916c0-2.315-4.361-6.892-6.138-6.892-.377 0-.646.215-.646.754zM38.715 32.3c0 .7.162 1.185.97 1.185 1.507 0 2.369-2.747 3.715-5.277 1.185-2.262 1.938-3.016 2.585-4.631.269-.754 1.023-.485 1.023-1.239 0-.484-.377-.646-.808-.646-2.154 0-7.485 8.4-7.485 10.608zm4.2-15.185c.862 0 2.154 1.023 2.154-.053 0-1.508-3.661-3.447-5.492-3.447-.754 0-1.13.377-1.13.916.053 2.207 3.66 2.584 4.468 2.584z" fill="#B7B9BB" fill-rule="nonzero"/></svg>
+
+      </a>
+      <a href="https://issuu.com/" target="_blank" rel="noopener" class="IndexLogos-item IndexLogos-item--issuu">
+        <svg width="102" height="42" viewBox="0 0 102 42" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="nonzero"><path class="issuu-text" d="M32.663 28.69c-.958 0-1.61-.72-1.61-1.61V14.883c0-.89.687-1.61 1.61-1.61.926 0 1.61.72 1.61 1.61V27.08c0 .891-.65 1.61-1.61 1.61zm0-21.515c1.029 0 1.885.857 1.885 1.884a1.9 1.9 0 01-1.885 1.884 1.9 1.9 0 01-1.883-1.884 1.9 1.9 0 011.883-1.884zm11.615 21.651c-2.159 0-4.077-.684-5.447-1.746-.48-.377-.686-.892-.686-1.336 0-.686.548-1.131 1.234-1.131.547 0 .89.205 1.267.48.926.685 2.227 1.335 3.872 1.335 1.85 0 2.844-.684 2.844-1.747 0-1.164-.96-1.61-3.36-2.261-4.218-1.13-5.76-2.57-5.76-5.036 0-2.57 2.365-4.248 6.061-4.248 1.406 0 2.976.343 4.245.96.926.444 1.577.992 1.577 1.678 0 .617-.343 1.2-1.234 1.2-.446 0-.892-.206-1.406-.482-.96-.514-2.023-.785-3.257-.785-1.714 0-2.88.445-2.88 1.642 0 1.166 1.028 1.542 3.494 2.262 3.701 1.063 5.62 2.057 5.62 4.834 0 2.537-2.124 4.389-6.201 4.389m15.51 0c-2.16 0-4.077-.679-5.448-1.742-.48-.377-.686-.891-.686-1.337 0-.686.549-1.131 1.235-1.131.548 0 .891.205 1.268.48.922.685 2.223 1.337 3.868 1.337 1.851 0 2.845-.686 2.845-1.749 0-1.166-.96-1.611-3.358-2.263-4.217-1.124-5.76-2.564-5.76-5.033 0-2.564 2.366-4.244 6.065-4.244 1.406 0 2.982.342 4.25.96.926.445 1.577.994 1.577 1.68 0 .617-.343 1.2-1.234 1.2-.446 0-.892-.206-1.401-.48-.958-.515-2.023-.786-3.255-.786-1.71 0-2.875.446-2.875 1.645 0 1.165 1.029 1.543 3.496 2.263 3.701 1.062 5.62 2.057 5.62 4.831 0 2.537-2.124 4.386-6.199 4.386m9.312-7.166v-6.788c0-.892.72-1.612 1.612-1.612.891 0 1.611.72 1.611 1.612v7.159c0 2.16 1.677 3.837 3.94 3.837 2.262 0 3.975-1.682 3.975-3.842v-7.165c0-.892.72-1.612 1.611-1.612s1.611.72 1.611 1.612v6.781c0 4.008-3.046 7.16-7.193 7.16-4.141 0-7.159-3.152-7.159-7.16m17.922 0v-6.783a1.61 1.61 0 013.22-.006v7.159c0 2.16 1.68 3.84 3.94 3.84 2.263 0 3.976-1.68 3.976-3.84v-7.158a1.61 1.61 0 113.22 0v6.784c0 4.006-3.045 7.158-7.193 7.158-4.144 0-7.16-3.152-7.16-7.158" fill="#B7B9BB"/><path class="issuu-glyph" d="M11.847 7.11c6.475 0 11.724 5.248 11.724 11.723 0 6.476-5.248 11.725-11.724 11.725-6.475 0-11.724-5.25-11.724-11.725V8.083c0-.536.44-.973.974-.973zm.163 3.499a8.142 8.142 0 00-8.218 8.062 8.147 8.147 0 008.065 8.218 8.14 8.14 0 10.153-16.28zm-.03 2.217l.223.007a5.968 5.968 0 015.687 6.014 5.96 5.96 0 01-6.014 5.908 5.968 5.968 0 01-5.909-6.02 5.967 5.967 0 016.02-5.908l-.007-.001zm-.02 2.945a3.02 3.02 0 10-.056 6.04 3.015 3.015 0 003.048-2.989 3.027 3.027 0 00-2.991-3.051z" fill="#B7B9BB"/></g></svg>
+
+      </a>
+      <a href="https://zulipchat.com/" target="_blank" rel="noopener" class="IndexLogos-item IndexLogos-item--zulip">
+        <svg width="99" height="42" viewBox="0 0 99 42" xmlns="http://www.w3.org/2000/svg"><g><path class="zulip" fill="#B7B9BB" fill-rule="nonzero" d="M16 4.141c8.758 0 15.859 7.1 15.859 15.859 0 8.758-7.1 15.859-15.859 15.859C7.242 35.859.141 28.759.141 20c0-8.758 7.1-15.859 15.859-15.859zm4.94 7.903H9.4l1.611 3.55 6.421-.001-8.076 8.167 1.808 3.855H22.77L20.92 23.76H14.78l7.86-8.21-1.7-3.506zM52.376 27v-2.09h-6.805l6.762-10.369v-1.493H43.14v2.09h6.122L42.52 25.508V27h9.856zm8.261.256c3.243 0 5.27-1.792 5.27-6.379v-7.829h-2.368v8.021c0 3.03-1.195 4.032-2.902 4.032-1.685 0-2.816-1.002-2.816-4.032v-8.021h-2.474v7.83c0 4.586 2.069 6.378 5.29 6.378zM78.328 27v-2.09h-5.803V13.047h-2.474V27h8.277zm5.573 0V13.048h-2.474V27H83.9zm6.683 0v-5.12h2.005c3.008 0 5.312-1.43 5.312-4.523 0-3.242-2.304-4.309-5.397-4.309h-4.395V27h2.475zm1.813-7.104h-1.813v-4.864h1.728c2.07 0 3.157.576 3.157 2.325 0 1.707-1.002 2.539-3.072 2.539z"/></g></svg>
+
+      </a>
+    </div>
+    <div class="IndexLogos-join">
+      Using Uppy in your project? <a href="https://github.com/transloadit/uppy/issues/769" rel="noreferrer noopener" target="_blank">Let us know ›</a>
+    </div>
+  </div>
+</section>
+
+<section class="IndexDemo">
+  <div class="IndexDemo-tabContent">
+    <div class="TabPane TabPane--active" id="live-demo">
+      <div class="IndexDemo-uppyWrapper">
+        <div class="IndexDemo-uppy" id="demo"></div>
+      </div>
+    </div> <!-- /live-demo -->
+
+    <div class="TabPane" id="video">
+      <div class="IndexDemo-video">
+        <video autoplay loop muted playsinline>
+          <source src="/images/uppy-demo-oct-2018.mp4" type="video/mp4">
+          Your browser does not support the video tag, you can <a href="/images/uppy-demo-oct-2018.mp4">download the video</a>
+          to watch it.
+        </video>
+      </div>
+    </div> <!-- /video -->
+
+    <div class="TabPane" id="code">
+      <div class="IndexDemo-code">
+        <!--
+You can `npm run web:inject-frontpagecodesample` to render this code snippet and
+save it as a layout partial
+--><html><head></head><body><figure class="highlight bash"><table><tbody><tr><td class="code"><pre>$ <span class="token function">npm</span> <span class="token function">install</span> @uppy/core @uppy/dashboard @uppy/instagram @uppy/tus</pre></td></tr></tbody></table></figure>
+
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">Uppy</span></span> <span class="token keyword module">from</span> <span class="token string">'@uppy/core'</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">Dashboard</span></span> <span class="token keyword module">from</span> <span class="token string">'@uppy/dashboard'</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">Instagram</span></span> <span class="token keyword module">from</span> <span class="token string">'@uppy/instagram'</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">Tus</span></span> <span class="token keyword module">from</span> <span class="token string">'@uppy/tus'</span>
+
+<span class="token function"><span class="token maybe-class-name">Uppy</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Dashboard</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    trigger<span class="token operator">:</span> <span class="token string">'#select-files'</span><span class="token punctuation">,</span>
+    showProgressDetails<span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Instagram</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    target<span class="token operator">:</span> <span class="token maybe-class-name">Dashboard</span><span class="token punctuation">,</span>
+    companionUrl<span class="token operator">:</span> <span class="token string">'https://companion.uppy.io'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Tus</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> endpoint<span class="token operator">:</span> <span class="token string">'https://tusd.tusdemo.net/files/'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token method function property-access">on</span><span class="token punctuation">(</span><span class="token string">'complete'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">result</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">'Upload result:'</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span></pre></td></tr></tbody></table></figure>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></body></html>
+      </div>
+    </div> <!-- /code -->
+  </div>
+
+  <ul class="Tabs">
+    <li class="Tabs-item">
+      <a class="Tabs-link Tabs-link--active" href="#live-demo">
+        <span class="Tabs-icon">
+          <svg width="11" height="15" viewBox="0 0 11 15">
+            <path d="M0 0v12.5L3.667 9l3.143 6 2.619-1.5L5.762 8 11 7.5z" fill-rule="evenodd" />
+          </svg>
+        </span>
+        Live demo
+      </a>
+    </li>
+    <li class="Tabs-item">
+      <a class="Tabs-link" href="#video">
+        <span class="Tabs-icon">
+          <svg width="19" height="19" viewBox="0 0 19 19">
+            <path
+              d="M9.5 19a9.5 9.5 0 1 1 0-19 9.5 9.5 0 0 1 0 19zm0-2a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15zM14 9.5l-6.75 3.897V5.603L14 9.5z"
+              fill-rule="nonzero" />
+          </svg>
+        </span>
+        Video
+      </a>
+    </li>
+    <li class="Tabs-item">
+      <a class="Tabs-link" href="#code">
+        <span class="Tabs-icon">
+          <svg width="29" height="17" viewBox="0 0 29 17">
+            <path
+              d="M8.45 5.748L2.402 8.484 8.45 11.22v2.16L.17 9.6V7.44l8.28-3.78v2.088zm11.34 5.544l6.048-2.736L19.79 5.82V3.66l8.28 3.78V9.6l-8.28 3.78v-2.088zm-9.7 5.308L15.85.4h2.16l-5.76 16.2h-2.16z"
+              fill-rule="nonzero" />
+          </svg>
+        </span>
+        Code
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section class="IndexFeatures">
+  <h2>Features</h2>
+  <ul class="IndexFeatures-list">
+    <li><strong>Lightweight</strong> and modular, plugin-based architecture, easy on dependencies <img width="16" align="absmiddle" src="/images/emojis/zap.png" /></li>
+    <li>Large uploads survive network hiccups thanks to <strong>resumable file uploads</strong> via the open <strong><a href="https://tus.io/" target="_blank" rel="noopener">tus</a></strong> standard</li>
+    <li><img width="16" align="absmiddle" src="/images/emojis/battery.png" /> Saves battery and data plan by letting users pick files from <strong>Webcam, Dropbox, Google Drive and Instagram</strong>, while letting servers do the heavy lifting via <strong><a href="/docs/companion/">Companion</a></strong></li>
+    <li>Works great with the file encoding and processing backend from <strong><a href="https://transloadit.com/" target="_blank" rel="noopener">Transloadit</a></strong>, but also works great without <img width="16" align="absmiddle" src="/images/emojis/transloadit.png" /></li>
+    <li><strong>Open source and driven by the community</strong> We listen closely and adjust the project based on your feedback <img width="16" align="absmiddle" src="/images/emojis/heart.png" /></li>
+    <li><strong>Sleek user interface <img width="16" align="absmiddle" src="/images/emojis/sparkles.png" /></strong></li>
+    <li>File recovery (after a browser crash or accidental navigation) via <strong><a href="/docs/golden-retriever/">Golden Retriever</a></strong></li>
+    <li>Speaks <strong><a href="/docs/locales/#List-of-locale-packs">multiple languages</a></strong> (i18n) <img width="16" align="absmiddle" src="/images/emojis/earth_africa.png" /></li>
+    <li>Built with accessibility in mind</li>
+    <li><strong>Free to the world, forever</strong></li>
+    <li>Cute as a puppy, also accepts cat pictures <img width="16" align="absmiddle" src="/images/emojis/dog.png" /></li>
+  </ul>
+</section>
+
+<section class="IndexReviews">
+  <ul class="IndexReviews-list">
+    <li class="IndexReviews-item">
+      <a class="IndexReviews-link" href="https://books.producthunt.com/bestof2017" target="_blank"
+        rel="noreferrer noopener">
+        <div class="IndexReviews-imgWrapper">
+          <img class="IndexReviews-img" src="/images/testimonials/producthunt.png"
+            srcset="/images/testimonials/producthunt@2x.png 2x" alt="Product Hunt">
+        </div>
+        The Best Product Launches
+      </a>
+    </li>
+
+    <li class="IndexReviews-item">
+      <a class="IndexReviews-link" href="https://stackshare.io/posts/top-developer-tools-2017" target="_blank" rel="noreferrer noopener">
+        <div class="IndexReviews-imgWrapper">
+          <img class="IndexReviews-img" src="/images/testimonials/stackshare.png" srcset="/images/testimonials/stackshare@2x.png 2x" alt="StackShare">
+        </div>
+        Top 10 tools of the year
+      </a>
+    </li>
+
+    <li class="IndexReviews-item">
+      <a class="IndexReviews-link" href="https://twitter.com/smashingmag/status/1097870169043546112" target="_blank" rel="noreferrer noopener">
+        <div class="IndexReviews-imgWrapper">
+          <img class="IndexReviews-img" src="/images/testimonials/smashing-magazine.png" srcset="/images/testimonials/smashing-magazine@2x.png 2x" alt="Smashing Magazine">
+        </div>
+        “Soooo useful”
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section class="IndexActivity">
+  <h2>Activity Feed</h2>
+
+  <div class="on-the-githubs" data-event-source="repos/transloadit/uppy">Loading...</div>
+</section>
+
+<section>
+  <ul class="Social">
+  <li><a href="https://twitter.com/uppy_io" target="_blank" rel="noopener" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @uppy_io</a></li>
+  <li><iframe src="https://ghbtns.com/github-btn.html?user=transloadit&repo=uppy&type=watch&count=true"
+allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe></li>
+  <!-- to regenerate you can use this link: https://img.shields.io/badge/community-forum-d8006a.svg -->
+  <li><a href="https://community.transloadit.com/c/uppy" target="_blank" rel="noopener"><img src="/images/community-forum-d8006a.svg" /> </a></li>
+  <li class="BuildBadge">
+   <span class="wrapper">
+     <a href="https://travis-ci.org/transloadit/uppy" target="_blank" rel="noopener"><img src="https://travis-ci.org/transloadit/uppy.svg?branch=master" alt="Build Status"></a>
+   </span>
+  </li>
+  <li class="SauceBadge">
+   <span class="wrapper">
+     <a href="https://saucelabs.com/u/transloadit-uppy" target="_blank" rel="noopener">
+       <img src="https://saucelabs.com/buildstatus/transloadit-uppy" alt="Sauce Test Status"/>
+     </a>
+   </span>
+  </li>
+</ul>
+
+</section>
+
+<footer class="IndexFooter">
+  <p><img class="IndexFooter-logo" title="Uppy" alt="Uppy" src="/images/logos/uppy-logo-2019.svg"></p>
+  <p>Released under the <a href="http://opensource.org/licenses/MIT" rel="noreferrer noopener" target="_blank">MIT License</a> ⋅ <a href="/privacy-policy/">Privacy Policy</a></p>
+  <p>© 2021 <a href="https://transloadit.com" target="_blank">Transloadit</a></p>
+</footer>
+
+<link href="https://releases.transloadit.com/uppy/v1.24.0/uppy.min.css" rel="stylesheet">
+<script src="https://releases.transloadit.com/uppy/v1.24.0/uppy.min.js"></script>
+
+<script>
+  var TUS_ENDPOINT = 'https://tusd.tusdemo.net/files/'
+  var COMPANION_ENDPOINT = 'http://localhost:3020'
+  if (location.hostname === 'uppy.io') {
+    COMPANION_ENDPOINT = '//companion.uppy.io'
+  }
+
+  var uppy = Uppy.Core({ debug: true })
+    .use(Uppy.Dashboard, {
+      target: '#demo',
+      inline: true,
+      replaceTargetContent: true,
+      metaFields: [
+        { id: 'license', name: 'License', placeholder: 'specify license' },
+        { id: 'caption', name: 'Caption', placeholder: 'describe what the image is about' }
+      ]
+    })
+    .use(Uppy.GoogleDrive, { target: Uppy.Dashboard, companionUrl: COMPANION_ENDPOINT })
+    .use(Uppy.Instagram, { target: Uppy.Dashboard, companionUrl: COMPANION_ENDPOINT })
+    .use(Uppy.Dropbox, { target: Uppy.Dashboard, companionUrl: COMPANION_ENDPOINT })
+    .use(Uppy.Facebook, { target: Uppy.Dashboard, companionUrl: COMPANION_ENDPOINT })
+    .use(Uppy.OneDrive, { target: Uppy.Dashboard, companionUrl: COMPANION_ENDPOINT })
+    .use(Uppy.Webcam, { target: Uppy.Dashboard })
+    .use(Uppy.Url, { target: Uppy.Dashboard, companionUrl: COMPANION_ENDPOINT })
+    .use(Uppy.Tus, { endpoint: TUS_ENDPOINT})
+
+  uppy.on('success', function (files) {
+    console.log('Upload complete! We’ve uploaded these files:', files)
+  })
+</script>
+
+        
+      </main>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63083-12', 'uppy.io');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+</script>
+
+
+      
+        <script src="/js/smooth-scroll.min.js"></script>
+        <!-- Place this tag in your head or just before your close body tag. -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+      
+      <script src="/js/common.js"></script>
+
+      <!-- Twitter follow button script -->
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+      <!--script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+      <script>
+        WebFont.load({
+          google: {
+            families: ['Source Sans Pro:400,600', 'Roboto Mono', 'Poiret One:400']
+          }
+        });
+      </script-->
+    </div>
+  </body>
+</html>
