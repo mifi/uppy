@@ -996,7 +996,7 @@ export default class Transloadit<
     }
   }
 
-  install(): void {
+  override install(): void {
     this.uppy.addPreProcessor(this.#prepareUpload)
     this.uppy.addPostProcessor(this.#afterUpload)
 
@@ -1056,7 +1056,7 @@ export default class Transloadit<
     })
   }
 
-  uninstall(): void {
+  override uninstall(): void {
     this.uppy.removePreProcessor(this.#prepareUpload)
     this.uppy.removePostProcessor(this.#afterUpload)
     this.uppy.off('error', this.#onError)

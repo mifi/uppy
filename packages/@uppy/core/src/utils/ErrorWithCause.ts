@@ -4,7 +4,7 @@ import type NetworkError from './NetworkError.js'
 class ErrorWithCause extends Error {
   public isNetworkError: boolean
 
-  public cause: Error['cause']
+  public override cause: Error['cause']
 
   constructor(
     message?: ConstructorParameters<ErrorConstructor>[0],

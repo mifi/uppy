@@ -354,7 +354,7 @@ export default class Audio<M extends Meta, B extends Body> extends UIPlugin<
     })
   }
 
-  render() {
+  override render() {
     if (!this.#audioActive) {
       this.#start()
     }
@@ -389,7 +389,7 @@ export default class Audio<M extends Meta, B extends Body> extends UIPlugin<
     )
   }
 
-  install(): void {
+  override install(): void {
     this.setPluginState({
       audioReady: false,
       recordingLengthSeconds: 0,
@@ -426,7 +426,7 @@ export default class Audio<M extends Meta, B extends Body> extends UIPlugin<
     }
   }
 
-  uninstall(): void {
+  override uninstall(): void {
     if (this.#stream) {
       this.#stop()
     }

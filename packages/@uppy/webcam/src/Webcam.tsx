@@ -231,7 +231,7 @@ export default class Webcam<M extends Meta, B extends Body> extends UIPlugin<
     return 'init'
   }
 
-  setOptions(newOpts: Partial<WebcamOptions<M, B>>): void {
+  override setOptions(newOpts: Partial<WebcamOptions<M, B>>): void {
     super.setOptions({
       ...newOpts,
       videoConstraints: {
@@ -705,7 +705,7 @@ export default class Webcam<M extends Meta, B extends Body> extends UIPlugin<
     })
   }
 
-  render(): ComponentChild {
+  override render(): ComponentChild {
     if (!this.webcamActive) {
       this.start()
     }
@@ -745,7 +745,7 @@ export default class Webcam<M extends Meta, B extends Body> extends UIPlugin<
     )
   }
 
-  install(): void {
+  override install(): void {
     const { mobileNativeCamera, modes, videoConstraints } = this.opts
 
     const { target } = this.opts
@@ -795,12 +795,12 @@ export default class Webcam<M extends Meta, B extends Body> extends UIPlugin<
     }
   }
 
-  uninstall(): void {
+  override uninstall(): void {
     this.stop()
     this.unmount()
   }
 
-  onUnmount(): void {
+  override onUnmount(): void {
     this.stop()
   }
 }

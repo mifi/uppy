@@ -471,7 +471,7 @@ export default class ThumbnailGenerator<
     })
   }
 
-  install(): void {
+  override install(): void {
     this.uppy.on('file-removed', this.onFileRemoved)
     this.uppy.on('cancel-all', this.onAllFilesRemoved)
 
@@ -489,7 +489,7 @@ export default class ThumbnailGenerator<
     }
   }
 
-  uninstall(): void {
+  override uninstall(): void {
     this.uppy.off('file-removed', this.onFileRemoved)
     this.uppy.off('cancel-all', this.onAllFilesRemoved)
 
