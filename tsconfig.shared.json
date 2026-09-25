@@ -12,6 +12,7 @@
     "types": ["preact"],
     "strict": true,
     "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
     "verbatimModuleSyntax": true,
     "skipLibCheck": true
   }
