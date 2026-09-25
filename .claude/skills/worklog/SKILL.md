@@ -7,7 +7,7 @@ description: Summarize my work as a log — one line per day, listing what I did
 
 Build a day-by-day log of what **the user** did: commits on every branch, plus
 GitHub activity (PRs opened/merged, reviews, issues, comments). One line per
-day, items comma-separated, most important first. The goal is a complete
+day, task groups separated by semicolons, most important first. The goal is a complete
 picture so nothing has to be written down by hand.
 
 ## Arguments
@@ -101,18 +101,21 @@ Work days run **05:00–05:00 local**, not calendar days, so a session past
 midnight stays on the day it started. Mention this only if the log actually
 has past-midnight work (in the footer).
 
-### 5. Write each day's items
+### 5. Write each day's task groups
 
 - Drop noise subjects (`fix`, `wip`, `cleanup`, `simplify`, `update comment`,
-  `refac`) or fold them into the item they belong to.
-- Collapse a run of commits on one theme into one item that says what changed,
-  using the repo's own vocabulary (e.g. several kysely conversions → "finish
-  the knex→kysely conversion in the scripts").
-- Keep real features, bug fixes and behavior changes distinct.
+  `refac`) or fold them into the group they belong to.
+- Group the day's work into **task groups**: one per PR, feature or theme,
+  written `<name>: <details>` with the details comma-separated. A small
+  standalone item is just its name. Collapse a run of commits on one theme
+  into the details, using the repo's own vocabulary (e.g. several kysely
+  conversions → "finish the knex→kysely conversion in the scripts").
+- Keep real features, bug fixes and behavior changes distinct (their own
+  groups or details).
 - Prefer the commit's/PR's own wording over invented phrasing.
-- GitHub-only items get short verbs: "review #6601 (s3 multipart retries)",
+- GitHub-only items get short verbs: "review #6601: s3 multipart retries",
   "open issue #6610 about …", "discuss #6590". Several comments on one thread
-  are one item. Use `owner/repo#n` only if both fork and upstream appear.
+  are one group. Use `owner/repo#n` only if both fork and upstream appear.
 - **Order by size and impact**, not time: large features and important fixes
   first, then smaller fixes, then refactors/chores/deps, then reviews and
   discussion.
@@ -131,22 +134,25 @@ Round up to the nearest 30 minutes, minimum 30 minutes.
 
 ## Output format
 
-Show each day's hours as a span starting at 08:00: ~2.5h → `08:00-10:30`.
-If the estimate is over 16h, write the duration instead (`~17h`).
+Each day line is a semicolon-separated CSV row: `<d>.<mon>; <hours>;
+<group>; <group>; …`. Commas appear only inside a group's details, never
+semicolons.
+
+Hours are a span starting at 08:00: ~2.5h → `08:00-10:30`. If the estimate
+is over 16h, write the duration instead (`~17h`).
 
 ```
 Work log for <repo>, <range> (TZ <tz>)
 
-5.aug 08:00-10:30 improve orpc error logging, don't rate limit health checks, update readme
-24.aug 08:00-15:00 fold downloader CLIs into one command, parse CLI args with node:util parseArgs and zod, replace tsx, review #412 (upload retries)
+5.aug; 08:00-10:30; improve orpc error logging; don't rate limit health checks; update readme
+24.aug; 08:00-15:00; downloader CLI rework (#410): fold downloader CLIs into one command, parse CLI args with node:util parseArgs and zod; replace tsx; review #412: upload retries
 
 total ~9.5h
 No activity: 6.aug–23.aug
 Hours are estimates from commit/activity timestamps and item size.
 ```
 
-- Day label is `<d>.<mon>` lowercase, then the span, then the items. Lines can
-  be as long as needed.
+- Day label is `<d>.<mon>` lowercase. Lines can be as long as needed.
 - Skip days with no activity.
 - The header line and the footer (total, no-activity days, reviewed PRs
   without dates, the hours note, the 05:00 note if it applies) are the only
