@@ -114,7 +114,7 @@ class S3Client {
     })
   }
 
-  public async putObject(params: IT.PutObjectParams): Promise<{
+  public async putObject(_params: IT.PutObjectParams): Promise<{
     location: string
     key: string
     etag: string | undefined
@@ -123,7 +123,7 @@ class S3Client {
   }
 
   public async createMultipartUpload(
-    params: IT.CreateMultipartUploadParams,
+    _params: IT.CreateMultipartUploadParams,
   ): Promise<{
     uploadId: string
     key: string
@@ -131,18 +131,20 @@ class S3Client {
     throw new Error('Not implemented')
   }
 
-  public async uploadPart(params: IT.UploadPartParams): Promise<{
+  public async uploadPart(_params: IT.UploadPartParams): Promise<{
     etag: string
   }> {
     throw new Error('Not implemented')
   }
 
-  public async listParts(params: IT.ListPartsParams): Promise<IT.UploadPart[]> {
+  public async listParts(
+    _params: IT.ListPartsParams,
+  ): Promise<IT.UploadPart[]> {
     throw new Error('Not implemented')
   }
 
   public async completeMultipartUpload(
-    params: IT.CompleteMultipartUploadParams,
+    _params: IT.CompleteMultipartUploadParams,
   ): Promise<{
     location: string
     bucket: string | undefined
@@ -153,12 +155,12 @@ class S3Client {
   }
 
   public async abortMultipartUpload(
-    params: IT.AbortMultipartUploadParams,
+    _params: IT.AbortMultipartUploadParams,
   ): Promise<void> {
     throw new Error('Not implemented')
   }
 
-  public async deleteObject(params: IT.DeleteObjectParams): Promise<void> {
+  public async deleteObject(_params: IT.DeleteObjectParams): Promise<void> {
     throw new Error('Not implemented')
   }
 }
