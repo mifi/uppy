@@ -161,8 +161,12 @@ No activity: 6.aug–23.aug
 Hours are estimates from commit/activity timestamps and item size.
 
 Date unknown:
-https://github.com/acme/app/pull/415 add retry backoff
-https://github.com/acme/app/issues/420#issuecomment-123456789 flaky upload test
+
+add retry backoff
+https://github.com/acme/app/pull/415
+
+flaky upload test
+https://github.com/acme/app/issues/420#issuecomment-123456789
 ```
 
 - Day label is `<d>.<mon>` lowercase. Lines can be as long as needed.
@@ -170,8 +174,9 @@ https://github.com/acme/app/issues/420#issuecomment-123456789 flaky upload test
 - The header line and the footer (total, no-activity days, the hours note,
   the 05:00 note if it applies, the date-unknown list) are the only text
   outside the day lines.
-- **Date-unknown list**: last, under `Date unknown:`, one item per line as
-  `<full URL> <short title>`. Link straight to the user's own review or
+- **Date-unknown list**: last, under `Date unknown:`, each item as its
+  PR/issue title on one line and its full URL on the next, with a blank
+  line between items. Link straight to the user's own review or
   comment (`…/pull/<n>#pullrequestreview-<id>`, `…#issuecomment-<id>`) when
   its id is known, otherwise to the PR/issue itself, so the user can look up
   the date.
