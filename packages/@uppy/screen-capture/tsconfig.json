@@ -1,6 +1,8 @@
 {
   "extends": "../../../tsconfig.shared",
   "compilerOptions": {
+    // TODO: enable noUncheckedIndexedAccess (https://github.com/transloadit/uppy/issues/5336)
+    "noUncheckedIndexedAccess": false,
     "emitDeclarationOnly": false,
     "noEmit": true
   },

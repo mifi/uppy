@@ -1,6 +1,10 @@
 {
   "extends": "../../../tsconfig.shared",
   "compilerOptions": {
+    // TODO: enable noUncheckedIndexedAccess (https://github.com/transloadit/uppy/issues/5336)
+    "noUncheckedIndexedAccess": false,
+    // TODO: enable exactOptionalPropertyTypes (https://github.com/transloadit/uppy/issues/5336)
+    "exactOptionalPropertyTypes": false,
     "emitDeclarationOnly": false,
     "noEmit": true,
     "types": [
