@@ -20,6 +20,7 @@ import {
   NetworkError,
   type RemoteUppyFile,
   TaskQueue,
+  toError,
 } from '@uppy/core/utils'
 import packageJson from '../package.json' with { type: 'json' }
 import locale from './locale.js'
@@ -266,11 +267,15 @@ export default class XHRUpload<
           }
 
           return res
-        } catch (error) {
+        } catch (e) {
+          const error = toError(e)
           if (error.name === 'AbortError') {
             return undefined
           }
-          const request = error.request as XMLHttpRequest | undefined
+          const request =
+            'request' in error
+              ? (error.request as XMLHttpRequest | undefined)
+              : undefined
 
           for (const file of files) {
             this.uppy.emit(
@@ -405,7 +410,7 @@ export default class XHRUpload<
         })
       })
     } catch (error) {
-      if (error.name === 'AbortError') {
+      if (error instanceof Error && error.name === 'AbortError') {
         return
       }
       throw error
@@ -445,7 +450,7 @@ export default class XHRUpload<
         })
       })
     } catch (error) {
-      if (error.name === 'AbortError') {
+      if (error instanceof Error && error.name === 'AbortError') {
         return
       }
       throw error

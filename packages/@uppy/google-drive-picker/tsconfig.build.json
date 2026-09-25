@@ -1,7 +1,6 @@
 {
   "extends": "../../../tsconfig.shared",
   "compilerOptions": {
-    "noImplicitAny": false,
     "outDir": "./lib",
     "rootDir": "./src",
     "skipLibCheck": true

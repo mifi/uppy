@@ -5,7 +5,6 @@
     "target": "ESNext",
     "module": "NodeNext",
     "resolveJsonModule": true,
-    "useUnknownInCatchVariables": false,
     "declaration": true,
     "declarationMap": true,
     "jsx": "react-jsx",

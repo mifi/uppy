@@ -297,7 +297,9 @@ export function app(optionsArg: CompanionInitOptions) {
       const { providerName } = req.params
       // for simplicity, we just return the normal credentials for the provider, but in a real-world scenario,
       // we would query based on parameters
-      const { key, secret } = options.providerOptions[providerName]!
+      const providerOptions = options.providerOptions[providerName]
+      if (providerOptions == null) throw new Error('Unknown provider')
+      const { key, secret } = providerOptions
 
       function getTransloaditGateway() {
         const oauthProvider = getOauthProvider(providerName)

@@ -11,4 +11,14 @@ class AuthError extends Error {
   }
 }
 
+// duck-typed because `instanceof` is unsafe, see above
+export function isAuthError(err: unknown): err is AuthError {
+  return (
+    typeof err === 'object' &&
+    err != null &&
+    'isAuthError' in err &&
+    err.isAuthError === true
+  )
+}
+
 export default AuthError

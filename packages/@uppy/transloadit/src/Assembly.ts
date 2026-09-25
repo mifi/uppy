@@ -6,6 +6,7 @@ import {
   fetchWithNetworkError,
   hasProperty as has,
   NetworkError,
+  toError,
 } from '@uppy/core/utils'
 import Emitter from 'component-emitter'
 import {
@@ -227,7 +228,7 @@ class TransloaditAssembly extends Emitter {
         this.status = status
       }
     } catch (err) {
-      this.#onError(err)
+      this.#onError(toError(err))
     }
   }
 
