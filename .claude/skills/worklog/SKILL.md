@@ -1,76 +1,139 @@
 ---
 name: worklog
-description: Summarize git history as a work log — one line per day, listing what was done that day. Use when the user asks for a commit-log overview, a daily summary of work, a standup/changelog digest, or "what did I do" over a date range or branch.
+description: Summarize my work as a log — one line per day, listing what I did that day, from git commits on all branches plus my GitHub activity (PRs, reviews, issues, comments). Use when the user asks for a work log, timesheet, daily summary of work, standup/changelog digest, or "what did I do" over a date range.
 ---
 
 # Worklog
 
-Turn a git commit log into a human-readable day-by-day summary of what was
-worked on. One line per day, items comma-separated.
+Build a day-by-day log of what **the user** did: commits on every branch, plus
+GitHub activity (PRs opened/merged, reviews, issues, comments). One line per
+day, items comma-separated, most important first. The goal is a complete
+picture so nothing has to be written down by hand.
 
 ## Arguments
 
 Free-form. Anything the user does not specify, infer or default:
 
 - **Range** — e.g. `since aug 1`, `last 2 weeks`, `2026-08-01..2026-09-01`.
-  Default: all days in the current month.
-- **Branch / ref** — e.g. `origin/some-branch`, `--all`. Default: the current
-  branch (`HEAD`). If the user names a remote branch that isn't local, fetch it
-  first: `git fetch origin <branch>`.
-- **Author** — default: all authors. Note that AI-assisted commits may be
-  authored by `Claude` or similar; include them unless told otherwise.
+  Default: the current month so far; if today is within the first 7 days of
+  the month, the previous month instead.
+- **Repo** — the current project's GitHub repository (from the `origin`
+  remote), plus its upstream if it is a fork (the repo's `parent` in the
+  GitHub API), since PRs usually target the upstream. Activity in other repos is left out unless asked for. If the
+  project has no GitHub remote, use git history only.
+- **Timezone** — use it if the user states one; otherwise see step 1.
+
+## Who is "me"
+
+- GitHub: the authenticated user's login, name and email.
+- Git: that name/email, the login's noreply email
+  (`<id>+<login>@users.noreply.github.com`), `git config user.name`/`email`
+  unless it is an AI identity (cloud sessions often set it to `Claude`), and
+  any other author names/emails that clearly belong to the same person.
+- AI-assisted commits (author `Claude` or similar) count only when they are
+  the user's: on a branch whose PR the user opened, or with a
+  `Co-Authored-By` trailer naming the user. Everyone else's commits are
+  excluded.
 
 ## Method
 
-1. Fetch the ref if needed, then pull the log with timestamps:
+### 1. Timezone
 
-   ```
-   TZ=<local tz> git log <ref> --since=<start> --until=<end> --no-merges \
-     --date=format-local:'%Y-%m-%d %H:%M' --pretty=format:'%ad|%an|%s'
-   ```
+Unless given, take the most common UTC offset of the user's own (non-AI)
+commits in the range (`git log --author=<me> --format=%ai`) and use
+`TZ=Etc/GMT<inverted sign><hours>` (e.g. `+0200` → `Etc/GMT-2`). Converting
+everything to one zone keeps AI/CI commits made in UTC on the right day.
 
-   Use `format-local` with an explicit `TZ` so commits made in different
-   timezones (or by CI/agents committing in UTC) land on the right day.
-   Determine the local timezone from the dominant committer offset in the log
-   rather than assuming UTC.
+### 2. Git commits, all branches
 
-2. Group into **work days running 05:00–05:00 local**, not calendar days, so a
-   session that runs past midnight stays on the day it started. Mention this
-   convention only if the log actually has past-midnight work.
+```
+git fetch --all --prune
+TZ=<tz> git log --branches --remotes --no-merges --author=<me> [--author=Claude] \
+  --since=<start> --until=<end> \
+  --date=format-local:'%Y-%m-%d %H:%M' --pretty=format:'%H|%ad|%an|%D|%s'
+```
 
-3. For each day, condense the subjects into a readable sentence of
-   comma-separated items:
-   - Merge commits, and pure noise subjects (`fix`, `wip`, `cleanup`, `simplify`,
-     `update comment`, `refac`) are dropped or folded into the neighboring item
-     they belong to.
-   - Collapse a run of commits on one theme into a single item that says what
-     changed, using the repo's own vocabulary (e.g. several kysely conversions →
-     "finish the knex→kysely conversion in the scripts").
-   - Keep real feature work, bug fixes, and behavior changes distinct — do not
-     merge those away.
-   - Keep the day's own ordering (earliest first).
-   - Prefer the commit's own wording over invented phrasing.
+- The same change often appears several times (rebased, cherry-picked, and
+  squash-merged to the default branch). Count it once: dedupe by subject, and
+  when a branch's commits landed as a squash-merged PR, report the PR instead
+  of its individual commits.
+- Unmerged branches still count — they are work done.
 
-4. Estimate each day's hours from the commit timestamps: cluster the day's
-   commits into sessions (a gap over 90 minutes starts a new session), sum the
-   first-to-last-commit span of each session, with a 30-minute floor per
-   session. Round to one decimal. This undercounts — it cannot see thinking,
-   reviewing, or testing outside the commit spans — so note once, after the
-   list, that the estimates are lower bounds of active branch work.
+### 3. GitHub activity
 
-5. Skip days with no commits. After the list, state which days in the range had
-   no activity.
+Use whatever GitHub access is available (`gh` CLI, GitHub MCP tools, or the
+REST API), limited to the repo(s) above.
+
+- **Events feed** (best, if reachable): `gh api users/<login>/events
+  --paginate`, filtered to the repo(s), lists PRs, reviews, comments and
+  issues with exact timestamps. It only covers the last 90 days / 300 events.
+- **Search** (for older ranges or no events feed), adding
+  `repo:<owner>/<name>` to each query:
+  - `author:<login> created:<start>..<end>` — PRs and issues opened
+  - `author:<login> is:pr merged:<start>..<end>` — PRs merged
+  - `reviewed-by:<login> updated:>=<start>` — PRs reviewed
+  - `commenter:<login> updated:>=<start>` — issues/PRs commented on
+
+  Search only says an item was touched in the range, not when the user acted.
+  For review/comment hits, fetch the item's reviews/comments and keep only
+  the user's, dated inside the range.
+
+Convert every timestamp to the chosen timezone. Drop activity that duplicates
+a commit already listed (e.g. opening the PR for a branch already covered is
+not a separate item; merging it is not either).
+
+### 4. Group into work days
+
+Work days run **05:00–05:00 local**, not calendar days, so a session past
+midnight stays on the day it started. Mention this only if the log actually
+has past-midnight work (in the footer).
+
+### 5. Write each day's items
+
+- Drop noise subjects (`fix`, `wip`, `cleanup`, `simplify`, `update comment`,
+  `refac`) or fold them into the item they belong to.
+- Collapse a run of commits on one theme into one item that says what changed,
+  using the repo's own vocabulary (e.g. several kysely conversions → "finish
+  the knex→kysely conversion in the scripts").
+- Keep real features, bug fixes and behavior changes distinct.
+- Prefer the commit's/PR's own wording over invented phrasing.
+- GitHub-only items get short verbs: "review #6601 (s3 multipart retries)",
+  "open issue #6610 about …", "discuss #6590". Several comments on one thread
+  are one item. Use `owner/repo#n` only if both fork and upstream appear.
+- **Order by size and impact**, not time: large features and important fixes
+  first, then smaller fixes, then refactors/chores/deps, then reviews and
+  discussion.
+
+### 6. Estimate hours
+
+Hours are a rough guide; the items matter more. For each day, guess the time
+spent from both:
+
+- the timestamp spread of the day's commits and GitHub activity (gaps over
+  ~90 minutes are breaks), and
+- how much work the items look like — a large feature commit reflects more
+  time before it than a typo fix; reviews and discussion take time too.
+
+Round up to the nearest 30 minutes, minimum 30 minutes.
 
 ## Output format
 
-For each day's total hours, assume the day starts at 10:00, so if the total hours is ~2.5, then the working hours will become 10:00-12:30. Also round hours (up) to the nearest 30 minutes.
+Show each day's hours as a span starting at 08:00: ~2.5h → `08:00-10:30`.
+If the estimate is over 16h, write the duration instead (`~17h`).
 
 ```
-5.aug 10:00-12:30 update readme, don't rate limit health checks, improve orpc error logging
-24.aug 10:00-17:00 replace tsx, parse CLI args with node:util parseArgs and zod, fold downloader CLIs into one command
+Work log for <repo>, <range> (TZ <tz>)
+
+5.aug 08:00-10:30 improve orpc error logging, don't rate limit health checks, update readme
+24.aug 08:00-15:00 fold downloader CLIs into one command, parse CLI args with node:util parseArgs and zod, replace tsx, review #412 (upload retries)
+
+total ~9.5h
+No activity: 6.aug–23.aug
+Hours are estimates from commit/activity timestamps and item size.
 ```
 
-Day label is `<d>.<mon>` lowercase, followed by the day's hours estimate
-inline (`hh:mm-hh:mm`), then the items. Lines can be as long as needed. End with a
-total (`total ~<h>h`). No per-day commentary, no preamble beyond a one-line
-header naming the ref and range.
+- Day label is `<d>.<mon>` lowercase, then the span, then the items. Lines can
+  be as long as needed.
+- Skip days with no activity.
+- The header line and the footer (total, no-activity days, the hours note,
+  the 05:00 note if it applies) are the only text outside the day lines.
