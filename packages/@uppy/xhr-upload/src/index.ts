@@ -15,6 +15,7 @@ import {
   filterFilesToEmitUploadStarted,
   filterFilesToUpload,
   getAllowedMetaFields,
+  isAbortError,
   isNetworkError,
   type LocalUppyFile,
   NetworkError,
@@ -270,7 +271,7 @@ export default class XHRUpload<
           return res
         } catch (e) {
           const error = toError(e)
-          if (error.name === 'AbortError') {
+          if (isAbortError(error)) {
             return undefined
           }
           const request =
@@ -411,7 +412,7 @@ export default class XHRUpload<
         })
       })
     } catch (error) {
-      if (error instanceof Error && error.name === 'AbortError') {
+      if (isAbortError(error)) {
         return
       }
       throw error
@@ -451,7 +452,7 @@ export default class XHRUpload<
         })
       })
     } catch (error) {
-      if (error instanceof Error && error.name === 'AbortError') {
+      if (isAbortError(error)) {
         return
       }
       throw error

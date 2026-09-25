@@ -2,6 +2,7 @@ export {
   AbortController,
   AbortSignal,
   createAbortError,
+  isAbortError,
 } from './AbortController.js'
 export type { CompanionFile } from './CompanionFile.js'
 

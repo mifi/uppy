@@ -4,6 +4,13 @@ import hasProperty from './hasProperty.js'
  */
 export const { AbortController } = globalThis
 export const { AbortSignal } = globalThis
+// duck-typed, as an abort error is a DOMException, which may not extend Error
+export const isAbortError = (err: unknown): boolean =>
+  typeof err === 'object' &&
+  err != null &&
+  'name' in err &&
+  err.name === 'AbortError'
+
 export const createAbortError = (
   message = 'Aborted',
   options?: Parameters<typeof Error>[1],

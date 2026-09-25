@@ -6,6 +6,7 @@ import {
   ErrorWithCause,
   fetchWithNetworkError,
   getSocketHost,
+  isAbortError,
   toError,
   UserFacingApiError,
 } from '../utils/index.js'
@@ -200,8 +201,8 @@ export default class RequestClient<M extends Meta, B extends Body> {
       // pass these through
       if (
         isAuthError(err) ||
-        (err instanceof Error &&
-          (err.name === 'UserFacingApiError' || err.name === 'AbortError'))
+        isAbortError(err) ||
+        toError(err).name === 'UserFacingApiError'
       )
         throw err
 
@@ -301,7 +302,7 @@ export default class RequestClient<M extends Meta, B extends Body> {
     } catch (err) {
       // this is a bit confusing, but note that an error with the `name` prop set to 'AbortError' (from AbortController)
       // is not the same as `p-retry` `AbortError`
-      if (err instanceof Error && err.name === 'AbortError') {
+      if (isAbortError(err)) {
         // The file upload was aborted, it’s not an error
         return undefined
       }
