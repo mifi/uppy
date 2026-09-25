@@ -83,12 +83,21 @@ REST API), limited to the repo(s) above.
   - `reviewed-by:<login> updated:>=<start>` — PRs reviewed
   - `commenter:<login> updated:>=<start>` — issues/PRs commented on
 
-  Search only says an item was touched in the range, not when the user acted.
-  For review/comment hits, fetch the item's reviews/comments and keep only
-  the user's, dated inside the range. That needs read access to the repo
-  (in a cloud session, the upstream of a fork may have to be added to the
-  session first). Without it, list the reviewed PRs in the footer without
-  dates.
+  Search only says an item was touched in the range, and `reviewed-by:` /
+  `commenter:` match the user's activity at *any* time. For those hits, fetch
+  the item's reviews/comments and keep only the user's, dated inside the
+  range. That needs API access to the repo; in a cloud session the upstream
+  of a fork usually has to be attached to the session first.
+
+  If the dates can't be fetched:
+  1. Drop items the log already covers (a PR whose follow-ups the user
+     committed or opened a PR for, a PR the user's work builds on or
+     supersedes).
+  2. Keep items opened inside the range: the user's activity on them must be
+     in range too. If one was opened and closed the same day, put it on that
+     day.
+  3. Drop items opened before the range: the activity may be older.
+  Items left after step 2 go in the "date unknown" list (see Output format).
 
 Convert every timestamp to the chosen timezone. Drop activity that duplicates
 a commit already listed (e.g. opening the PR for a branch already covered is
@@ -150,10 +159,19 @@ Work log for <repo>, <range> (TZ <tz>)
 total ~9.5h
 No activity: 6.aug–23.aug
 Hours are estimates from commit/activity timestamps and item size.
+
+Date unknown:
+https://github.com/acme/app/pull/415 add retry backoff
+https://github.com/acme/app/issues/420#issuecomment-123456789 flaky upload test
 ```
 
 - Day label is `<d>.<mon>` lowercase. Lines can be as long as needed.
 - Skip days with no activity.
-- The header line and the footer (total, no-activity days, reviewed PRs
-  without dates, the hours note, the 05:00 note if it applies) are the only
-  text outside the day lines.
+- The header line and the footer (total, no-activity days, the hours note,
+  the 05:00 note if it applies, the date-unknown list) are the only text
+  outside the day lines.
+- **Date-unknown list**: last, under `Date unknown:`, one item per line as
+  `<full URL> <short title>`. Link straight to the user's own review or
+  comment (`…/pull/<n>#pullrequestreview-<id>`, `…#issuecomment-<id>`) when
+  its id is known, otherwise to the PR/issue itself, so the user can look up
+  the date.
