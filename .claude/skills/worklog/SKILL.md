@@ -19,8 +19,9 @@ Free-form. Anything the user does not specify, infer or default:
   the month, the previous month instead.
 - **Repo** — the current project's GitHub repository (from the `origin`
   remote), plus its upstream if it is a fork (the repo's `parent` in the
-  GitHub API), since PRs usually target the upstream. Activity in other repos is left out unless asked for. If the
-  project has no GitHub remote, use git history only.
+  GitHub API), since PRs usually target the upstream. Activity in other
+  repos is left out unless asked for. If the project has no GitHub remote,
+  use git history only.
 - **Timezone** — use it if the user states one; otherwise see step 1.
 
 ## Who is "me"
@@ -30,10 +31,11 @@ Free-form. Anything the user does not specify, infer or default:
   (`<id>+<login>@users.noreply.github.com`), `git config user.name`/`email`
   unless it is an AI identity (cloud sessions often set it to `Claude`), and
   any other author names/emails that clearly belong to the same person.
-- AI-assisted commits (author `Claude` or similar) count only when they are
-  the user's: on a branch whose PR the user opened, or with a
-  `Co-Authored-By` trailer naming the user. Everyone else's commits are
-  excluded.
+- AI-authored commits (author `Claude` or similar) count when the user is
+  the committer or a `Co-Authored-By` trailer names the user. Older ones
+  without either count when they are on a branch whose PR the user opened.
+- Commits authored by other people never count, even when a trailer names
+  the user as co-author (typical of squash merges of PRs the user helped on).
 
 ## Method
 
@@ -47,11 +49,17 @@ everything to one zone keeps AI/CI commits made in UTC on the right day.
 ### 2. Git commits, all branches
 
 ```
-git fetch --all --prune
-TZ=<tz> git log --branches --remotes --no-merges --author=<me> [--author=Claude] \
-  --since=<start> --until=<end> \
-  --date=format-local:'%Y-%m-%d %H:%M' --pretty=format:'%H|%ad|%an|%D|%s'
+git fetch --all --prune --shallow-since=<start>   # plain fetch if not shallow
+TZ=<tz> git log --branches --remotes --no-merges \
+  --since='<start> 05:00' --until='<day after end> 05:00' \
+  --date=format-local:'%Y-%m-%d %H:%M' \
+  --pretty=format:'%H|%ad|%an|%cn|%(trailers:key=Co-Authored-By,valueonly,separator=;)|%D|%s'
 ```
+
+Always give `--since`/`--until` a time: with a bare date git uses the
+current time of day and silently drops earlier commits. Then keep only the
+user's commits, per "Who is me" (`--author` alone can't express the
+committer/trailer rule for AI commits).
 
 - The same change often appears several times (rebased, cherry-picked, and
   squash-merged to the default branch). Count it once: dedupe by subject, and
@@ -68,7 +76,8 @@ REST API), limited to the repo(s) above.
   --paginate`, filtered to the repo(s), lists PRs, reviews, comments and
   issues with exact timestamps. It only covers the last 90 days / 300 events.
 - **Search** (for older ranges or no events feed), adding
-  `repo:<owner>/<name>` to each query:
+  `repo:<owner>/<name>` to each query (and `-author:<login>` to the review
+  and comment queries, so the user's own PRs don't show up as reviews):
   - `author:<login> created:<start>..<end>` — PRs and issues opened
   - `author:<login> is:pr merged:<start>..<end>` — PRs merged
   - `reviewed-by:<login> updated:>=<start>` — PRs reviewed
@@ -76,11 +85,15 @@ REST API), limited to the repo(s) above.
 
   Search only says an item was touched in the range, not when the user acted.
   For review/comment hits, fetch the item's reviews/comments and keep only
-  the user's, dated inside the range.
+  the user's, dated inside the range. That needs read access to the repo
+  (in a cloud session, the upstream of a fork may have to be added to the
+  session first). Without it, list the reviewed PRs in the footer without
+  dates.
 
 Convert every timestamp to the chosen timezone. Drop activity that duplicates
 a commit already listed (e.g. opening the PR for a branch already covered is
-not a separate item; merging it is not either).
+not a separate item; merging it is not either). A PR on the fork that mirrors
+one on the upstream (same title) is one item.
 
 ### 4. Group into work days
 
@@ -135,5 +148,6 @@ Hours are estimates from commit/activity timestamps and item size.
 - Day label is `<d>.<mon>` lowercase, then the span, then the items. Lines can
   be as long as needed.
 - Skip days with no activity.
-- The header line and the footer (total, no-activity days, the hours note,
-  the 05:00 note if it applies) are the only text outside the day lines.
+- The header line and the footer (total, no-activity days, reviewed PRs
+  without dates, the hours note, the 05:00 note if it applies) are the only
+  text outside the day lines.
