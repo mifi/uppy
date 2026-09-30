@@ -54,7 +54,6 @@ fr_FR.strings = {
   copyLink: 'Copier le lien',
   copyLinkToClipboardFallback: 'Copier le lien ci-dessous',
   copyLinkToClipboardSuccess: 'Lien copié',
-  creatingAssembly: 'Préparation du téléversement…',
   creatingAssemblyFailed: 'Transloadit: Impossible de créer Assembly',
   dashboardTitle: 'Téléverseur de fichiers',
   dashboardWindowTitle:
@@ -76,7 +75,6 @@ fr_FR.strings = {
   editImage: 'Modifier l’image',
   editFileWithFilename: 'Modifier le fichier %{file}',
   editing: 'Modification en cours de %{file}',
-  emptyFolderAdded: 'Aucun fichier n’a été ajouté depuis un dossier vide',
   encoding: 'Traitement…',
   enterCorrectUrl:
     'Lien incorrect: Assurez-vous que vous entrez un lien direct vers le fichier',
@@ -96,11 +94,6 @@ fr_FR.strings = {
   filter: 'Filtrer',
   finishEditingFile: 'Terminer l’édition du fichier',
   flipHorizontal: 'Retourner horizontalement',
-  folderAdded: {
-    '0': '%{smart_count} fichier ajouté de %{folder}',
-    '1': '%{smart_count} fichiers ajoutés de %{folder}',
-  },
-  folderAlreadyAdded: 'Le dossier "%{folder}" a déjà été ajouté',
   generatingThumbnails: 'Génération des vignettes…',
   import: 'Importer',
   importFiles: 'Importer des fichiers depuis :',

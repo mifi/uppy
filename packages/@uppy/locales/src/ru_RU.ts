@@ -66,7 +66,6 @@ ru_RU.strings = {
   copyLink: 'Скопировать ссылку',
   copyLinkToClipboardFallback: 'Скопируйте ссылку',
   copyLinkToClipboardSuccess: 'Ссылка скопирована в буфер обмена',
-  creatingAssembly: 'Подготовка загрузки...',
   creatingAssemblyFailed: 'Transloadit: не удалось создать Assembly',
   dashboardTitle: 'Загрузчик файлов',
   dashboardWindowTitle:
@@ -88,7 +87,6 @@ ru_RU.strings = {
   editImage: 'Редактировать изображение',
   editFileWithFilename: 'Редактировать файл %{file}',
   editing: 'Редактируется %{file}',
-  emptyFolderAdded: 'Файлы не были добавлены — папка пуста',
   encoding: 'Обработка...',
   enterCorrectUrl:
     'Неправильный адрес: пожалуйста, убедитесь что вы используете прямую ссылку на файл',
@@ -107,12 +105,6 @@ ru_RU.strings = {
   filter: 'Фильтр',
   finishEditingFile: 'Закончить редактирование файла',
   flipHorizontal: 'Повернуть горизонтально',
-  folderAdded: {
-    '0': 'Добавлен %{smart_count} файл из %{folder}',
-    '1': 'Добавлено %{smart_count} файла из %{folder}',
-    '2': 'Добавлено %{smart_count} файлов из %{folder}',
-  },
-  folderAlreadyAdded: 'Папка "%{folder}" уже была добавлена',
   generatingThumbnails: 'Создание превью изображений...',
   import: 'Импортировать',
   importFiles: 'Импортировать файлы из:',
@@ -170,7 +162,6 @@ ru_RU.strings = {
   removeFile: 'Удалить файл',
   reSelect: 'Выбрать заново',
   resetFilter: 'Сбросить фильтр',
-  resetSearch: 'Сбросить поиск',
   resume: 'Продолжить',
   resumeUpload: 'Продолжить загрузку',
   retry: 'Повторить попытку',

@@ -49,7 +49,6 @@ uz_UZ.strings = {
   copyLink: 'Havolani nusxalash',
   copyLinkToClipboardFallback: 'Quyidagi URL manzilidan nusxa oling',
   copyLinkToClipboardSuccess: 'Havola vaqtinchalik xotiraga nusxalandi.',
-  creatingAssembly: 'Yuklash tayyorlanmoqda...',
   creatingAssemblyFailed: "Transloadit: Assambleyani yaratib bo'lmadi",
   dashboardTitle: 'Uppy boshqaruv paneli',
   dashboardWindowTitle:
@@ -72,7 +71,6 @@ uz_UZ.strings = {
   editImage: 'Rasmni tahrirlash',
   editFileWithFilename: '%{file} faylini tahrirlash',
   editing: '%{file} tahrirlanmoqda',
-  emptyFolderAdded: "Bo'sh jilddan hech qanday fayl qo'shilmadi",
   encoding: 'Kodlanmoqda...',
   enterCorrectUrl:
     "Noto'g'ri URL: faylga to'g'ridan-to'g'ri havolani kiritayotganingizga ishonch hosil qiling",
@@ -89,11 +87,6 @@ uz_UZ.strings = {
   filter: 'Filtr',
   finishEditingFile: 'Faylni tahrirlashni tugating',
   flipHorizontal: 'Gorizontal aylantiring',
-  folderAdded: {
-    '0': '%{folder} dan %{smart_count} fayl qo‘shildi',
-    '1': '%{folder} dan %{smart_count} ta fayl qo‘shildi',
-  },
-  folderAlreadyAdded: '“%{folder}” jild allaqachon qo‘shilgan',
   generatingThumbnails: 'Eskiz yaratilmoqda...',
   import: 'Import',
   importFiles: 'Fayllarni import qiling:',

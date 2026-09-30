@@ -55,7 +55,6 @@ pt_BR.strings = {
   copyLink: 'Copiar link',
   copyLinkToClipboardFallback: 'Copiar URL abaixo',
   copyLinkToClipboardSuccess: 'Link copiado para a área de transferência',
-  creatingAssembly: 'Preparando envio de arquivos...',
   creatingAssemblyFailed: 'Transloadit: Não foi possível criar o Assembly',
   dashboardTitle: 'Painel de Envio',
   dashboardWindowTitle:
@@ -80,7 +79,6 @@ pt_BR.strings = {
   editFileWithFilename: 'Editar arquivo %{file}',
   editImage: 'Editar imagem',
   editing: 'Editando %{file}',
-  emptyFolderAdded: 'Nenhum arquivo foi adicionado da pasta vazia',
   encoding: 'Codificando...',
   enterCorrectUrl:
     'URL incorreta: Por favor, certifique-se de que você inseriu um link direto para um arquivo',
@@ -97,11 +95,6 @@ pt_BR.strings = {
   filter: 'Filtrar',
   finishEditingFile: 'Finalizar edição de arquivo',
   flipHorizontal: 'Inverter',
-  folderAdded: {
-    '0': 'Adicionado %{smart_count} arquivo de %{folder}',
-    '1': 'Adicionado %{smart_count} arquivos de %{folder}',
-  },
-  folderAlreadyAdded: 'A pasta "%{folder}" já foi adicionada',
   generatingThumbnails: 'Gerando thumbnails...',
   import: 'Importar',
   importFiles: 'Importar arquivos de:',
@@ -110,7 +103,6 @@ pt_BR.strings = {
     'Este arquivo é menor que o tamanho máximo permitido de %{size}',
   loadedXFiles: '%{numFiles} arquivo(s) carregado(s)',
   loading: 'Carregando...',
-  logIn: 'Entrar',
   logOut: 'Sair',
   micDisabled: 'Acesso ao microfone negado pelo usuário',
   missingRequiredMetaField: 'Campos meta obrigatórios faltando',
@@ -175,7 +167,6 @@ pt_BR.strings = {
   removeFile: 'Remover arquivo',
   reSelect: 'Re-selecionar',
   resetFilter: 'Restaurar filtro',
-  resetSearch: 'Restaurar busca',
   resume: 'Retomar',
   resumeUpload: 'Retomar envio de arquivos',
   retry: 'Tentar novamente',

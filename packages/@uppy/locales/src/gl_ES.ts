@@ -32,7 +32,6 @@ gl_ES.strings = {
   copyLink: 'Copiar enlace',
   copyLinkToClipboardFallback: 'Copia a siguiente URL',
   copyLinkToClipboardSuccess: 'Enlace copiado ao portapapeis',
-  creatingAssembly: 'Preparando subida...',
   creatingAssemblyFailed: 'Transloadit: Non se puido crear un Assembly',
   dashboardTitle: 'Cargador de arquivos',
   dashboardWindowTitle:
@@ -52,7 +51,6 @@ gl_ES.strings = {
   editFile: 'Editar arquivo',
   editImage: 'Editar imaxe',
   editing: 'Editando %{file}',
-  emptyFolderAdded: 'Ningún arquivo foi agregado dende o cartafol vacía',
   encoding: 'Codificando...',
   enterCorrectUrl:
     'URL incorrecta: Por favor asegúrate que estás ingresando un enlace a un arquivo',
@@ -68,10 +66,6 @@ gl_ES.strings = {
   },
   filter: 'Filtrar',
   finishEditingFile: 'Rematar edición de arquivo',
-  folderAdded: {
-    '0': 'Engadido %{smart_count} arquivo dende %{folder}',
-    '1': 'Engadidos %{smart_count} arquivos dende %{folder}',
-  },
   import: 'Importar',
   importFrom: 'Importar dende %{name}',
   loading: 'Cargando...',

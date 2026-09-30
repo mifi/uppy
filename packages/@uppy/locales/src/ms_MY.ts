@@ -52,7 +52,6 @@ ms_MY.strings = {
   copyLink: 'Salin pautan',
   copyLinkToClipboardFallback: 'Salin URL di bawah',
   copyLinkToClipboardSuccess: 'Pautan disalin ke papan keratan.',
-  creatingAssembly: 'Menyediakan muat naik...',
   creatingAssemblyFailed: 'Transloadit: Tidak dapat membuat Perhimpunan',
   dashboardTitle: 'Papan Pemuka Uppy',
   dashboardWindowTitle:
@@ -74,7 +73,6 @@ ms_MY.strings = {
   editFileWithFilename: 'Edit fail %{file}',
   editImage: 'Edit gambar',
   editing: 'Mengedit %{file}',
-  emptyFolderAdded: 'Tiada fail yang ditambah daripada folder kosong',
   encoding: 'Pengekodan...',
   enterCorrectUrl:
     'URL salah: Sila pastikan anda memasukkan pautan terus ke fail',
@@ -91,11 +89,6 @@ ms_MY.strings = {
   filter: 'Tapis',
   finishEditingFile: 'Selesai mengedit fail',
   flipHorizontal: 'Flip mendatar',
-  folderAdded: {
-    '0': '%{smart_count} fail ditambah dari %{folder}',
-    '1': '%{smart_count} fail ditambah dari %{folder}',
-  },
-  folderAlreadyAdded: 'Folder "%{folder}" telah pun ditambah',
   generatingThumbnails: 'Menjana lakaran kecil...',
   import: 'Import',
   importFiles: 'Import fail dari:',
@@ -160,7 +153,6 @@ ms_MY.strings = {
   removeFile: 'Buang fail',
   reSelect: 'Pilih semula',
   resetFilter: 'Tetap semua tapisan',
-  resetSearch: 'Tetap semua carian',
   resume: 'Sambung semula',
   resumeUpload: 'Sambung semula muat naik',
   retry: 'Cuba semula',

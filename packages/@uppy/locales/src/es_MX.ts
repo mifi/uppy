@@ -43,7 +43,6 @@ es_MX.strings = {
   copyLink: 'Copiar enlace',
   copyLinkToClipboardFallback: 'Copie la URL a continuación',
   copyLinkToClipboardSuccess: 'Enlace copiado al portapapeles',
-  creatingAssembly: 'Preparando subida...',
   creatingAssemblyFailed: 'Transloadit: No se pudo crear el ensamblado',
   dashboardTitle: 'Cargador de archivos',
   dashboardWindowTitle:
@@ -64,7 +63,6 @@ es_MX.strings = {
   editFile: 'Editar archivo',
   editImage: 'Editar imagen',
   editing: 'Editando %{file}',
-  emptyFolderAdded: 'No se agregaron archivos desde la carpeta vacía',
   encoding: 'Codificando...',
   enterCorrectUrl:
     'URL incorrecta: Asegúrese de ingresar un enlace directo a un archivo',
@@ -83,10 +81,6 @@ es_MX.strings = {
   filter: 'Filtrar',
   finishEditingFile: 'Terminar de editar archivo',
   flipHorizontal: 'Voltear horizontalmente',
-  folderAdded: {
-    '0': 'Se agregó %{smart_count} archivo de %{folder}',
-    '1': 'Se agregaron %{smart_count} archivos de %{folder}',
-  },
   generatingThumbnails: 'Generando miniaturas...',
   import: 'Importar',
   importFiles: 'Importar archivos desde:',

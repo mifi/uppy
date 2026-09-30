@@ -46,6 +46,5 @@ export default {
       1: '%{smart_count} more files added',
     },
     showErrorDetails: 'Show error details',
-    failedToAddFiles: 'Failed to add files',
   },
 }

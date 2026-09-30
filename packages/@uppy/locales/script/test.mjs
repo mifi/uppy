@@ -1,80 +1,45 @@
 /* eslint-disable no-console, prefer-arrow-callback */
 
 import fs from 'node:fs'
-import path from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { styleText } from 'node:util'
 import { globSync } from 'glob'
 
-import {
-  getLocales,
-  getPaths,
-  localeNameFromLocalePath,
-  omit,
-} from './helpers.mjs'
+import { getLocales, localeNameFromLocalePath, omit } from './helpers.mjs'
 
 const root = fileURLToPath(new URL('../../../../', import.meta.url))
 const leadingLocaleName = 'en_US'
 // Node strips types when importing `.ts`, so the modes that compare language
-// packs read `src/` and stay independent of `yarn build`. (`unused` still needs
-// `lib/`, but of the *plugin* packages, to scan their compiled code for i18n calls.)
+// packs, and `unused`, read `src/` and stay independent of `yarn build`.
 const localePackGlob = `${root}/packages/@uppy/locales/src/*.ts`
 const mode = process.argv[2]
 const verbose = process.argv.includes('--verbose')
-const pluginLocaleDependencies = {
-  core: ['provider-views', 'companion-client'],
-}
 
-function getAllFilesPerPlugin(pluginNames) {
-  const filesPerPlugin = {}
-
-  function getFiles(name) {
-    return globSync(`${root}/packages/@uppy/${name}/lib/**/*.js`)
-      .filter((filePath) => !filePath.includes('locale.js'))
-      .map((filePath) => fs.readFileSync(filePath, 'utf-8'))
-  }
-
-  for (const name of pluginNames) {
-    filesPerPlugin[name] = getFiles(name)
-
-    if (name in pluginLocaleDependencies) {
-      for (const subDeb of pluginLocaleDependencies[name]) {
-        filesPerPlugin[name].push(...getFiles(subDeb))
-      }
-    }
-  }
-
-  return filesPerPlugin
-}
-
-async function unused(filesPerPlugin, data) {
-  for (const [name, fileStrings] of Object.entries(filesPerPlugin)) {
-    const fileString = fileStrings.join('\n')
-    const localePath = path.join(
-      root,
-      'packages',
-      '@uppy',
-      name,
-      'src',
-      'locale.js',
+function unused(locales) {
+  const unusedKeys = []
+  for (const [name, locale] of Object.entries(locales)) {
+    const source = globSync(
+      `${root}/packages/@uppy/${name}/src/**/*.{ts,tsx}`,
+      {
+        ignore: ['**/locale.ts', '**/*.test.{ts,tsx}'],
+      },
     )
-    const locale = (await import(localePath)).default
+      .map((filePath) => fs.readFileSync(filePath, 'utf-8'))
+      .join('\n')
 
     for (const key of Object.keys(locale.strings)) {
-      const regPat = new RegExp(
-        `(i18n|i18nArray)\\([^\\)]*['\`"]${key}['\`"]`,
-        'g',
-      )
-      if (!fileString.match(regPat)) {
-        return Promise.reject(
-          new Error(`Unused locale key "${key}" in @uppy/${name}`),
-        )
+      // Keys aren't always passed to `i18n()` directly (e.g. `getI18n()(key)`,
+      // or lookup tables), so any string literal of the key counts as a use.
+      if (!new RegExp(`['\`"]${key}['\`"]`).test(source)) {
+        unusedKeys.push(`"${key}" in @uppy/${name}`)
       }
     }
   }
 
-  return data
+  if (unusedKeys.length > 0) {
+    throw new Error(`Unused locale keys:\n  ${unusedKeys.join('\n  ')}`)
+  }
 }
 
 // Locales are community-contributed and always lag behind `en_US`, so
@@ -288,15 +253,7 @@ function placeholders({ leadingLocale, followerLocales }) {
 function test() {
   switch (mode) {
     case 'unused':
-      return getPaths(`${root}/packages/@uppy/**/src/locale.js`).then((paths) =>
-        unused(
-          getAllFilesPerPlugin(
-            paths.map((filePath) =>
-              path.basename(path.join(filePath, '..', '..')),
-            ),
-          ),
-        ),
-      )
+      return getLocales(`${root}/packages/@uppy/*/src/locale.ts`).then(unused)
 
     case 'warnings':
       return getLocales(localePackGlob, localeNameFromLocalePath).then(

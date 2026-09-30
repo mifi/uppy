@@ -117,7 +117,10 @@ export default function RecordingScreen(props: RecordingScreenProps) {
 
         <div className="uppy-Audio-recordingLength">
           {!hasRecordedAudio && (
-            <RecordingLength recordingLengthSeconds={recordingLengthSeconds} />
+            <RecordingLength
+              recordingLengthSeconds={recordingLengthSeconds}
+              i18n={i18n}
+            />
           )}
         </div>
       </div>

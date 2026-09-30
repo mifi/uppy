@@ -34,7 +34,6 @@ ja_JP.strings = {
   copyLink: 'リンクをコピー',
   copyLinkToClipboardFallback: '以下のURLをコピー',
   copyLinkToClipboardSuccess: 'リンクをクリップボードにコピーしました',
-  creatingAssembly: 'アップロードの準備をしています...',
   creatingAssemblyFailed: 'Transloadit: アセンブリを作成できませんでした',
   dashboardTitle: 'ファイルアップローダー',
   dashboardWindowTitle:
@@ -57,7 +56,6 @@ ja_JP.strings = {
   editFile: 'ファイルを編集',
   editImage: '画像を編集',
   editing: '%{file}を編集しています',
-  emptyFolderAdded: 'フォルダが空なためファイルが追加されませんでした',
   encoding: 'エンコードしています...',
   enterCorrectUrl:
     '不正なURL: ファイルへの直接リンクが入力されていることを確認してください',
@@ -73,10 +71,6 @@ ja_JP.strings = {
   },
   filter: 'フィルタ',
   finishEditingFile: 'ファイルの編集を終了',
-  folderAdded: {
-    '0': '%{folder} から%{smart_count} 個のファイルを追加しました',
-    '1': '%{folder} から%{smart_count} 個のファイルを追加しました',
-  },
   import: 'インポート',
   importFrom: '%{name}からインポート',
   loading: 'ロード中...',

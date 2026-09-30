@@ -30,7 +30,6 @@ hu_HU.strings = {
   copyLink: 'Link másolása',
   copyLinkToClipboardFallback: 'Másolja ki az alábbi URL-t',
   copyLinkToClipboardSuccess: 'Link a vágólapra másolva',
-  creatingAssembly: 'Feltöltés előkészítése...',
   creatingAssemblyFailed: 'Transloadit: Nem sikerült létrehozni az Assembly-t',
   dashboardTitle: 'Fájlfeltöltő',
   dashboardWindowTitle: 'Fájlfeltöltő ablak (Escape a bezáráshoz)',
@@ -47,7 +46,6 @@ hu_HU.strings = {
   editFile: 'Fájl szerkesztése',
   editImage: 'Kép szerkesztése',
   editing: '%{file} szerkesztése',
-  emptyFolderAdded: 'Az üres mappából nem kerültek fájlok hozzáadásra',
   encoding: 'Kódolás...',
   enterCorrectUrl:
     'Érvénytelen URL: Bizonyosodjon meg róla, hogy egy fájlra mutató közvetlen linket ír be',
@@ -60,7 +58,6 @@ hu_HU.strings = {
   filesUploadedOfTotal: 'A %{smart_count}-ból %{complete} fájl feltöltve',
   filter: 'Szűrő',
   finishEditingFile: 'Fájl szerkesztésének befejezése',
-  folderAdded: 'A %{folder}-ból %{smart_count} fájl hozzáadva',
   import: 'Importálás',
   importFrom: 'Importálás innen: %{name}',
   loading: 'Töltés...',

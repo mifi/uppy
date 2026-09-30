@@ -54,7 +54,6 @@ az_AZ.strings = {
   copyLink: 'Keçidi kopyala',
   copyLinkToClipboardFallback: 'Aşağıdakı keçidi kopyalayın',
   copyLinkToClipboardSuccess: 'Keçid mübadilə buferinə kopyalandı.',
-  creatingAssembly: 'Yükləmə hazırlanır...',
   creatingAssemblyFailed: 'Transloadit: Assembly yaradıla bilmədi',
   dashboardTitle: 'Uppy İdarə Paneli',
   dashboardWindowTitle:
@@ -80,7 +79,6 @@ az_AZ.strings = {
   editFileWithFilename: '%{file} faylını redaktə et',
   editImage: 'Şəkli redaktə et',
   editing: '%{file} redaktə edilir',
-  emptyFolderAdded: 'Boş qovluqdan heç bir fayl əlavə edilmədi',
   encoding: 'Kodlaşdırılır...',
   enterCorrectUrl:
     'Yanlış URL: Zəhmət olmasa, birbaşa fayl keçidi daxil etdiyinizə əmin olun',
@@ -99,11 +97,6 @@ az_AZ.strings = {
   filter: 'Süzgəc',
   finishEditingFile: 'Faylın redaktəsini bitir',
   flipHorizontal: 'Üfüqi çevir',
-  folderAdded: {
-    '0': '%{folder} qovluğundan %{smart_count} fayl əlavə edildi',
-    '1': '%{folder} qovluğundan %{smart_count} fayl əlavə edildi',
-  },
-  folderAlreadyAdded: 'Qovluq "%{folder}" artıq əlavə edilib',
   generateImage: 'Şəkil yarat',
   generateImagePlaceholder:
     'Dağ gölü üzərində sakit gün batımı, suda əks olunan şam ağacları',
@@ -119,7 +112,6 @@ az_AZ.strings = {
   inferiorSize: 'Bu fayl icazə verilən %{size} həcmindən kiçikdir',
   loadedXFiles: '%{numFiles} fayl yükləndi',
   loading: 'Yüklənir...',
-  logIn: 'Daxil ol',
   logOut: 'Çıxış et',
   micDisabled: 'İstifadəçi mikrofona girişi rədd etdi',
   missingRequiredMetaField: 'Tələb olunan meta sahələr çatışmır',
@@ -181,7 +173,6 @@ az_AZ.strings = {
   removeFile: 'Faylı çıxar',
   reSelect: 'Yenidən seç',
   resetFilter: 'Süzgəci sıfırla',
-  resetSearch: 'Axtarışı sıfırla',
   resume: 'Davam et',
   resumeUpload: 'Yükləməni davam etdir',
   retry: 'Yenidən cəhd et',

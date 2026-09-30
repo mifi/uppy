@@ -34,7 +34,6 @@ is_IS.strings = {
   copyLink: 'Afrita hlekk',
   copyLinkToClipboardFallback: 'Afrita hlekk',
   copyLinkToClipboardSuccess: 'Hlekkur hefur verið afritaður',
-  creatingAssembly: 'Undirbý að hlaða upp...',
   creatingAssemblyFailed: 'Transloadit: Tókst ekki að búa til samsetningu',
   dashboardTitle: 'Hlaða upp skrám',
   dashboardWindowTitle: 'Upphleðslugluggi (Smelltu á ESC til að loka)',
@@ -53,7 +52,6 @@ is_IS.strings = {
   editFile: 'Breyta skrá',
   editImage: 'Breyta mynd',
   editing: 'Breyti %{file}',
-  emptyFolderAdded: 'Engum skrám var bætt við frá tómri möppu',
   encoding: 'Dulkóða...',
   enterCorrectUrl:
     'Röng slóð: Vinsamlegast passaðu að þú sért að bæta við hlekk sem vísar beint á skrá',
@@ -69,10 +67,6 @@ is_IS.strings = {
   },
   filter: 'Sía',
   finishEditingFile: 'Klára að breyta skrá',
-  folderAdded: {
-    '0': 'Bætt við %{smart_count} skrá frá %{folder}',
-    '1': 'Bætt við %{smart_count} skrám frá %{folder}',
-  },
   generatingThumbnails: 'Bý til smámynd ...',
   import: 'Flytja inn',
   importFrom: 'Flytja inn frá %{name}',

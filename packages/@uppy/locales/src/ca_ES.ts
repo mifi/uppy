@@ -52,7 +52,6 @@ ca_ES.strings = {
   copyLink: "Copia l'enllaç",
   copyLinkToClipboardFallback: 'Copia la següent URL',
   copyLinkToClipboardSuccess: 'Enllaç copiat al portapapers',
-  creatingAssembly: 'Preparant càrrega...',
   creatingAssemblyFailed: "No s'ha pogut crear un Assembly",
   dashboardTitle: "Carregador d'arxius",
   dashboardWindowTitle:
@@ -73,7 +72,6 @@ ca_ES.strings = {
   editImage: 'Edita la imatge',
   editFileWithFilename: "Edita l'arxiu %{file}",
   editing: 'Editant %{file}',
-  emptyFolderAdded: "No s'han afegit arxius des de la carpeta buida",
   encoding: 'Codificant...',
   enterCorrectUrl:
     "URL incorrecta: Si us plau, assegura't d'ingressar un enllaç directe a un arxiu",
@@ -92,11 +90,6 @@ ca_ES.strings = {
   filter: 'Filtrar',
   finishEditingFile: "Finalitzar edició d'arxiu",
   flipHorizontal: 'Girar horitzontalment',
-  folderAdded: {
-    '0': "S'ha afegit %{smart_count} arxiu des de %{folder}",
-    '1': "S'han afegit %{smart_count} arxius des de %{folder}",
-  },
-  folderAlreadyAdded: 'La carpeta "%{folder}" ja s\'ha afegit',
   generatingThumbnails: 'Generant miniatures...',
   import: 'Importar',
   importFiles: 'Importar arxius des de:',
@@ -155,7 +148,6 @@ ca_ES.strings = {
   removeFile: 'Eliminar arxiu',
   reSelect: 'Tornar a seleccionar',
   resetFilter: 'Restablir filtre',
-  resetSearch: 'Restablir cerca',
   resume: 'Reprendre',
   resumeUpload: 'Reprendre pujada',
   retry: 'Tornar a intentar',

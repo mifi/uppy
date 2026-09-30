@@ -32,7 +32,6 @@ id_ID.strings = {
   copyLink: 'Salin tautan',
   copyLinkToClipboardFallback: 'Salin URL di bawah ini',
   copyLinkToClipboardSuccess: 'Tautan berhasil disalin ke Clipboard',
-  creatingAssembly: 'Menyiapkan unggahan...',
   creatingAssemblyFailed: 'Transloadit: Tidak dapat membuat Assembly',
   dashboardTitle: 'Pengunggah Berkas',
   dashboardWindowTitle:
@@ -50,7 +49,6 @@ id_ID.strings = {
   editFile: 'Ubah berkas',
   editImage: 'Edit gambar',
   editing: 'Mengubah %{file}',
-  emptyFolderAdded: 'Tidak ada berkas yang ditambahkan dari direktori kosong',
   encoding: 'Pengkodean...',
   enterCorrectUrl:
     'URL salah: Mohon pastikan Anda memasukkan tautan langsung ke berkas',
@@ -65,10 +63,6 @@ id_ID.strings = {
   },
   filter: 'Penyaring',
   finishEditingFile: 'Selesai mengubah berkas',
-  folderAdded: {
-    '0': 'Menambahkan %{smart_count} berkas dari %{folder}',
-    '1': 'Menambahkan %{smart_count} berkas dari %{folder}',
-  },
   import: 'Impor',
   importFrom: 'Impor dari %{name}',
   loading: 'Memuat...',

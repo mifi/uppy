@@ -32,7 +32,6 @@ sr_RS_Cyrillic.strings = {
   copyLink: 'Састави линк',
   copyLinkToClipboardFallback: 'Копирај (сачувај) доњи URL',
   copyLinkToClipboardSuccess: 'Линк је копиран у клипборд',
-  creatingAssembly: 'Припремање отпремања...',
   creatingAssemblyFailed: 'Transloadit: не могу да направим Assembly',
   dashboardTitle: 'Отпремање датотека',
   dashboardWindowTitle:
@@ -52,7 +51,6 @@ sr_RS_Cyrillic.strings = {
   editFile: 'Измени датотеку',
   editImage: 'Уреди слику',
   editing: 'Мењање  %{file}',
-  emptyFolderAdded: 'Ни једна датотека није додата из празног фолдера',
   encoding: 'Шифровање...',
   enterCorrectUrl: 'Погрешан URL: унесите тачну путању до датотеке',
   enterUrlToImport: 'Унесите URL (путању) до датотеке',
@@ -67,10 +65,6 @@ sr_RS_Cyrillic.strings = {
   },
   filter: 'Филтер',
   finishEditingFile: 'Заврши мењање фајла',
-  folderAdded: {
-    '0': 'Број датотека преузетих из %{folder}: %{smart_count}',
-    '1': 'Број датотека преузетих из %{folder}: %{smart_count}',
-  },
   import: 'Преузми',
   importFrom: 'Преузми са %{name}',
   loading: 'Учитавам...',

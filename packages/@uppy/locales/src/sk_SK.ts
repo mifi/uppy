@@ -42,7 +42,6 @@ sk_SK.strings = {
   copyLink: 'Kopírovať odkaz',
   copyLinkToClipboardFallback: 'Skopírujte odkaz nižšie',
   copyLinkToClipboardSuccess: 'Odkaz bol skopírovaný do schránky',
-  creatingAssembly: 'Pripravuje sa nahrávanie...',
   creatingAssemblyFailed: 'Transloadit: Nepodarilo sa vytvoriť Assembly',
   dashboardTitle: 'Nahrať súbory',
   dashboardWindowTitle:
@@ -59,7 +58,6 @@ sk_SK.strings = {
   editFile: 'Upraviť súbor',
   editImage: 'Upraviť obrázok',
   editing: 'Úprava %{file}',
-  emptyFolderAdded: 'Neboli pridané žiadne súbory, pretože adresár je prázdny.',
   encoding: 'Konvertovanie...',
   enterCorrectUrl:
     'Nesprávna adresa URL: Uistite sa, že zadávate priamy odkaz na súbor',
@@ -78,10 +76,6 @@ sk_SK.strings = {
   filter: 'Filtrovať',
   finishEditingFile: 'Dokončiť úpravu súborov',
   flipHorizontal: 'Otočiť horizontálne',
-  folderAdded: {
-    '0': 'Pridaný %{smart_count} súbor zo zložky %{folder}',
-    '1': 'Pridané %{smart_count} súbory zo zložky %{folder}',
-  },
   generatingThumbnails: 'Vytváram miniatury...',
   import: 'Importovať',
   importFrom: 'Import z %{name}',

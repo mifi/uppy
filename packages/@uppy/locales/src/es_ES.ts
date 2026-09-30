@@ -52,7 +52,6 @@ es_ES.strings = {
   copyLink: 'Copiar enlace',
   copyLinkToClipboardFallback: 'Copia la siguiente URL',
   copyLinkToClipboardSuccess: 'Enlace copiado al portapapeles',
-  creatingAssembly: 'Preparando subida...',
   creatingAssemblyFailed: 'No se pudo crear un Assembly',
   dashboardTitle: 'Cargador de archivos',
   dashboardWindowTitle:
@@ -74,7 +73,6 @@ es_ES.strings = {
   editImage: 'Editar imagen',
   editFileWithFilename: 'Editar archivo %{file}',
   editing: 'Editando %{file}',
-  emptyFolderAdded: 'No se agregaron archivos desde la carpeta vacía',
   encoding: 'Codificando...',
   enterCorrectUrl:
     'URL incorrecta: Por favor, asegúrate de ingresar un enlace directo a un archivo',
@@ -93,11 +91,6 @@ es_ES.strings = {
   filter: 'Filtrar',
   finishEditingFile: 'Terminar edición de archivo',
   flipHorizontal: 'Voltear horizontalmente',
-  folderAdded: {
-    '0': 'Se agregó %{smart_count} archivo desde %{folder}',
-    '1': 'Se agregaron %{smart_count} archivos desde %{folder}',
-  },
-  folderAlreadyAdded: 'La carpeta "%{folder}" ya fue agregada',
   generatingThumbnails: 'Generando miniaturas...',
   import: 'Importar',
   importFiles: 'Importar archivos desde:',
@@ -158,7 +151,6 @@ es_ES.strings = {
   removeFile: 'Eliminar archivo',
   reSelect: 'Volver a seleccionar',
   resetFilter: 'Restablecer filtro',
-  resetSearch: 'Restablecer búsqueda',
   resume: 'Reanudar',
   resumeUpload: 'Reanudar subida',
   retry: 'Reintentar',

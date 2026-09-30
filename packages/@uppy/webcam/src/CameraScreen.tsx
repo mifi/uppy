@@ -165,6 +165,7 @@ class CameraScreen extends Component<CameraScreenProps> {
             {shouldShowRecordingLength && (
               <RecordingLength
                 recordingLengthSeconds={recordingLengthSeconds}
+                i18n={i18n}
               />
             )}
           </div>

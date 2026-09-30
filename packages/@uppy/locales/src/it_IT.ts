@@ -31,7 +31,6 @@ it_IT.strings = {
   copyLink: 'Copia link',
   copyLinkToClipboardFallback: "Copia l'URL sottostante",
   copyLinkToClipboardSuccess: 'Link copiato',
-  creatingAssembly: 'Upload in preparazione...',
   creatingAssemblyFailed: "Transloadit: Non ho potuto creare l'Assembly",
   dashboardTitle: 'File Uploader',
   dashboardWindowTitle: 'File Uploader (Premi Esc per chiudere)',
@@ -48,7 +47,6 @@ it_IT.strings = {
   editFile: 'Modifica file',
   editImage: 'Modifica immagine',
   editing: 'Modifica %{file}',
-  emptyFolderAdded: 'Nessun file aggiunto dalla cartella vuota',
   encoding: 'Encoding...',
   enterCorrectUrl:
     'URL non corretta: assicurati che sia un link diretto ad un file',
@@ -64,10 +62,6 @@ it_IT.strings = {
   },
   filter: 'Filter',
   finishEditingFile: 'Finish editing file',
-  folderAdded: {
-    '0': 'Aggiunto %{smart_count} file da %{folder}',
-    '1': 'Aggiunti %{smart_count} file da %{folder}',
-  },
   import: 'Importa',
   importFrom: 'Importa da %{name}',
   loading: 'Caricamento...',

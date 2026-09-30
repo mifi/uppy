@@ -38,7 +38,6 @@ bg_BG.strings = {
   copyLink: 'Копиране на линк',
   copyLinkToClipboardFallback: 'Копиране на долния линк',
   copyLinkToClipboardSuccess: 'Линкът е копиран',
-  creatingAssembly: 'Подготовка за качване...',
   creatingAssemblyFailed: 'Transloadit: библиотеката не може да се създаде',
   dashboardTitle: 'Качване на файлове',
   dashboardWindowTitle:
@@ -58,7 +57,6 @@ bg_BG.strings = {
   editFile: 'Редакция файл',
   editImage: 'Редактиране на изображение',
   editing: 'Редактиране %{file}',
-  emptyFolderAdded: 'Не са добавени файлове от празна директория',
   encoding: 'Кодиране...',
   enterCorrectUrl:
     'Неправилен адрес: Моля, уверете се, че въвеждате директна връзка към файл',
@@ -75,10 +73,6 @@ bg_BG.strings = {
   },
   filter: 'Филтър',
   finishEditingFile: 'Край на редакцията на файла',
-  folderAdded: {
-    '0': 'Добавен %{smart_count} файл от %{folder}',
-    '1': 'Добавени %{smart_count} файлове от %{folder}',
-  },
   generatingThumbnails: 'Генериране на миниатюри...',
   import: 'Импортиране',
   importFrom: 'Импортиране от %{name}',

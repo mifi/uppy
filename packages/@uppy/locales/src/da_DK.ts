@@ -32,7 +32,6 @@ da_DK.strings = {
   copyLink: 'Kopier link',
   copyLinkToClipboardFallback: 'Kopier URLen forneden',
   copyLinkToClipboardSuccess: 'Link kopieret til udklipsholderen',
-  creatingAssembly: 'Forbereder upload...',
   creatingAssemblyFailed: 'Transloadit: Kunne ikke oprette Assembly',
   dashboardTitle: 'Fil Uploader',
   dashboardWindowTitle: 'Fil Uploader Vindue (Tryk escape for at lukke)',
@@ -49,7 +48,6 @@ da_DK.strings = {
   editFile: 'Rediger fil',
   editImage: 'Rediger billede',
   editing: 'Redigerer %{file}',
-  emptyFolderAdded: 'Ingen filer blev tilføjet fra en tom mappe',
   encoding: 'Encoding...',
   enterCorrectUrl:
     'Forkert URL: Venligst sørg for at du indtaster et direkte link til en fil',
@@ -66,10 +64,6 @@ da_DK.strings = {
   },
   filter: 'Filter',
   finishEditingFile: 'Færddiggør redigering af fil',
-  folderAdded: {
-    '0': 'Tilføjet %{smart_count} filer fra %{folder}',
-    '1': 'Tilføjet %{smart_count} fil fra %{folder}',
-  },
   import: 'Importer',
   importFrom: 'Importer fra %{name}',
   loading: 'Loading...',

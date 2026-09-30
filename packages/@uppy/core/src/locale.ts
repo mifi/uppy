@@ -57,7 +57,6 @@ export default {
     stopOperation: 'Stop',
     dialogConfirm: 'OK',
     logOut: 'Log out',
-    logIn: 'Log in',
     pickFiles: 'Pick files',
     pickPhotos: 'Pick photos',
     filter: 'Filter',
@@ -71,14 +70,8 @@ export default {
     searchImages: 'Search for images',
     enterTextToSearch: 'Enter text to search for images',
     search: 'Search',
-    resetSearch: 'Reset search',
-    emptyFolderAdded: 'No files were added from empty folder',
     addedNumFiles: 'Added %{numFiles} file(s)',
-    folderAlreadyAdded: 'The folder "%{folder}" was already added',
-    folderAdded: {
-      0: 'Added %{smart_count} file from %{folder}',
-      1: 'Added %{smart_count} files from %{folder}',
-    },
+    failedToAddFiles: 'Failed to add files',
     additionalRestrictionsFailed:
       '%{count} additional restrictions were not fulfilled',
     unnamed: 'Unnamed',

@@ -54,7 +54,6 @@ sv_SE.strings = {
   copyLink: 'Kopiera länk',
   copyLinkToClipboardFallback: 'Kopiera länken nedanför',
   copyLinkToClipboardSuccess: 'Länken kopierad till urklipp',
-  creatingAssembly: 'Förbereder uppladdning...',
   creatingAssemblyFailed: 'Transloadit: Kunde inte skapa Assembly',
   dashboardTitle: 'Filuppladdare',
   dashboardWindowTitle:
@@ -77,7 +76,6 @@ sv_SE.strings = {
   editFileWithFilename: 'Redigera fil %{file}',
   editImage: 'Redigera bild',
   editing: 'Redigerar %{file}',
-  emptyFolderAdded: 'Inga filer lades till från en tom mapp',
   encoding: 'Kodar...',
   enterCorrectUrl:
     'Ogiltig URL: Kontrollera att adressen du anger är en direktlänk till en fil.',
@@ -94,11 +92,6 @@ sv_SE.strings = {
   filter: 'Filtrera',
   finishEditingFile: 'Avsluta redigering av filen',
   flipHorizontal: 'Vänd horisontellt',
-  folderAdded: {
-    '0': 'La till %{smart_count} fil från %{folder}',
-    '1': 'La till %{smart_count} filer från %{folder}',
-  },
-  folderAlreadyAdded: 'Mappen "%{folder}" har redan lagts till',
   generatingThumbnails: 'Genererar miniatyrer...',
   import: 'Importera',
   importFiles: 'Importera filer från:',
@@ -106,7 +99,6 @@ sv_SE.strings = {
   inferiorSize: 'Filen är mindre än tillåten storlek på %{size}',
   loadedXFiles: 'Laddade %{numFiles} filer',
   loading: 'Laddar...',
-  logIn: 'Logga in',
   logOut: 'Logga ut',
   micDisabled: 'Mikrofonåtkomst nekad av användaren',
   missingRequiredMetaField: 'Obligatoriskt metadatfält saknas',
@@ -171,7 +163,6 @@ sv_SE.strings = {
   removeFile: 'Ta bort fil',
   reSelect: 'Välj om',
   resetFilter: 'Nollställ filter',
-  resetSearch: 'Nollställ sökning',
   resume: 'Återuppta',
   resumeUpload: 'Återuppta uppladdning',
   retry: 'Försök igen',

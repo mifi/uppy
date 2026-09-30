@@ -38,7 +38,6 @@ ro_RO.strings = {
   copyLink: 'Copiază link',
   copyLinkToClipboardFallback: 'Copiază URL-ul de mai jos',
   copyLinkToClipboardSuccess: 'Link-ul copiat în clipboard',
-  creatingAssembly: 'Se pregătește încărcarea...',
   creatingAssemblyFailed: 'Transloadit: Nu se poate crea un Assembly',
   dashboardTitle: 'Încărcare fișier',
   dashboardWindowTitle:
@@ -58,7 +57,6 @@ ro_RO.strings = {
   editFile: 'Editează fișier',
   editImage: 'Editează imagine',
   editing: 'Se editează %{file}',
-  emptyFolderAdded: 'Nu s-au adăugat fișiere, directorul este gol',
   encoding: 'Encodare...',
   enterCorrectUrl: 'URL incorect: Introduceți un link direct către fișier',
   enterUrlToImport: 'Introduceți URL pentru a importa fișierul',
@@ -73,10 +71,6 @@ ro_RO.strings = {
   },
   filter: 'Filtrează',
   finishEditingFile: 'Finalizează editarea fișierului',
-  folderAdded: {
-    '0': 'S-a adăugat %{smart_count} fișier din %{folder}',
-    '1': 'S-au adăugat %{smart_count} fișiere din %{folder}',
-  },
   generatingThumbnails: 'Se generează pictogramele...',
   import: 'Importă',
   importFrom: 'Importă din %{name}',

@@ -32,7 +32,6 @@ tr_TR.strings = {
   copyLink: 'Linki kopyala',
   copyLinkToClipboardFallback: 'Aşağıdaki linki kopyala',
   copyLinkToClipboardSuccess: 'Link panoya kopyalandı',
-  creatingAssembly: 'Yüklemeye hazırlanıyor...',
   creatingAssemblyFailed: 'Transloadit: Yükleme oluşturulamadı',
   dashboardTitle: 'Dosya Yükle',
   dashboardWindowTitle: 'Dosya Yükle (Kapatmak için Esc)',
@@ -50,7 +49,6 @@ tr_TR.strings = {
   editFile: 'Dosyayı düzenle',
   editImage: 'Resmi Düzenle',
   editing: '%{file} düzenleniyor',
-  emptyFolderAdded: 'Klasör boş',
   encoding: 'Çözümleniyor...',
   enterCorrectUrl:
     'Hatalı URL: Lütfen bir dosyaya doğrudan bağlantı girdiğinizden emin olun.',
@@ -65,10 +63,6 @@ tr_TR.strings = {
   },
   filter: 'Filtre',
   finishEditingFile: 'Düzenlemeyi bitir',
-  folderAdded: {
-    '0': '%{folder} klasöründen %{smart_count} dosya eklendi',
-    '1': '%{folder} klasöründen %{smart_count} dosya eklendi',
-  },
   import: 'Ekle',
   importFrom: '%{name} Ekle',
   loading: 'Yükleniyor...',

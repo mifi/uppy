@@ -55,7 +55,6 @@ uk_UA.strings = {
   copyLink: 'Копіювати посилання',
   copyLinkToClipboardFallback: 'Скопіюйте посилання',
   copyLinkToClipboardSuccess: 'Посилання скопійована в буфер обміну',
-  creatingAssembly: 'Підготовка до завантаження...',
   creatingAssemblyFailed: 'Transloadit: не вдалося згенерувати Assembly',
   dashboardTitle: 'Завантажувач файлів',
   dashboardWindowTitle:
@@ -77,7 +76,6 @@ uk_UA.strings = {
   editImage: 'Редагувати зображення',
   editFileWithFilename: 'Редагувати файл %{file}',
   editing: 'Редагується %{file}',
-  emptyFolderAdded: 'Файли не додано — тека порожня',
   encoding: 'Обробка...',
   enterCorrectUrl:
     'Невірна адреса: будь ласка, переконайтеся що ви використовуєте пряме посилання на файл',
@@ -95,12 +93,6 @@ uk_UA.strings = {
   filter: 'Фільтр',
   finishEditingFile: 'Завершити редагування файлу',
   flipHorizontal: 'Віддзеркалити горизонтально',
-  folderAdded: {
-    '0': 'Додано %{smart_count} файл із %{folder}',
-    '1': 'Додано %{smart_count} файли із %{folder}',
-    '2': 'Додано %{smart_count} файлів із %{folder}',
-  },
-  folderAlreadyAdded: 'Папка "%{folder}" вже додана',
   generatingThumbnails: 'Створення мініатюр...',
   import: 'Імпортувати',
   importFiles: 'Імпортувати файли з:',

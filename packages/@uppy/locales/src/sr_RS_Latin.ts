@@ -32,7 +32,6 @@ sr_RS_Latin.strings = {
   copyLink: 'Sastavi link',
   copyLinkToClipboardFallback: 'Kopiraj (sačuvaj) donji URL',
   copyLinkToClipboardSuccess: 'Link je kopiran u klipbord',
-  creatingAssembly: 'Pripremanje otpremanja...',
   creatingAssemblyFailed: 'Transloadit: ne mogu da napravim Assembly',
   dashboardTitle: 'Otpremanje datoteka',
   dashboardWindowTitle:
@@ -52,7 +51,6 @@ sr_RS_Latin.strings = {
   editFile: 'Izmeni datoteku',
   editImage: 'Uredi sliku',
   editing: 'Menjanje %{file}',
-  emptyFolderAdded: 'Ni jedna datoteka nije dodata iz praznog foldera',
   encoding: 'Šifrovanje...',
   enterCorrectUrl: 'Pogrešan URL: unesite tačnu putanju do datoteke',
   enterUrlToImport: 'Unesite URL (putanju) do datoteke',
@@ -67,10 +65,6 @@ sr_RS_Latin.strings = {
   },
   filter: 'Filter',
   finishEditingFile: 'Završi menjanje fajla',
-  folderAdded: {
-    '0': 'Broj datoteka preuzetih iz %{folder}: %{smart_count}',
-    '1': 'Broj datoteka preuzetih iz %{folder}: %{smart_count}',
-  },
   import: 'Preuzmi',
   importFrom: 'Preuzmi sa %{name}',
   loading: 'Učitavam...',

@@ -32,7 +32,6 @@ el_GR.strings = {
   copyLink: 'Αντιγραφή συνδέσμου',
   copyLinkToClipboardFallback: 'Αντιγραφή του παρακάτω συνδέσμου',
   copyLinkToClipboardSuccess: 'Ο σύνδεσμος αντιγράφηκε',
-  creatingAssembly: 'Προετοιμασία μεταφόρτωσης...',
   creatingAssemblyFailed: 'Transloadit: Σφάλμα κατά την προετοιμασία',
   dashboardTitle: 'Μεταφόρτωση αρχείων',
   dashboardWindowTitle:
@@ -52,7 +51,6 @@ el_GR.strings = {
   editFile: 'Επεξεργασία αρχείου',
   editImage: 'Επεξεργασία εικόνας',
   editing: 'Γίνεται επεξεργασία %{file}',
-  emptyFolderAdded: 'Δεν προστέθηκαν αρχεία από τον άδειο φάκελο',
   encoding: 'Γίνεται κωδικοποίηση...',
   enterCorrectUrl:
     'Λανθασμένο URL: Παρακαλούμε βεβαιωθείτε ότι εισάγετε έναν άμεσο σύνδεσμο προς κάποιο αρχείο',
@@ -69,10 +67,6 @@ el_GR.strings = {
   },
   filter: 'Φιλτράρισμα',
   finishEditingFile: 'Ολοκλήρωση επεξεργασίας αρχείου',
-  folderAdded: {
-    '0': 'Προστέθηκαν %{smart_count} αρχεία από %{folder}',
-    '1': 'Προστέθηκε %{smart_count} αρχείο από %{folder}',
-  },
   import: 'Εισαγωγή',
   importFrom: 'Εισαγωγή από %{name}',
   loading: 'Φορτώνει...',

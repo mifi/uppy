@@ -61,7 +61,6 @@ en_US.strings = {
   copyLinkToClipboardSuccess: 'Link copied to clipboard.',
   copySmartCdnUrl: 'Copy Smart CDN URL',
   create: 'Create',
-  creatingAssembly: 'Preparing upload...',
   creatingAssemblyFailed: 'Transloadit: Could not create Assembly',
   dashboardTitle: 'Uppy Dashboard',
   dashboardWindowTitle: 'Uppy Dashboard Window (Press escape to close)',
@@ -104,7 +103,6 @@ en_US.strings = {
   editFileWithFilename: 'Edit file %{file}',
   editImage: 'Edit image',
   editing: 'Editing %{file}',
-  emptyFolderAdded: 'No files were added from empty folder',
   encoding: 'Encoding...',
   enterCorrectUrl:
     'Incorrect URL: Please make sure you are entering a direct link to a file',
@@ -123,11 +121,6 @@ en_US.strings = {
   filter: 'Filter',
   finishEditingFile: 'Finish editing file',
   flipHorizontal: 'Flip horizontally',
-  folderAdded: {
-    '0': 'Added %{smart_count} file from %{folder}',
-    '1': 'Added %{smart_count} files from %{folder}',
-  },
-  folderAlreadyAdded: 'The folder "%{folder}" was already added',
   folderCreated: 'Created folder "%{name}"',
   generateImage: 'Generate image',
   generateImagePlaceholder:
@@ -160,7 +153,6 @@ en_US.strings = {
   },
   loadedXFiles: 'Loaded %{numFiles} files',
   loading: 'Loading...',
-  logIn: 'Log in',
   logOut: 'Log out',
   micDisabled: 'Microphone access denied by user',
   missingRequiredMetaField: 'Missing required meta fields',
@@ -244,7 +236,6 @@ en_US.strings = {
   renameOrMoveTitle: 'Rename or move "%{name}"',
   reSelect: 'Re-select',
   resetFilter: 'Reset filter',
-  resetSearch: 'Reset search',
   resume: 'Resume',
   resumeUpload: 'Resume upload',
   retry: 'Retry',

@@ -44,7 +44,6 @@ de_DE.strings = {
   copyLink: 'Link kopieren',
   copyLinkToClipboardFallback: 'Untenstehende URL kopieren',
   copyLinkToClipboardSuccess: 'Link in die Zwischenablage kopiert',
-  creatingAssembly: 'Das Hochladen wird vorbereiten...',
   creatingAssemblyFailed: 'Transloadit: Assembly konnte nicht erstellt werden',
   dashboardTitle: 'Hochladen von Dateien',
   dashboardWindowTitle: 'Hochladen von Dateien (ESC drücken zum Schließen)',
@@ -66,7 +65,6 @@ de_DE.strings = {
   editImage: 'Bild bearbeiten',
   editFileWithFilename: 'Datei %{file} bearbeiten',
   editing: '%{file} bearbeiten',
-  emptyFolderAdded: 'Keine Dateien hinzugefügt, da der Ordner leer war',
   encoding: 'Kodieren...',
   enterCorrectUrl:
     'Falsche URL: Bitte stellen Sie sicher, dass Sie einen direkten Link zu einer Datei eingeben',
@@ -84,11 +82,6 @@ de_DE.strings = {
   filter: 'Filter',
   finishEditingFile: 'Bearbeitung beenden',
   flipHorizontal: 'Horizontal spiegeln',
-  folderAdded: {
-    '0': 'Eine Datei von %{folder} hinzugefügt',
-    '1': '%{smart_count} Dateien von %{folder} hinzugefügt',
-  },
-  folderAlreadyAdded: 'Der Ordner "%{folder}" wurde bereits hinzugefügt',
   generatingThumbnails: 'Erstellen von Miniaturansichten...',
   import: 'Importieren',
   importFiles: 'Importiere Dateien von:',

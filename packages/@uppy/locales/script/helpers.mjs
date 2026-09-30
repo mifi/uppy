@@ -20,7 +20,7 @@ export function omit(object, key) {
 }
 
 // Default key derivation, for the per-plugin layout:
-// `packages/@uppy/<plugin>/lib/locale.js` -> `<plugin>`
+// `packages/@uppy/<plugin>/src/locale.ts` -> `<plugin>`
 export function pluginNameFromLocalePath(filePath) {
   return path.basename(path.join(filePath, '..', '..'))
 }

@@ -42,7 +42,6 @@ hi_IN.strings = {
   copyLink: 'लिंक कॉपी करें',
   copyLinkToClipboardFallback: 'नीचे दिए गए URL को कॉपी करें',
   copyLinkToClipboardSuccess: 'लिंक क्लिपबोर्ड पर कॉपी किया गया',
-  creatingAssembly: 'अपलोड की तैयारी...',
   creatingAssemblyFailed: 'Transloadit: असेंबली बना नहीं सका',
   dashboardTitle: 'फ़ाइल अपलोडर',
   dashboardWindowTitle: 'फ़ाइल अपलोडर विंडो (बंद करने के लिए एस्केप दबाएं)',
@@ -60,7 +59,6 @@ hi_IN.strings = {
   editFile: 'फ़ाइल संपादित करें',
   editImage: 'छवि संपादित करें',
   editing: 'संपादन %{file}',
-  emptyFolderAdded: 'खाली फ़ोल्डर से कोई फ़ाइलें नहीं जोड़ी गईं',
   encoding: 'एन्कोडिंग...',
   enterCorrectUrl:
     'गलत यूआरएल: कृपया सुनिश्चित करें कि आप एक फ़ाइल के सीधे लिंक दर्ज कर रहे हैं',
@@ -79,10 +77,6 @@ hi_IN.strings = {
   filter: 'फ़िल्टर',
   finishEditingFile: 'फ़ाइल संपादित करना समाप्त करें',
   flipHorizontal: 'क्षैतिज पलटें',
-  folderAdded: {
-    '0': '%{folder} से %{smart_count} फ़ाइल जोड़ी गई',
-    '1': '%{folder} से %{smart_count} फ़ाइलें जोड़ी गई',
-  },
   generatingThumbnails: 'थंबनेल उत्पन्न कर रहा है...',
   import: 'आयात',
   importFiles: 'फ़ाइलों को इम्पोर्ट करें:',

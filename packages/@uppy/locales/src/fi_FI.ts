@@ -32,7 +32,6 @@ fi_FI.strings = {
   copyLink: 'Kopioi linkki',
   copyLinkToClipboardFallback: 'Kopioi alla oleva linkki',
   copyLinkToClipboardSuccess: 'Linkki kopioitu leikepöydälle',
-  creatingAssembly: 'Valmistellaan lähetystä...',
   creatingAssemblyFailed: 'Transloadit: Assemblyn luonti epäonnistui',
   dashboardTitle: 'Tiedoston Lataaja',
   dashboardWindowTitle: 'Tiedoston latausikkuna (Paina Esc sulkeaksesi)',
@@ -48,7 +47,6 @@ fi_FI.strings = {
   editFile: 'Muokkaa tiedostoa',
   editImage: 'Muokkaa kuvaa',
   editing: 'Muokataan %{file}',
-  emptyFolderAdded: 'Ei lisätty tiedostoja tyhjästä kansiosta',
   encoding: 'Koodataan...',
   enterCorrectUrl:
     'Epäkelpo osoite: Varmista, että osoite osoittaa suoraan tiedostoon',
@@ -64,10 +62,6 @@ fi_FI.strings = {
   },
   filter: 'Suodata',
   finishEditingFile: 'Lopeta tiedoston muokkaus',
-  folderAdded: {
-    '0': 'Lisätty %{smart_count} tiedosto kansiosta %{folder}',
-    '1': 'Lisätty %{smart_count} tiedostoa kansiosta %{folder}',
-  },
   import: 'Tuo',
   importFrom: 'Tuo %{name}',
   loading: 'Ladataan...',

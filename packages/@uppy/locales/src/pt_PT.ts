@@ -32,7 +32,6 @@ pt_PT.strings = {
   copyLink: 'Copiar link',
   copyLinkToClipboardFallback: 'Copiar URL abaixo',
   copyLinkToClipboardSuccess: 'Link copiado para a área de transferência',
-  creatingAssembly: 'A preparar o envio de ficheiros...',
   creatingAssemblyFailed: 'Transloadit: Não foi possível criar o Assembly',
   dashboardTitle: 'Envio de ficheiros',
   dashboardWindowTitle:
@@ -49,7 +48,6 @@ pt_PT.strings = {
   editFile: 'Editar ficheiro',
   editImage: 'Editar imagem',
   editing: 'A editar %{file}',
-  emptyFolderAdded: 'A pasta está vazia e nenhum ficheiro foi adicionado.',
   encoding: 'A codificar...',
   enterCorrectUrl:
     'URL incorrecto: Por favor garanta que inseriu um link direto para um ficheiro',
@@ -65,10 +63,6 @@ pt_PT.strings = {
   },
   filter: 'Filtrar',
   finishEditingFile: 'Concluir edição de ficheiro',
-  folderAdded: {
-    '0': 'Adicionado %{smart_count} ficheiro de %{folder}',
-    '1': 'Adicionado %{smart_count} ficheiros de %{folder}',
-  },
   import: 'Importar',
   importFrom: 'Importar de %{name}',
   loading: 'A carregar...',

@@ -54,7 +54,6 @@ nn_NO.strings = {
   copyLink: 'Kopier lenke',
   copyLinkToClipboardFallback: 'Kopier URL under',
   copyLinkToClipboardSuccess: 'Lenke kopiert',
-  creatingAssembly: 'Førebur opplasting...',
   creatingAssemblyFailed: 'Transloadit: Kunne ikkje opprette Assembly',
   dashboardTitle: 'Filopplastar',
   dashboardWindowTitle: 'Opplastingsvindauge (Trykk Esc-knappen for å lukke)',
@@ -76,7 +75,6 @@ nn_NO.strings = {
   editFileWithFilename: 'Rediger fil %{file}',
   editImage: 'Rediger bilete',
   editing: 'Redigerer %{file}',
-  emptyFolderAdded: 'Ingen filer blei lagde til frå tom mappe',
   encoding: 'Kodar...',
   enterCorrectUrl:
     'Ugyldig URL: Kontroller at adressa du oppgir er ei direkte lenke til ei fil',
@@ -95,11 +93,6 @@ nn_NO.strings = {
   filter: 'Filtrer',
   finishEditingFile: 'Avslutt redigering av fil',
   flipHorizontal: 'Snu horisontalt',
-  folderAdded: {
-    '0': 'La til %{smart_count} fil frå %{folder}',
-    '1': 'La til %{smart_count} filer frå %{folder}',
-  },
-  folderAlreadyAdded: 'Mappa "%{folder}" er allereie lagd til',
   generateImage: 'Generer bilete',
   generateImagePlaceholder:
     'Ein fredfull solnedgang over eit fjellvatn, med furutre som speglar seg i vatnet',
@@ -115,7 +108,6 @@ nn_NO.strings = {
   inferiorSize: 'Fila er mindre enn tillaten storleik på %{size}',
   loadedXFiles: 'Lasta inn %{numFiles} filer',
   loading: 'Lastar...',
-  logIn: 'Logg inn',
   logOut: 'Logg ut',
   micDisabled: 'Mikrofontilgang nekta av brukar',
   missingRequiredMetaField: 'Manglar påkravde metafelt',
@@ -177,7 +169,6 @@ nn_NO.strings = {
   removeFile: 'Fjern fil',
   reSelect: 'Vel på nytt',
   resetFilter: 'Nullstill filter',
-  resetSearch: 'Nullstill søk',
   resume: 'Hald fram',
   resumeUpload: 'Hald fram med opplasting',
   retry: 'Prøv igjen',
