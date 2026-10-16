@@ -1,5 +1,11 @@
 # @uppy/s3
 
+## 0.1.2
+
+### Patch Changes
+
+- 78970b1: Add a README, so the npm page is no longer empty.
+
 ## 0.1.1
 
 ### Patch Changes

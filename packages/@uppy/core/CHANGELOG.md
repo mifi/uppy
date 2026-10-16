@@ -1,5 +1,19 @@
 # @uppy/core
 
+## 6.3.0
+
+### Minor Changes
+
+- b47ca2d: Implement `Symbol.dispose` in `Uppy`. This means instances now clean up themselves if the `using` keyword is used.
+
+### Patch Changes
+
+- 715eb80: Move the source map of the minified CSS into a separate file. The `.min.css` files, and `image-editor.css` in `@uppy/components`, `@uppy/react`, `@uppy/vue` and `@uppy/svelte`, embedded it inline and were larger than the unminified CSS. They now link to an external `.css.map` instead, at about half the gzipped size.
+- a7a7997: Add an experimental `useS3Manager` hook and `createS3ManagerController` for `@uppy/s3` (and `@uppy/transloadit-storage`) in manager mode, so apps can render their own file manager instead of the ProviderView UI. ProviderView now exposes `submitDialog`, `cancelDialog`, `cancelLongOperation`, `canCancelOperation` and `getDetailItem` for headless UIs, and `toggleCheckbox` takes the rows in the order the UI shows them for shift-click ranges. A range can span folders: each folder's checked state is recomputed.
+  
+  In manager mode, selecting every loaded item of a folder no longer marks the folder as fully selected while it has more pages, so the next page doesn't come in selected and a bulk action can't reach files nobody saw.
+- a17c84d: Keep provider authentication state independent of preauthorization responses so the OAuth login button remains available with custom Companion credentials.
+
 ## 6.2.0
 
 ### Minor Changes
