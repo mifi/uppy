@@ -24,6 +24,7 @@ import validator from 'validator'
 
 import emitter from './emitter/index.js'
 import headerSanitize from './header-blacklist.js'
+import { serializeSlices } from './helpers/tus-file-reader.js'
 import { isRecord, toError } from './helpers/type-guards.js'
 import {
   getBucket,
@@ -1070,6 +1071,9 @@ export default class Uploader {
         tusOptions.uploadSize = this.size
       }
 
+      // undefined in the tests' tus-js-client mock
+      const { fileReader } = tus.defaultOptions ?? {}
+      if (fileReader) tusOptions.fileReader = serializeSlices(fileReader)
       this.tus = new tus.Upload(stream, tusOptions)
 
       if (this.#uploadState === states.uploading) this.tus.start()
