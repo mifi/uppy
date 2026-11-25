@@ -796,8 +796,8 @@ export default class Webcam<M extends Meta, B extends Body> extends UIPlugin<
       this.mount(target, this)
     }
 
-    // The Dashboard closes a panel without unmounting the permission screen,
-    // so a camera still starting would otherwise stay on.
+    // The permission screen has no unmount hook, so a camera still starting
+    // when the Dashboard closes the panel would otherwise stay on.
     // @ts-expect-error not typed because we do not depend on @uppy/dashboard
     this.uppy.on('dashboard:close-panel', this.#onClosePanel)
 

@@ -173,6 +173,11 @@ describe('Webcam', () => {
       await vi.waitFor(() =>
         expect(navigator.mediaDevices.getUserMedia).toHaveBeenCalled(),
       )
+      // closing another plugin's panel leaves the camera alone
+      const stop = vi.spyOn(webcam, 'stop')
+      // @ts-expect-error not typed because we do not depend on @uppy/dashboard
+      uppy.emit('dashboard:close-panel', 'OtherPlugin')
+      expect(stop).not.toHaveBeenCalled()
       // what the Dashboard emits when the panel closes during the prompt
       // @ts-expect-error not typed because we do not depend on @uppy/dashboard
       uppy.emit('dashboard:close-panel', 'Webcam')
