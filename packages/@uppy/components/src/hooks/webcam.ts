@@ -86,8 +86,12 @@ export function createWebcamController(
 
   const canSnapshot = () => hasMode('picture')
 
+  // The same check as the Dashboard's (@uppy/webcam's supportsMediaRecorder),
+  // which isn't imported here: @uppy/webcam is only an optional peer.
   const canRecord = () =>
     typeof MediaRecorder === 'function' &&
+    !!MediaRecorder.prototype &&
+    typeof MediaRecorder.prototype.start === 'function' &&
     hasMode('video-audio', 'video-only', 'audio-only')
 
   const getVideoProps = () => {

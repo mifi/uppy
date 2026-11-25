@@ -796,6 +796,11 @@ export default class Webcam<M extends Meta, B extends Body> extends UIPlugin<
       this.mount(target, this)
     }
 
+    // The Dashboard closes a panel without unmounting the permission screen,
+    // so a camera still starting would otherwise stay on.
+    // @ts-expect-error not typed because we do not depend on @uppy/dashboard
+    this.uppy.on('dashboard:close-panel', this.#onClosePanel)
+
     if (this.mediaDevices) {
       this.updateVideoSources()
 
@@ -816,7 +821,13 @@ export default class Webcam<M extends Meta, B extends Body> extends UIPlugin<
     }
   }
 
+  #onClosePanel = (id: string | undefined): void => {
+    if (id === this.id) this.stop()
+  }
+
   override uninstall(): void {
+    // @ts-expect-error not typed because we do not depend on @uppy/dashboard
+    this.uppy.off('dashboard:close-panel', this.#onClosePanel)
     this.stop()
     this.unmount()
   }

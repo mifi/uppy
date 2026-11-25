@@ -159,6 +159,32 @@ describe('Webcam', () => {
       expect(webcam.getPluginState().cameraReady).toBe(false)
     })
 
+    it('stops a camera still starting when the Dashboard closes its panel', async () => {
+      const stream = document.createElement('canvas').captureStream()
+      const permission = deferred<MediaStream>()
+      vi.spyOn(navigator.mediaDevices, 'enumerateDevices').mockResolvedValue([])
+      vi.spyOn(navigator.mediaDevices, 'getUserMedia').mockReturnValue(
+        permission.promise,
+      )
+      using uppy = new Uppy().use(Webcam)
+      const webcam = uppy.getPlugin('Webcam')!
+
+      const started = webcam.start()
+      await vi.waitFor(() =>
+        expect(navigator.mediaDevices.getUserMedia).toHaveBeenCalled(),
+      )
+      // what the Dashboard emits when the panel closes during the prompt
+      // @ts-expect-error not typed because we do not depend on @uppy/dashboard
+      uppy.emit('dashboard:close-panel', 'Webcam')
+      permission.resolve(stream)
+      await started
+
+      expect(stream.getTracks().map((track) => track.readyState)).toEqual([
+        'ended',
+      ])
+      expect(webcam.stream).toBeNull()
+    })
+
     it('does not ask for camera access after being stopped', async () => {
       const devices = deferred<MediaDeviceInfo[]>()
       vi.spyOn(navigator.mediaDevices, 'enumerateDevices').mockReturnValue(
